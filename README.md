@@ -11,7 +11,7 @@ Our tool extracts structured information from a scientific paper. We focused on 
 
 Our solution is divided into two parts. 
 1. We extract data from the PDF file into XML/TEI format. This part is conducted by the [GROBID](https://github.com/kermitt2/grobid) library. GROBID is a machine learning library for extracting, parsing and re-structuring raw documents such as PDF into structured XML/TEI encoded documents with a particular focus on technical and scientific publications
-2. We parse the XML file into a dictionary using \textit{xmltodict} Library into an RDF graph, and next, the Turtle format file with the final solution.
+2. We parse the XML file into a dictionary using _xmltodict_ Library into an RDF graph, and next, the Turtle format file with the final solution.
 
 ## Features
 
