@@ -272,7 +272,7 @@ All known issues are caused by the GROBID parser, which parses PDF to XML files.
 
 2. Identifying figure as a table. Typically when a figure is created using LateX tools. Example of an image from [U-Net: Convolutional Networks for Biomedical Image Segmentation](https://arxiv.org/pdf/1505.04597.pdf) paper, when GROBID detected table instead o figure.
 
-![u_net](imgs/u_net_example.png)
+![u_net](imgs/u_net_example.PNG)
 
 
 3. Incorrect parsing of the section number, the section title itself, incorrect parsing of the section, parsing table, figures or other irrelevant text as section names.
@@ -285,7 +285,7 @@ Section 5 concludes this paper and identifies paths for future work.</p>
 <p>2. Related Work. Many researchers have addressed the load balancing challenges in their work
 ...
 ```
-![table](imgs/sections.png)
+![table](imgs/sections.PNG)
 
 4. Tables are generally hard to detect, especially when the tables are presented in a more complex manner. Example of not detected table from article: *STATIC LOAD BALANCING TECHNIQUE FOR GEOGRAPHICALLY PARTITIONED PUBLIC CLOUD*.
    
