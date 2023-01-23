@@ -149,13 +149,14 @@ A the beginning, the instances of the list of figures and tables are created:
         :body-matter .
 
 :ListOfFigures a doco:ListOfFigures ;
+    po:contains :figure_0,
+        :figure_1 .
+
+:ListOfTables a doco:ListOfTables ;
     po:contains :table_0,
         :table_1,
         :table_2 .
 
-:ListOfTables a doco:ListOfTables ;
-    po:contains :figure_0,
-        :figure_1 .
 
 :back-matter a doco:BackMatter ;
     po:contains :ListOfFigures,
