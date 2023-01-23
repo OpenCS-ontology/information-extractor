@@ -145,8 +145,8 @@ In the beginning, we define all needed prefixes.
 
 A the beginning, the instances of the list of figures and tables are created:
 ```
-:paper po:contains :back-matter,
-        :body-matter .
+:paper po:contains :back_matter,
+        :body_matter .
 
 :ListOfFigures a doco:ListOfFigures ;
     po:contains :figure_0,
@@ -158,14 +158,14 @@ A the beginning, the instances of the list of figures and tables are created:
         :table_2 .
 
 
-:back-matter a doco:BackMatter ;
+:back_matter a doco:BackMatter ;
     po:contains :ListOfFigures,
         :ListOfTables .
 ```
 Then we create an instance of the `doco:BodyMatter` class with sections.
 
 ```
-:body-matter a doco:BodyMatter ;
+:body_matter a doco:BodyMatter ;
     po:contains :section0,
         :section1,
         :section10,
