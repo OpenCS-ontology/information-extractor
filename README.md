@@ -21,12 +21,12 @@ The project aims to prepare a Turtle file with extracted information about Table
    
       * figure box - is type `doco:FigureBox`. Contains property `c4o:hasContent` with a space within a document containing a figure and its caption and property `schema:pagination` with page number, which is the figure.
       * figure description - is type `doco:FigureLabel`. Contains property `c4o:hasContent` with a figure's caption.
-      * figure label - is type `doco:Label`. Contains property `c4o:hasContent` with a figure's caption.
+      * figure label - is type `doco:Label`. Contains property `c4o:hasContent` with a figure's label.
   
 2. **Tables**: We define the instances of the class `doco:Table` from DoCo ontology, which contains the following information:
    * table box - is type `doco:TableBox`. Contains property `c4o:hasContent` with a space within a document that includes a table and its caption and property `schema:pagination` with page number, on which is the table. 
     * table description - is type `doco:TableLabel`. Contains property `c4o:hasContent` with a table's caption.
-     * table label -  is type `doco:Label`. Contains property `c4o:hasContent` with a table's caption.
+     * table label -  is type `doco:Label`. Contains property `c4o:hasContent` with a table's label.
 
 3. **Formulas**: We define the instances of the class `doco:Formula` from DoCo ontology, which contains the following information:
 
