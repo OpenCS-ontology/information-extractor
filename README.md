@@ -5,8 +5,7 @@ Mateusz Jastrzębiowski, Aleksandra Muszkowska
 
 ## Figures, Tables, Formulas extraction
 
-Our tool extracts structured information from a scientific paper. We focused on extracting information such as figures, labels and formulas from the given PDF file with their references.  
-
+Our tool extracts structured information from a scientific paper. We focused on extracting information such as figures, labels and formulas from the given PDF file with their references.    
 ## Solution
 
 Our solution is divided into two parts. 
