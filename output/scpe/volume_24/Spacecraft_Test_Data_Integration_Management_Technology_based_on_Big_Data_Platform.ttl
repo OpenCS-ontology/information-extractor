@@ -1,0 +1,314 @@
+@prefix : <https://w3id.org/ocs/ont/papers/> .
+@prefix c4o: <http://purl.org/spar/c4o/> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix deo: <http://purl.org/spar/deo/> .
+@prefix doco: <http://purl.org/spar/doco/> .
+@prefix fabio: <http://purl.org/spar/fabio/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix frapo: <http://purl.org/cerif/frapo/> .
+@prefix frbr: <http://purl.org/vocab/frbr/core#> .
+@prefix literal: <http://www.essepuntato.it/2010/06/literalreification/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix po: <http://www.essepuntato.it/2008/12/pattern#> .
+@prefix prism: <http://prismstandard.org/namespaces/basic/2.0/> .
+@prefix pro: <http://purl.org/spar/pro/> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:paper a fabio:ResearchPaper ;
+    prism:keyword "Anomaly detection"^^xsd:string,
+        "Front-end test equipment"^^xsd:string,
+        "LSTM"^^xsd:string,
+        "Spacecraft"^^xsd:string,
+        "Telemetry"^^xsd:string ;
+    dc:created "2023-09-10"^^xsd:date ;
+    dc:creator [ :hasItem :author_0 ] ;
+    dc:title "Spacecraft Test Data Integration Management Technology based on Big Data Platform"^^xsd:string ;
+    datacite:hasDescription [ datacite:hasDescriptionType datacite:abstract ;
+            literal:hasLiteralValue "In this paper, a general test platform for spacecraft data management is designed and constructed. This paper introduces a portable software development environment based on LUA. The technology of space environment data management, comprehensive analysis, parameter correction and visual display of spacecraft is realized. The relationship between continuity, mixed dispersion, variation and indication of remote sensing data is studied. This project uses the integrated Long Short Term Memory network (LSTM) technology to detect anomalies in satellite remote sensing observation data. Give full play to the advantages of laser scanning tunneling microscope in the nonlinear field. The combination of this method and the matrix method can improve the adaptive ability of spacecraft in an operation state to better identify abnormal information in remote sensing data. Experiments show that the algorithm can significantly improve the anomaly detection rate of the system. The system can monitor the front test device and record the data. The method can be connected with the space vehicle’s central control and automatic test system. The comprehensive management of the integrated test system of space vehicles is realized."^^xsd:string ] ;
+    frbr:realization :Journal_Article ;
+    po:contains :back_matter,
+        :body_matter .
+
+:Journal a fabio:Journal ;
+    frbr:part :Journal_Volume .
+
+:Journal_Article a fabio:JournalArticle ;
+    prism:endingPage 630 ;
+    prism:pageCount 9 ;
+    prism:startingPage 621 ;
+    datacite:doi "10.12694/scpe.v24i3.2416"^^xsd:string ;
+    fabio:hasURL "https://www.scpe.org/index.php/scpe/article/view/2416"^^xsd:anyURI ;
+    frbr:partOf :Journal_Issue ;
+    owl:sameAs <https://www.scpe.org/index.php/scpe/article/view/2416> .
+
+:ListOfFigures a doco:ListOfFigures ;
+    po:contains :figure_0,
+        :figure_1,
+        :figure_2,
+        :figure_3,
+        :figure_4,
+        :figure_5 .
+
+:ListOfTables a doco:ListOfTables ;
+    po:contains :table_0 .
+
+:author_0 a foaf:Person ;
+    pro:holdsRoleInTime :role_0_0 ;
+    foaf:familyName "Gong"^^xsd:string ;
+    foaf:givenName "Nanqi"^^xsd:string ;
+    foaf:name "Nanqi Gong"^^xsd:string .
+
+:back_matter a doco:BackMatter ;
+    po:contains :ListOfFigures,
+        :ListOfTables .
+
+:body_matter a doco:BodyMatter ;
+    po:contains :section0,
+        :section1,
+        :section10,
+        :section11,
+        :section12,
+        :section13,
+        :section14,
+        :section2,
+        :section3,
+        :section4,
+        :section5,
+        :section6,
+        :section7,
+        :section8,
+        :section9 .
+
+:figure_0 a doco:Figure ;
+    po:contains :figure_box_0,
+        :figure_description_0,
+        :figure_label_0 .
+
+:figure_1 a doco:Figure ;
+    po:contains :figure_box_1,
+        :figure_description_1,
+        :figure_label_1 .
+
+:figure_2 a doco:Figure ;
+    po:contains :figure_box_2,
+        :figure_description_2,
+        :figure_label_2 .
+
+:figure_3 a doco:Figure ;
+    po:contains :figure_box_3,
+        :figure_description_3,
+        :figure_label_3 .
+
+:figure_4 a doco:Figure ;
+    po:contains :figure_box_4,
+        :figure_description_4,
+        :figure_label_4 .
+
+:figure_5 a doco:Figure ;
+    po:contains :figure_box_5,
+        :figure_description_5,
+        :figure_label_5 .
+
+:figure_box_0 a doco:FigureBox ;
+    c4o:hasContent "[[127.47, 439.58, 340.35, 9.96], [170.64, 92.51, 258.84, 336.12]]" ;
+    schema:pagination 3 .
+
+:figure_box_1 a doco:FigureBox ;
+    c4o:hasContent "[[162.82, 340.97, 269.64, 9.96], [161.46, 208.56, 272.4, 121.02]]" ;
+    schema:pagination 4 .
+
+:figure_box_2 a doco:FigureBox ;
+    c4o:hasContent "[[153.56, 354.5, 288.16, 9.96], [108.98, 218.16, 376.74, 126.0]]" ;
+    schema:pagination 5 .
+
+:figure_box_3 a doco:FigureBox ;
+    c4o:hasContent "[[76.84, 314.79, 441.61, 9.96], [127.49, 198.54, 340.32, 102.54]]" ;
+    schema:pagination 6 .
+
+:figure_box_4 a doco:FigureBox ;
+    c4o:hasContent "[[90.25, 446.14, 414.79, 9.96], [121.46, 322.16, 350.58, 128.82]]" ;
+    schema:pagination 8 .
+
+:figure_box_5 a doco:FigureBox ;
+    c4o:hasContent "[[158.2, 296.46, 278.88, 9.96], [131.33, 91.09, 324.84, 196.62]]" ;
+    schema:pagination 9 .
+
+:figure_description_0 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 2.1: Software module and interface of the front-end detection device AIS." .
+
+:figure_description_1 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 2.2: Data generation process based on product structure." .
+
+:figure_description_2 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 2.3: Data integration relationships between different systems." .
+
+:figure_description_3 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 3.1: Anomaly detection method of remote sensing data integrated with LSTM prediction model." .
+
+:figure_description_4 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 4.1: Comparison between the actual anomalous sequence and anomalous detection results." .
+
+:figure_description_5 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 4.2: Detection rates of different anomalies by two methods." .
+
+:figure_label_0 a doco:Label ;
+    c4o:hasContent "None" .
+
+:figure_label_1 a doco:Label ;
+    c4o:hasContent "Fig. 2 . 2 : 3 ." .
+
+:figure_label_2 a doco:Label ;
+    c4o:hasContent "Fig. 2 . 3 :Fig. 2 . 4 :" .
+
+:figure_label_3 a doco:Label ;
+    c4o:hasContent "Fig. 3 . 1 : 3 . 1 . 2 ." .
+
+:figure_label_4 a doco:Label ;
+    c4o:hasContent "Fig. 4 . 1 : 4 . 3 ." .
+
+:figure_label_5 a doco:Label ;
+    c4o:hasContent "Fig. 4 . 2 :" .
+
+:formula_0 a doco:Formula ;
+    c4o:hasContent "D * m =               r m 1 r m 2 . . . r m n−1      ,      r m+1 1 r m+1" ;
+    po:contains :formula_label_0 .
+
+:formula_1 a doco:Formula ;
+    c4o:hasContent "R * m =               r m 1 r m 2 . . . r m n      , • • • ,      r m+t 1 r m+t 2 . . . r m+t n               →      r m+t+1 2 r m+t+1 2 . . . f (x) m+t+1     " ;
+    po:contains :formula_label_1 .
+
+:formula_label_0 a doco:Label ;
+    c4o:hasContent "2" .
+
+:formula_label_1 a doco:Label ;
+    c4o:hasContent "3.7" .
+
+:org_0_0 a frapo:Organization ;
+    foaf:name "The University of Hong Kong, Hong Kong"^^xsd:string .
+
+:reference_4 a deo:Reference ;
+    c4o:hasContent "Figure 2" ;
+    schema:pagination 3 .
+
+:role_0_0 a pro:RoleInTime ;
+    pro:relatesToOrganization :org_0_0 ;
+    pro:withRole pro:author .
+
+:section0 a doco:Section ;
+    po:containsAsHeader :section_title0 .
+
+:section1 a doco:Section ;
+    po:containsAsHeader :section_title1 .
+
+:section10 a doco:Section ;
+    po:containsAsHeader :section_title10 .
+
+:section11 a doco:Section ;
+    po:containsAsHeader :section_title11 .
+
+:section12 a doco:Section ;
+    po:containsAsHeader :section_title12 .
+
+:section13 a doco:Section ;
+    po:containsAsHeader :section_title13 .
+
+:section14 a doco:Section ;
+    po:containsAsHeader :section_title14 .
+
+:section2 a doco:Section ;
+    po:containsAsHeader :section_title2 .
+
+:section3 a doco:Section ;
+    po:containsAsHeader :section_title3 .
+
+:section4 a doco:Section ;
+    po:containsAsHeader :section_title4 .
+
+:section5 a doco:Section ;
+    po:contains :reference_4 ;
+    po:containsAsHeader :section_title5 .
+
+:section6 a doco:Section ;
+    po:containsAsHeader :section_title6 .
+
+:section7 a doco:Section ;
+    po:containsAsHeader :section_title7 .
+
+:section8 a doco:Section ;
+    po:contains :formula_0 ;
+    po:containsAsHeader :section_title8 .
+
+:section9 a doco:Section ;
+    po:contains :formula_1 ;
+    po:containsAsHeader :section_title9 .
+
+:section_title0 a doco:SectionTitle ;
+    c4o:hasContent "Introduction." .
+
+:section_title1 a doco:SectionTitle ;
+    c4o:hasContent "Design of automatic management system." .
+
+:section_title10 a doco:SectionTitle ;
+    c4o:hasContent "Telemetry data anomaly detection model." .
+
+:section_title11 a doco:SectionTitle ;
+    c4o:hasContent "Experimental verification and result analysis." .
+
+:section_title12 a doco:SectionTitle ;
+    c4o:hasContent "Experimental Settings." .
+
+:section_title13 a doco:SectionTitle ;
+    c4o:hasContent "Comprehensive LSTM tests the anomaly detection algorithm in remote sensing data." .
+
+:section_title14 a doco:SectionTitle ;
+    c4o:hasContent "Conclusion." .
+
+:section_title2 a doco:SectionTitle ;
+    c4o:hasContent "System module design." .
+
+:section_title3 a doco:SectionTitle ;
+    c4o:hasContent "Product structure module." .
+
+:section_title4 a doco:SectionTitle ;
+    c4o:hasContent "Spacecraft data transmission module." .
+
+:section_title5 a doco:SectionTitle ;
+    c4o:hasContent "Space data reconstruction and contact module." .
+
+:section_title6 a doco:SectionTitle ;
+    c4o:hasContent "Data Application Module." .
+
+:section_title7 a doco:SectionTitle ;
+    c4o:hasContent "Excavation of Control command pattern." .
+
+:section_title8 a doco:SectionTitle ;
+    c4o:hasContent "Training data preprocessing." .
+
+:section_title9 a doco:SectionTitle ;
+    c4o:hasContent "Multi-LSTM prediction model training." .
+
+:table_0 a doco:Table ;
+    po:contains :table_box_0,
+        :table_description_0,
+        :table_label_0 .
+
+:table_box_0 a doco:TableBox ;
+    c4o:hasContent "[[106.25, 104.46, 382.78, 94.05]]" ;
+    schema:pagination 8 .
+
+:table_description_0 a doco:TableLabel ;
+    c4o:hasContent "Experimental data." .
+
+:table_label_0 a doco:Label ;
+    c4o:hasContent "Table 4 . 1 :" .
+
+:Journal_Issue a fabio:JournalIssue ;
+    frbr:partOf :Journal_Volume .
+
+:Journal_Volume a fabio:JournalVolume ;
+    prism:volume "24"^^xsd:string ;
+    frbr:part :Journal_Issue ;
+    frbr:partOf :Journal .
+

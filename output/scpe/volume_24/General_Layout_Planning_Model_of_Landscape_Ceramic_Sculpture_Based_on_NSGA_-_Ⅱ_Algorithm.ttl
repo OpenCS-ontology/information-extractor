@@ -1,0 +1,348 @@
+@prefix : <https://w3id.org/ocs/ont/papers/> .
+@prefix c4o: <http://purl.org/spar/c4o/> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix deo: <http://purl.org/spar/deo/> .
+@prefix doco: <http://purl.org/spar/doco/> .
+@prefix fabio: <http://purl.org/spar/fabio/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix frapo: <http://purl.org/cerif/frapo/> .
+@prefix frbr: <http://purl.org/vocab/frbr/core#> .
+@prefix literal: <http://www.essepuntato.it/2010/06/literalreification/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix po: <http://www.essepuntato.it/2008/12/pattern#> .
+@prefix prism: <http://prismstandard.org/namespaces/basic/2.0/> .
+@prefix pro: <http://purl.org/spar/pro/> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:paper a fabio:ResearchPaper ;
+    prism:keyword "Ceramic sculpture"^^xsd:string,
+        "General layout"^^xsd:string,
+        "Landscape ceramics"^^xsd:string,
+        "Planning model"^^xsd:string,
+        "algorithm"^^xsd:string ;
+    dcterms:created "2023-09-10"^^xsd:date ;
+    dcterms:creator [ :hasItem :author_0,
+                :author_1,
+                :author_2 ] ;
+    dcterms:title "General Layout Planning Model of Landscape Ceramic Sculpture Based on NSGA - Ⅱ Algorithm"^^xsd:string ;
+    datacite:hasDescription [ datacite:hasDescriptionType datacite:abstract ;
+            literal:hasLiteralValue "The current overall layout planning model matrix of landscape ceramic sculpture is generally unidirectional, and the planning efficiency is low, resulting in a decline in the layout optimization ratio of the model. Therefore, the design and verification analysis of landscape ceramic sculpture’s overall layout planning model based on the Nondominated Sorting Genetic Algorithm (NSGA - II) algorithm is proposed. According to the actual planning needs and standards, first set the basic layout points, establish a cross-planning matrix in a multi-level manner, and improve the efficiency of the overall layout planning of the sculpture. The NSGA - II calculation landscape ceramic sculpture layout planning structure is constructed on this basis, and the model design is realized by level conversion. This novel NSGA-II with level conversion performs better layout planning when compared with other conventional models. The final test results show that through three stages of layout optimization processing, compared with the initial planning layout, the optimal layout optimization ratio for the setting of the plaza sculpture can reach more than 60%, indicating that with the help of this method, the layout planning of sculpture has been further improved, the space has been expanded, and has practical application value."^^xsd:string ] ;
+    frbr:realization :Journal_Article ;
+    po:contains :back_matter,
+        :body_matter .
+
+:Journal a fabio:Journal ;
+    frbr:part :Journal_Volume .
+
+:Journal_Article a fabio:JournalArticle ;
+    prism:endingPage 378 ;
+    prism:pageCount 7 ;
+    prism:startingPage 371 ;
+    datacite:doi "10.12694/scpe.v24i3.2273"^^xsd:string ;
+    fabio:hasURL "https://www.scpe.org/index.php/scpe/article/view/2273"^^xsd:anyURI ;
+    frbr:partOf :Journal_Issue ;
+    owl:sameAs <https://www.scpe.org/index.php/scpe/article/view/2273> .
+
+:ListOfFigures a doco:ListOfFigures ;
+    po:contains :figure_0,
+        :figure_1,
+        :figure_2 .
+
+:ListOfTables a doco:ListOfTables ;
+    po:contains :table_0,
+        :table_1,
+        :table_2,
+        :table_3 .
+
+:author_0 a foaf:Person ;
+    pro:holdsRoleInTime :role_0_0 ;
+    foaf:familyName "Feng"^^xsd:string ;
+    foaf:givenName "Henan"^^xsd:string ;
+    foaf:name "Henan Feng"^^xsd:string .
+
+:author_1 a foaf:Person ;
+    pro:holdsRoleInTime :role_1_0 ;
+    foaf:familyName "Zheng"^^xsd:string ;
+    foaf:givenName "Liqun"^^xsd:string ;
+    foaf:name "Liqun Zheng"^^xsd:string .
+
+:author_2 a foaf:Person ;
+    pro:holdsRoleInTime :role_2_0 ;
+    foaf:familyName "Qiao"^^xsd:string ;
+    foaf:givenName "Shuang"^^xsd:string ;
+    foaf:name "Shuang Qiao"^^xsd:string .
+
+:back_matter a doco:BackMatter ;
+    po:contains :ListOfFigures,
+        :ListOfTables .
+
+:body_matter a doco:BodyMatter ;
+    po:contains :section0,
+        :section1,
+        :section2,
+        :section3,
+        :section4,
+        :section5,
+        :section6,
+        :section7 .
+
+:figure_0 a doco:Figure ;
+    po:contains :figure_box_0,
+        :figure_description_0,
+        :figure_label_0 .
+
+:figure_1 a doco:Figure ;
+    po:contains :figure_box_1,
+        :figure_description_1,
+        :figure_label_1 .
+
+:figure_2 a doco:Figure ;
+    po:contains :figure_box_2,
+        :figure_description_2,
+        :figure_label_2 .
+
+:figure_box_0 a doco:FigureBox ;
+    c4o:hasContent "[[80.87, 336.67, 433.54, 9.96], [105.6, 212.43, 384.07, 113.39]]" ;
+    schema:pagination 3 .
+
+:figure_box_1 a doco:FigureBox ;
+    c4o:hasContent "[[122.36, 298.94, 350.56, 9.96], [153.61, 93.6, 288.05, 194.48]]" ;
+    schema:pagination 6 .
+
+:figure_box_2 a doco:FigureBox ;
+    c4o:hasContent "[[187.6, 287.14, 220.09, 9.96], [153.61, 93.6, 288.05, 182.68]]" ;
+    schema:pagination 7 .
+
+:figure_description_0 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 2.1: NSGA -II Calculation Landscape Ceramic Sculpture Layout Planning Structure Diagram" .
+
+:figure_description_1 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 3.1: Diagram of Initial Planning Structure of Sculpture in City Square of D" .
+
+:figure_description_2 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 3.2: Comparison and Analysis of Test Results" .
+
+:figure_label_0 a doco:Label ;
+    c4o:hasContent "Fig. 2 ." .
+
+:figure_label_1 a doco:Label ;
+    c4o:hasContent "Fig. 3 . 1 :" .
+
+:figure_label_2 a doco:Label ;
+    c4o:hasContent "Fig. 3 . 2 :" .
+
+:formula_0 a doco:Formula ;
+    c4o:hasContent "H = (1 − m) × ∑ u=1 nu + v 2 × 1 m + n" ;
+    po:contains :formula_label_0 .
+
+:formula_label_0 a doco:Label ;
+    c4o:hasContent "3.1" .
+
+:org_0_0 a frapo:Organization ;
+    foaf:name "College of Arts, Kunsan National University, Gunsan 541150, North Jeolla Province, South Korea"^^xsd:string .
+
+:org_1_0 a frapo:Organization ;
+    foaf:name "Fuzhou Junze Landscape Engineering Co., LTD, China"^^xsd:string .
+
+:org_2_0 a frapo:Organization ;
+    foaf:name "Art and Design College, Mudanjiang Normal University, Mudanjiang 157000, China"^^xsd:string .
+
+:reference_22 a deo:Reference ;
+    dcterms:references :table_1 ;
+    c4o:hasContent "Table 2" ;
+    schema:pagination 3 .
+
+:reference_23 a deo:Reference ;
+    dcterms:references :table_1 ;
+    c4o:hasContent "Table 2" ;
+    schema:pagination 3 .
+
+:reference_25 a deo:Reference ;
+    dcterms:references :table_1 ;
+    c4o:hasContent "Table 2" ;
+    schema:pagination 4 .
+
+:reference_26 a deo:Reference ;
+    dcterms:references :table_1 ;
+    c4o:hasContent "Table 2" ;
+    schema:pagination 4 .
+
+:reference_27 a deo:Reference ;
+    dcterms:references :table_2 ;
+    c4o:hasContent "Table 3" ;
+    schema:pagination 5 .
+
+:reference_28 a deo:Reference ;
+    dcterms:references :table_2 ;
+    c4o:hasContent "Table 3" ;
+    schema:pagination 5 .
+
+:reference_29 a deo:Reference ;
+    c4o:hasContent "Figure 3" ;
+    schema:pagination 5 .
+
+:reference_30 a deo:Reference ;
+    c4o:hasContent "Figure 3" ;
+    schema:pagination 5 .
+
+:reference_31 a deo:Reference ;
+    dcterms:references :table_2 ;
+    c4o:hasContent "Table 3" ;
+    schema:pagination 5 .
+
+:reference_32 a deo:Reference ;
+    dcterms:references :table_2 ;
+    c4o:hasContent "Table 3" ;
+    schema:pagination 5 .
+
+:reference_33 a deo:Reference ;
+    c4o:hasContent "Figure 3" ;
+    schema:pagination 6 .
+
+:reference_34 a deo:Reference ;
+    c4o:hasContent "Figure 3" ;
+    schema:pagination 6 .
+
+:role_0_0 a pro:RoleInTime ;
+    pro:relatesToOrganization :org_0_0 ;
+    pro:withRole pro:author .
+
+:role_1_0 a pro:RoleInTime ;
+    pro:relatesToOrganization :org_1_0 ;
+    pro:withRole pro:author .
+
+:role_2_0 a pro:RoleInTime ;
+    pro:relatesToOrganization :org_2_0 ;
+    pro:withRole pro:author .
+
+:section0 a doco:Section ;
+    po:containsAsHeader :section_title0 .
+
+:section1 a doco:Section ;
+    po:containsAsHeader :section_title1 .
+
+:section2 a doco:Section ;
+    po:contains :reference_22,
+        :reference_23 ;
+    po:containsAsHeader :section_title2 .
+
+:section3 a doco:Section ;
+    po:contains :reference_25,
+        :reference_26 ;
+    po:containsAsHeader :section_title3 .
+
+:section4 a doco:Section ;
+    po:containsAsHeader :section_title4 .
+
+:section5 a doco:Section ;
+    po:contains :formula_0,
+        :reference_27,
+        :reference_28 ;
+    po:containsAsHeader :section_title5 .
+
+:section6 a doco:Section ;
+    po:contains :reference_29,
+        :reference_30,
+        :reference_31,
+        :reference_32,
+        :reference_33,
+        :reference_34 ;
+    po:containsAsHeader :section_title6 .
+
+:section7 a doco:Section ;
+    po:containsAsHeader :section_title7 .
+
+:section_title0 a doco:SectionTitle ;
+    c4o:hasContent "Introduction." .
+
+:section_title1 a doco:SectionTitle ;
+    c4o:hasContent "Basic layout point setting." .
+
+:section_title2 a doco:SectionTitle ;
+    c4o:hasContent "Establish multi-level cross-planning matrix." .
+
+:section_title3 a doco:SectionTitle ;
+    c4o:hasContent "Hierarchical transformation implementation model design." .
+
+:section_title4 a doco:SectionTitle ;
+    c4o:hasContent "Experiment." .
+
+:section_title5 a doco:SectionTitle ;
+    c4o:hasContent "Experiment preparation." .
+
+:section_title6 a doco:SectionTitle ;
+    c4o:hasContent "Experimental process and result analysis." .
+
+:section_title7 a doco:SectionTitle ;
+    c4o:hasContent "Conclusion." .
+
+:table_0 a doco:Table ;
+    po:contains :table_box_0,
+        :table_description_0,
+        :table_label_0 .
+
+:table_3 a doco:Table ;
+    po:contains :table_box_3,
+        :table_description_3,
+        :table_label_3 .
+
+:table_box_0 a doco:TableBox ;
+    c4o:hasContent "[[63.98, 104.46, 453.9, 93.25]]" ;
+    schema:pagination 3 .
+
+:table_box_1 a doco:TableBox ;
+    c4o:hasContent "[[139.94, 104.46, 312.07, 69.34]]" ;
+    schema:pagination 4 .
+
+:table_box_2 a doco:TableBox ;
+    c4o:hasContent "[[57.6, 104.46, 482.03, 164.21]]" ;
+    schema:pagination 5 .
+
+:table_box_3 a doco:TableBox ;
+    c4o:hasContent "[[63.33, 341.69, 469.64, 153.82]]" ;
+    schema:pagination 6 .
+
+:table_description_0 a doco:TableLabel ;
+    c4o:hasContent "Classification of sculpture layout levels" .
+
+:table_description_1 a doco:TableLabel ;
+    c4o:hasContent "2: Setting Table of Level Conversion Values" .
+
+:table_description_2 a doco:TableLabel ;
+    c4o:hasContent "1: Setting Table of Phased Layout Conditions for Sculpture in Urban Square D The geographical location of the square is superior. It is located in the center of the city, with convenient transportation. It is planned to form a three-dimensional transportation network." .
+
+:table_description_3 a doco:TableLabel ;
+    c4o:hasContent "Initial Index Parameter Setting of Sculpture Planning Model" .
+
+:table_label_0 a doco:Label ;
+    c4o:hasContent "Table 2 . 1 :" .
+
+:table_label_1 a doco:Label ;
+    c4o:hasContent "Table 2 ." .
+
+:table_label_2 a doco:Label ;
+    c4o:hasContent "Table 3 ." .
+
+:table_label_3 a doco:Label ;
+    c4o:hasContent "Table 3 . 2 :" .
+
+:Journal_Issue a fabio:JournalIssue ;
+    frbr:partOf :Journal_Volume .
+
+:Journal_Volume a fabio:JournalVolume ;
+    prism:volume "24"^^xsd:string ;
+    frbr:part :Journal_Issue ;
+    frbr:partOf :Journal .
+
+:table_1 a doco:Table ;
+    po:contains :table_box_1,
+        :table_description_1,
+        :table_label_1 .
+
+:table_2 a doco:Table ;
+    po:contains :table_box_2,
+        :table_description_2,
+        :table_label_2 .
+

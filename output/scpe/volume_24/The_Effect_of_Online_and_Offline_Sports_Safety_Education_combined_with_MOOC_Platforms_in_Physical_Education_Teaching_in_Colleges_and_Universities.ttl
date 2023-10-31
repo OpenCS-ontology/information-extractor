@@ -1,0 +1,387 @@
+@prefix : <https://w3id.org/ocs/ont/papers/> .
+@prefix c4o: <http://purl.org/spar/c4o/> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix deo: <http://purl.org/spar/deo/> .
+@prefix doco: <http://purl.org/spar/doco/> .
+@prefix fabio: <http://purl.org/spar/fabio/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix frapo: <http://purl.org/cerif/frapo/> .
+@prefix frbr: <http://purl.org/vocab/frbr/core#> .
+@prefix literal: <http://www.essepuntato.it/2010/06/literalreification/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix po: <http://www.essepuntato.it/2008/12/pattern#> .
+@prefix prism: <http://prismstandard.org/namespaces/basic/2.0/> .
+@prefix pro: <http://purl.org/spar/pro/> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:paper a fabio:ResearchPaper ;
+    prism:keyword "MOOC"^^xsd:string,
+        "Physical education teaching in colleges and universities"^^xsd:string,
+        "Random"^^xsd:string,
+        "Sports safety"^^xsd:string ;
+    dcterms:created "2023-09-10"^^xsd:date ;
+    dcterms:creator [ :hasItem :author_0 ] ;
+    dcterms:title "The Effect of Online and Offline Sports Safety Education combined with MOOC Platforms in Physical Education Teaching in Colleges and Universities"^^xsd:string ;
+    datacite:hasDescription [ datacite:hasDescriptionType datacite:abstract ;
+            literal:hasLiteralValue "In light of Internet+, how to make network technology better serve the educational cause needs more exploration. The online and offline hybrid education model that integrates MOOC is a new attempt. The sports safety of college students is the premise for the smooth development of sports activities. Therefore, a mixed teaching mode of sports safety combined with MOOC is designed to evaluate the teaching effect. However, under this teaching mode, the commonly used teaching effect evaluation methods cannot adhere to formative evaluation standards. Consequently, to better evaluate the MOOC teaching mode, a model for evaluating instructional effects based on RF mixed teaching mode is constructed. Aiming at the defects of RF in data processing, a genetic algorithm and particle swarm algorithm are used to optimize random forest. The outcomes demonstrate that the enhanced PSO-RF evaluation model has a 98.68% accuracy rate, which is 5.44% and 3.49% higher than the RF and GA-RF model respectively. Therefore, the enhanced PSO-RF-based teaching effect assessment model can better assess the mixed teaching mode in sports safety, meeting the evaluation requirements for students’ learning effects."^^xsd:string ] ;
+    frbr:realization :Journal_Article ;
+    po:contains :back_matter,
+        :body_matter .
+
+:Journal a fabio:Journal ;
+    frbr:part :Journal_Volume .
+
+:Journal_Article a fabio:JournalArticle ;
+    prism:endingPage 596 ;
+    prism:pageCount 11 ;
+    prism:startingPage 585 ;
+    datacite:doi "10.12694/scpe.v24i3.2285"^^xsd:string ;
+    fabio:hasURL "https://www.scpe.org/index.php/scpe/article/view/2285"^^xsd:anyURI ;
+    frbr:partOf :Journal_Issue ;
+    owl:sameAs <https://www.scpe.org/index.php/scpe/article/view/2285> .
+
+:ListOfFigures a doco:ListOfFigures ;
+    po:contains :figure_0,
+        :figure_1,
+        :figure_2,
+        :figure_3,
+        :figure_4,
+        :figure_5,
+        :figure_6,
+        :figure_7,
+        :figure_8 .
+
+:ListOfTables a doco:ListOfTables ;
+    po:contains :table_0 .
+
+:author_0 a foaf:Person ;
+    pro:holdsRoleInTime :role_0_0 ;
+    foaf:familyName "Gao"^^xsd:string ;
+    foaf:givenName "Yuan"^^xsd:string ;
+    foaf:name "Yuan Gao"^^xsd:string .
+
+:back_matter a doco:BackMatter ;
+    po:contains :ListOfFigures,
+        :ListOfTables .
+
+:body_matter a doco:BodyMatter ;
+    po:contains :section0,
+        :section1,
+        :section2,
+        :section3,
+        :section4,
+        :section5,
+        :section6,
+        :section7 .
+
+:figure_0 a doco:Figure ;
+    po:contains :figure_box_0,
+        :figure_description_0,
+        :figure_label_0 .
+
+:figure_1 a doco:Figure ;
+    po:contains :figure_box_1,
+        :figure_description_1,
+        :figure_label_1 .
+
+:figure_2 a doco:Figure ;
+    po:contains :figure_box_2,
+        :figure_description_2,
+        :figure_label_2 .
+
+:figure_3 a doco:Figure ;
+    po:contains :figure_box_3,
+        :figure_description_3,
+        :figure_label_3 .
+
+:figure_4 a doco:Figure ;
+    po:contains :figure_box_4,
+        :figure_description_4,
+        :figure_label_4 .
+
+:figure_6 a doco:Figure ;
+    po:contains :figure_box_6,
+        :figure_description_6,
+        :figure_label_6 .
+
+:figure_7 a doco:Figure ;
+    po:contains :figure_box_7,
+        :figure_description_7,
+        :figure_label_7 .
+
+:figure_8 a doco:Figure ;
+    po:contains :figure_box_8,
+        :figure_description_8,
+        :figure_label_8 .
+
+:figure_box_0 a doco:FigureBox ;
+    c4o:hasContent "[[191.56, 242.17, 212.15, 9.96], [117.61, 93.6, 360.06, 137.71]]" ;
+    schema:pagination 4 .
+
+:figure_box_1 a doco:FigureBox ;
+    c4o:hasContent "[[194.36, 216.86, 206.57, 9.96], [81.6, 93.6, 432.07, 112.4]]" ;
+    schema:pagination 5 .
+
+:figure_box_2 a doco:FigureBox ;
+    c4o:hasContent "[[521.6, 592.3, 16.07, 8.98], [57.6, 604.25, 121.65, 8.98], [75.6, 621.13, 462.07, 9.96], [57.6, 633.09, 480.06, 9.96], [57.6, 645.04, 481.74, 9.96], [57.6, 657.0, 480.27, 9.96], [57.6, 668.95, 480.07, 9.96], [57.6, 680.91, 480.07, 9.96], [57.6, 692.86, 480.07, 9.96], [57.6, 704.82, 92.1, 9.96]]" ;
+    schema:pagination 6 .
+
+:figure_box_3 a doco:FigureBox ;
+    c4o:hasContent "[[225.8, 210.28, 143.68, 9.96], [57.6, 93.6, 480.08, 105.82]]" ;
+    schema:pagination 7 .
+
+:figure_box_4 a doco:FigureBox ;
+    c4o:hasContent "[[186.17, 261.43, 222.95, 9.96], [177.62, 93.6, 240.04, 156.97]]" ;
+    schema:pagination 8 .
+
+:figure_box_5 a doco:FigureBox ;
+    c4o:hasContent "[[75.6, 680.91, 462.44, 9.96], [57.6, 692.86, 480.08, 9.96], [57.6, 704.82, 190.35, 9.96]]" ;
+    schema:pagination 8 .
+
+:figure_box_6 a doco:FigureBox ;
+    c4o:hasContent "[[230.5, 221.05, 134.27, 9.96], [153.61, 93.6, 288.05, 116.59]]" ;
+    schema:pagination 9 .
+
+:figure_box_7 a doco:FigureBox ;
+    c4o:hasContent "[[134.47, 265.65, 326.35, 9.96], [153.61, 93.6, 288.05, 161.19]]" ;
+    schema:pagination 10 .
+
+:figure_box_8 a doco:FigureBox ;
+    c4o:hasContent "[[149.41, 486.12, 296.45, 9.96], [57.6, 299.52, 192.03, 148.84]]" ;
+    schema:pagination 10 .
+
+:figure_description_0 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 3.2: Schematic Diagram of Bagging Method" .
+
+:figure_description_1 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 3.3: Schematic Diagram of Random Forest" .
+
+:figure_description_2 a doco:FigureLabel ;
+    c4o:hasContent "Analysis of the training effect of the evaluation model. To explore the teaching effect of the sports safety course in the mixed teaching mode, the teaching effect of the OAOMT mode integrated with MOOC is verified. The assessment model based on RF, the Random forest based on genetic algorithm (GA-RF) evaluation and the PSO-RF assessment model are compared and analyzed. Experimental data utilized for the research comes from the statistical data of 2500 students in the \" University Physical Education\" course in the initial semester of the 2017-2018 school year in a university. After preprocessing the data, 2000 pieces of data are used for model training. During the training process, the iteration times of the three models are shown in Figure 4.1." .
+
+:figure_description_3 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 3.4: PSO-RF algorithm flow" .
+
+:figure_description_4 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 4.2: Running time comparison of three models" .
+
+:figure_description_5 a doco:FigureLabel ;
+    c4o:hasContent "Analysis of the application effect of the evaluation model. The model proposed in the study is used to evaluate the actual teaching effectiveness. The actual scores of students are fitted with the evaluation scores. The results are shown in Figure 4.4." .
+
+:figure_description_6 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 4.4: Fitting of two models" .
+
+:figure_description_7 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 4.5: Comparison of accuracy of three evaluation models in application" .
+
+:figure_description_8 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 4.6: Accuracy comparison of commonly used evaluation models" .
+
+:figure_label_0 a doco:Label ;
+    c4o:hasContent "Fig. 3 . 2 :" .
+
+:figure_label_1 a doco:Label ;
+    c4o:hasContent "Fig. 3 . 3 :" .
+
+:figure_label_2 a doco:Label ;
+    c4o:hasContent "the improved RF algorithm. 4 . 1 ." .
+
+:figure_label_3 a doco:Label ;
+    c4o:hasContent "Fig. 3 . 4 :" .
+
+:figure_label_4 a doco:Label ;
+    c4o:hasContent "Fig. 4 . 2 : 4 . 2 ." .
+
+:figure_label_5 a doco:Label ;
+    c4o:hasContent "4. 3 ." .
+
+:figure_label_6 a doco:Label ;
+    c4o:hasContent "Fig. 4 . 4 :" .
+
+:figure_label_7 a doco:Label ;
+    c4o:hasContent "Fig. 4 . 5 :" .
+
+:figure_label_8 a doco:Label ;
+    c4o:hasContent "Fig. 4 . 6 :" .
+
+:formula_0 a doco:Formula ;
+    c4o:hasContent "p = (" ;
+    po:contains :formula_label_0 .
+
+:formula_1 a doco:Formula ;
+    c4o:hasContent "T (q) = 1 K K ∑ i=1 t i (q)" ;
+    po:contains :formula_label_1 .
+
+:formula_2 a doco:Formula ;
+    c4o:hasContent "P E * ≤ ρ(1 − s 2 )/s 2" ;
+    po:contains :formula_label_2 .
+
+:formula_label_0 a doco:Label ;
+    c4o:hasContent "1" .
+
+:formula_label_1 a doco:Label ;
+    c4o:hasContent "3.3" .
+
+:formula_label_2 a doco:Label ;
+    c4o:hasContent "3.8" .
+
+:org_0_0 a frapo:Organization ;
+    foaf:name "School of Physical Education, Hunan University of Science and Engineering, Yongzhou, 425199, China"^^xsd:string .
+
+:reference_12 a deo:Reference ;
+    dcterms:references :figure_5 ;
+    c4o:hasContent "Figure 3" ;
+    schema:pagination 2 .
+
+:reference_13 a deo:Reference ;
+    dcterms:references :figure_5 ;
+    c4o:hasContent "Figure 3" ;
+    schema:pagination 3 .
+
+:reference_17 a deo:Reference ;
+    dcterms:references :figure_5 ;
+    c4o:hasContent "Figure 3" ;
+    schema:pagination 4 .
+
+:reference_23 a deo:Reference ;
+    dcterms:references :figure_5 ;
+    c4o:hasContent "Figure 3" ;
+    schema:pagination 4 .
+
+:reference_40 a deo:Reference ;
+    dcterms:references :figure_5 ;
+    c4o:hasContent "Figure 3" ;
+    schema:pagination 6 .
+
+:reference_41 a deo:Reference ;
+    c4o:hasContent "Figure 4" ;
+    schema:pagination 7 .
+
+:reference_42 a deo:Reference ;
+    c4o:hasContent "Figure 4" ;
+    schema:pagination 7 .
+
+:reference_43 a deo:Reference ;
+    c4o:hasContent "Figure 4" ;
+    schema:pagination 8 .
+
+:reference_44 a deo:Reference ;
+    c4o:hasContent "Figure 4" ;
+    schema:pagination 9 .
+
+:reference_45 a deo:Reference ;
+    dcterms:references :table_0 ;
+    c4o:hasContent "Table 4" ;
+    schema:pagination 9 .
+
+:reference_46 a deo:Reference ;
+    dcterms:references :table_0 ;
+    c4o:hasContent "Table 4" ;
+    schema:pagination 9 .
+
+:reference_47 a deo:Reference ;
+    c4o:hasContent "Figure 4" ;
+    schema:pagination 9 .
+
+:reference_48 a deo:Reference ;
+    c4o:hasContent "Figure 4" ;
+    schema:pagination 9 .
+
+:role_0_0 a pro:RoleInTime ;
+    pro:relatesToOrganization :org_0_0 ;
+    pro:withRole pro:author .
+
+:section0 a doco:Section ;
+    po:containsAsHeader :section_title0 .
+
+:section1 a doco:Section ;
+    po:containsAsHeader :section_title1 .
+
+:section2 a doco:Section ;
+    po:containsAsHeader :section_title2 .
+
+:section3 a doco:Section ;
+    po:contains :reference_12,
+        :reference_13 ;
+    po:containsAsHeader :section_title3 .
+
+:section4 a doco:Section ;
+    po:contains :formula_0,
+        :formula_1,
+        :formula_2,
+        :reference_17,
+        :reference_23 ;
+    po:containsAsHeader :section_title4 .
+
+:section5 a doco:Section ;
+    po:contains :reference_40,
+        :reference_41 ;
+    po:containsAsHeader :section_title5 .
+
+:section6 a doco:Section ;
+    po:contains :reference_42,
+        :reference_43,
+        :reference_44,
+        :reference_45,
+        :reference_46,
+        :reference_47,
+        :reference_48 ;
+    po:containsAsHeader :section_title6 .
+
+:section7 a doco:Section ;
+    po:containsAsHeader :section_title7 .
+
+:section_title0 a doco:SectionTitle ;
+    c4o:hasContent "Introduction." .
+
+:section_title1 a doco:SectionTitle ;
+    c4o:hasContent "Related works." .
+
+:section_title2 a doco:SectionTitle ;
+    c4o:hasContent "Construction of sports safety teaching effect evaluation model based on improved RF algorithm." .
+
+:section_title3 a doco:SectionTitle ;
+    c4o:hasContent "The teaching mode construction of sports safety in colleges and universities combined with MOOC." .
+
+:section_title4 a doco:SectionTitle ;
+    c4o:hasContent "Construction of assessment model of sports safety teaching effect based on RF algorithm." .
+
+:section_title5 a doco:SectionTitle ;
+    c4o:hasContent "Construction of sports safety teaching effect evaluation model based on improved RF algorithm." .
+
+:section_title6 a doco:SectionTitle ;
+    c4o:hasContent "Performance analysis of the sports safety teaching effect assessment model based on" .
+
+:section_title7 a doco:SectionTitle ;
+    c4o:hasContent "Conclusion." .
+
+:table_box_0 a doco:TableBox ;
+    c4o:hasContent "[[118.93, 265.83, 357.1, 124.16]]" ;
+    schema:pagination 9 .
+
+:table_description_0 a doco:TableLabel ;
+    c4o:hasContent "1: Student Performance Evaluation Results" .
+
+:table_label_0 a doco:Label ;
+    c4o:hasContent "Table 4 ." .
+
+:Journal_Issue a fabio:JournalIssue ;
+    frbr:partOf :Journal_Volume .
+
+:Journal_Volume a fabio:JournalVolume ;
+    prism:volume "24"^^xsd:string ;
+    frbr:part :Journal_Issue ;
+    frbr:partOf :Journal .
+
+:table_0 a doco:Table ;
+    po:contains :table_box_0,
+        :table_description_0,
+        :table_label_0 .
+
+:figure_5 a doco:Figure ;
+    po:contains :figure_box_5,
+        :figure_description_5,
+        :figure_label_5 .
+

@@ -1,0 +1,560 @@
+@prefix : <https://w3id.org/ocs/ont/papers/> .
+@prefix c4o: <http://purl.org/spar/c4o/> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix deo: <http://purl.org/spar/deo/> .
+@prefix doco: <http://purl.org/spar/doco/> .
+@prefix fabio: <http://purl.org/spar/fabio/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix frapo: <http://purl.org/cerif/frapo/> .
+@prefix frbr: <http://purl.org/vocab/frbr/core#> .
+@prefix literal: <http://www.essepuntato.it/2010/06/literalreification/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix po: <http://www.essepuntato.it/2008/12/pattern#> .
+@prefix prism: <http://prismstandard.org/namespaces/basic/2.0/> .
+@prefix pro: <http://purl.org/spar/pro/> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:paper a fabio:ResearchPaper ;
+    prism:keyword "Big data"^^xsd:string,
+        "IT in health care"^^xsd:string,
+        "Security"^^xsd:string,
+        "bibliometric analysis"^^xsd:string,
+        "decision support system"^^xsd:string,
+        "healthcare web application"^^xsd:string,
+        "machine learning application"^^xsd:string ;
+    dcterms:created "2023-09-10"^^xsd:date ;
+    dcterms:creator [ :hasItem :author_0,
+                :author_1,
+                :author_2,
+                :author_3 ] ;
+    dcterms:title "Big Data in Healthcare - A Comprehensive Bibliometric Analysis of Current Research Trends"^^xsd:string ;
+    datacite:hasDescription [ datacite:hasDescriptionType datacite:abstract ;
+            literal:hasLiteralValue "The primary purpose of this study is to perform a comprehensive bibliometric analysis of research landscape of big data in healthcare. Big data as a significant technology used in healthcare during the past decade has led to the exponential growth in scientific literature. This study is focused on analysis of many crucial bibliometric indicators such as, overall research output, author productivity, institutional productivity, country wise productivity, collaboration analysis, research trends along with a thematic focus of research output in big data and healthcare. The analysis has been performed on 2294 research articles published in 1018 publication sources from SCOPUS and Web of Science databases. The initial results of the study performed from year 2012 reveals that in the first year 6 research articles were published in the given domain. Then every year the growth of published articles in the field was exponential, however years 2019 to 2021 were the most productive and incremental in terms of number of publications. The analysis results of the study present the performance analysis of research production in terms of annual scientific production, most globally cited articles, author’s production over the time, most productive countries, and most relevant affiliations. In addition, the science mapping analysis including the indicators such as, keyword Co-occurrence, Thematic Mapping, Most Relevant Authors, annual source distribution, and collaboration Network analysis has been presented. The study delivers expedient contribution to the field of study by noticeably offering comprehensive analysis results regarding research hotspots and trends, thematic emphasis, and future direction of research in the field. These outcomes will aid researchers in big data and healthcare in planning and designing the research and the challenges and opportunities needed to be explored."^^xsd:string ] ;
+    frbr:realization :Journal_Article ;
+    po:contains :back_matter,
+        :body_matter .
+
+:Journal a fabio:Journal ;
+    frbr:part :Journal_Volume .
+
+:Journal_Article a fabio:JournalArticle ;
+    prism:endingPage 549 ;
+    prism:pageCount 18 ;
+    prism:startingPage 531 ;
+    datacite:doi "10.12694/scpe.v24i3.2155"^^xsd:string ;
+    fabio:hasURL "https://www.scpe.org/index.php/scpe/article/view/2155"^^xsd:anyURI ;
+    frbr:partOf :Journal_Issue ;
+    owl:sameAs <https://www.scpe.org/index.php/scpe/article/view/2155> .
+
+:ListOfFigures a doco:ListOfFigures ;
+    po:contains :figure_0,
+        :figure_1,
+        :figure_10,
+        :figure_11,
+        :figure_12,
+        :figure_13,
+        :figure_2,
+        :figure_3,
+        :figure_4,
+        :figure_5,
+        :figure_6,
+        :figure_7,
+        :figure_8,
+        :figure_9 .
+
+:ListOfTables a doco:ListOfTables ;
+    po:contains :table_0,
+        :table_1,
+        :table_2,
+        :table_3,
+        :table_4,
+        :table_5 .
+
+:author_0 a foaf:Person ;
+    pro:holdsRoleInTime :role_0_0 ;
+    foaf:familyName "Reshi"^^xsd:string ;
+    foaf:givenName "Aijaz"^^xsd:string ;
+    foaf:name "Aijaz Reshi"^^xsd:string .
+
+:author_1 a foaf:Person ;
+    pro:holdsRoleInTime :role_1_0 ;
+    foaf:familyName "Shafi"^^xsd:string ;
+    foaf:givenName "Shabana"^^xsd:string ;
+    foaf:name "Shabana Shafi"^^xsd:string .
+
+:author_2 a foaf:Person ;
+    pro:holdsRoleInTime :role_2_0 ;
+    foaf:familyName "Qadri"^^xsd:string ;
+    foaf:givenName "Majid Hussain"^^xsd:string ;
+    foaf:name "Majid Hussain Qadri"^^xsd:string .
+
+:author_3 a foaf:Person ;
+    pro:holdsRoleInTime :role_3_0 ;
+    foaf:familyName "Shah"^^xsd:string ;
+    foaf:givenName "Arif"^^xsd:string ;
+    foaf:name "Arif Shah"^^xsd:string .
+
+:back_matter a doco:BackMatter ;
+    po:contains :ListOfFigures,
+        :ListOfTables .
+
+:body_matter a doco:BodyMatter ;
+    po:contains :section0,
+        :section1,
+        :section10,
+        :section11,
+        :section2,
+        :section3,
+        :section4,
+        :section5,
+        :section6,
+        :section7,
+        :section8,
+        :section9 .
+
+:figure_0 a doco:Figure ;
+    po:contains :figure_box_0,
+        :figure_description_0,
+        :figure_label_0 .
+
+:figure_1 a doco:Figure ;
+    po:contains :figure_box_1,
+        :figure_description_1,
+        :figure_label_1 .
+
+:figure_10 a doco:Figure ;
+    po:contains :figure_box_10,
+        :figure_description_10,
+        :figure_label_10 .
+
+:figure_11 a doco:Figure ;
+    po:contains :figure_box_11,
+        :figure_description_11,
+        :figure_label_11 .
+
+:figure_12 a doco:Figure ;
+    po:contains :figure_box_12,
+        :figure_description_12,
+        :figure_label_12 .
+
+:figure_13 a doco:Figure ;
+    po:contains :figure_box_13,
+        :figure_description_13,
+        :figure_label_13 .
+
+:figure_2 a doco:Figure ;
+    po:contains :figure_box_2,
+        :figure_description_2,
+        :figure_label_2 .
+
+:figure_3 a doco:Figure ;
+    po:contains :figure_box_3,
+        :figure_description_3,
+        :figure_label_3 .
+
+:figure_4 a doco:Figure ;
+    po:contains :figure_box_4,
+        :figure_description_4,
+        :figure_label_4 .
+
+:figure_5 a doco:Figure ;
+    po:contains :figure_box_5,
+        :figure_description_5,
+        :figure_label_5 .
+
+:figure_6 a doco:Figure ;
+    po:contains :figure_box_6,
+        :figure_description_6,
+        :figure_label_6 .
+
+:figure_7 a doco:Figure ;
+    po:contains :figure_box_7,
+        :figure_description_7,
+        :figure_label_7 .
+
+:figure_8 a doco:Figure ;
+    po:contains :figure_box_8,
+        :figure_description_8,
+        :figure_label_8 .
+
+:figure_9 a doco:Figure ;
+    po:contains :figure_box_9,
+        :figure_description_9,
+        :figure_label_9 .
+
+:figure_box_0 a doco:FigureBox ;
+    c4o:hasContent "[[204.01, 522.35, 187.25, 9.96]]" ;
+    schema:pagination 5 .
+
+:figure_box_1 a doco:FigureBox ;
+    c4o:hasContent "[[212.62, 589.52, 170.02, 9.96], [113.39, 394.41, 368.51, 184.25]]" ;
+    schema:pagination 6 .
+
+:figure_box_10 a doco:FigureBox ;
+    c4o:hasContent "[[75.6, 597.22, 463.73, 9.96], [57.6, 609.18, 481.74, 9.96], [57.6, 621.13, 481.74, 9.96], [57.6, 633.09, 480.07, 9.96], [57.6, 645.04, 480.07, 9.96], [57.6, 657.0, 480.07, 9.96], [57.6, 668.95, 480.34, 9.96], [57.6, 680.91, 482.02, 9.96], [57.6, 692.86, 480.07, 9.96], [57.6, 704.82, 165.19, 9.96]]" ;
+    schema:pagination 13 .
+
+:figure_box_11 a doco:FigureBox ;
+    c4o:hasContent "[[226.86, 366.94, 141.56, 9.96], [85.04, 98.12, 425.2, 257.96]]" ;
+    schema:pagination 14 .
+
+:figure_box_12 a doco:FigureBox ;
+    c4o:hasContent "[[211.01, 231.6, 173.26, 9.96], [198.42, 93.6, 198.43, 127.14]]" ;
+    schema:pagination 16 .
+
+:figure_box_13 a doco:FigureBox ;
+    c4o:hasContent "[[208.66, 295.27, 177.98, 9.96], [113.39, 93.6, 368.51, 190.81]]" ;
+    schema:pagination 17 .
+
+:figure_box_2 a doco:FigureBox ;
+    c4o:hasContent "[[210.75, 496.1, 173.77, 9.96], [85.04, 272.64, 425.2, 212.6]]" ;
+    schema:pagination 7 .
+
+:figure_box_3 a doco:FigureBox ;
+    c4o:hasContent "[[200.56, 302.05, 194.14, 9.96], [85.04, 93.6, 425.2, 197.58]]" ;
+    schema:pagination 9 .
+
+:figure_box_4 a doco:FigureBox ;
+    c4o:hasContent "[[299.06, 633.09, 238.87, 9.96], [57.6, 645.04, 480.32, 9.96], [57.6, 657.0, 480.07, 9.96], [57.6, 668.95, 481.45, 9.96], [57.6, 680.91, 481.45, 9.96], [57.6, 692.86, 480.07, 9.96], [57.6, 704.82, 137.31, 9.96]]" ;
+    schema:pagination 9 .
+
+:figure_box_5 a doco:FigureBox ;
+    c4o:hasContent "[[201.54, 295.31, 192.19, 9.96], [85.04, 93.61, 425.2, 190.84]]" ;
+    schema:pagination 10 .
+
+:figure_box_6 a doco:FigureBox ;
+    c4o:hasContent "[[105.25, 680.91, 374.22, 9.96]]" ;
+    schema:pagination 10 .
+
+:figure_box_7 a doco:FigureBox ;
+    c4o:hasContent "[[250.91, 240.13, 93.45, 9.96], [170.08, 93.61, 255.12, 135.66]]" ;
+    schema:pagination 11 .
+
+:figure_box_8 a doco:FigureBox ;
+    c4o:hasContent "[[206.61, 324.29, 182.07, 9.96], [99.21, 93.6, 396.85, 219.83]]" ;
+    schema:pagination 12 .
+
+:figure_box_9 a doco:FigureBox ;
+    c4o:hasContent "[[235.85, 342.53, 123.57, 9.96], [113.39, 93.61, 368.51, 238.05]]" ;
+    schema:pagination 13 .
+
+:figure_description_0 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 3.1: Prism Flow Diagram of the study" .
+
+:figure_description_1 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 4.1: Annual Scientific Productions" .
+
+:figure_description_10 a doco:FigureLabel ;
+    c4o:hasContent "Author Collaborations. The research output of studies is published as research articles; the coauthor relationship of these articles determines the author collaborations. The author collaboration is a significant bibliometric indicator in studying the collaboration patterns of authors. The author's research collaboration analysis results of this study are shown in the form of Collaboration network in Fig 6.4. Each node in the collaboration network graph represents an author, the edges between the nodes depicts the collaboration relationship between the linked authors. The weight of each edge represented by edge thickness in the figure represents the number of articles co-authored by two researchers. The results in the figure thus reveal that Kim J. and Chung K. In the first cluster drawn in red has the highest papers co-authored in the field of study. Similarly other author collaborations can be easily understood in the figure consisting of the author nodes with significant collaboration relationships." .
+
+:figure_description_11 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 5.5: Most Relevant Authors" .
+
+:figure_description_12 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 6.2: Source distribution percentage" .
+
+:figure_description_13 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 6.4: Author Collaborations Network" .
+
+:figure_description_2 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 4.2: Most globally cited documents" .
+
+:figure_description_3 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 4.3: Top-Author's Production over time" .
+
+:figure_description_4 a doco:FigureLabel ;
+    c4o:hasContent "shows that King Saud University is the most productive university in terms of contributions to big data in healthcare issues, with 55 papers. With 40 publications, Sanford University came in second. With 30 publications published, Harvard Medical School and Huazhong University of Science and Technology are ranked third on the list. With 28 publications published, Kyoncgi University rounds out the top five. University of Florida, Oxford University, University of Minnesota, National University of Singapore, and Sejong University are among the top 10 universities that have studied big data in the healthcare field." .
+
+:figure_description_5 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 4.4: Country-wise Scientific Production" .
+
+:figure_description_6 a doco:FigureLabel ;
+    c4o:hasContent "Fig 5.1 and the number of most relevant word occurrences has been shown in Fig 5.2." .
+
+:figure_description_7 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 5.1: Word Cloud" .
+
+:figure_description_8 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 5.3: Keyword Co-occurrence network" .
+
+:figure_description_9 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 5.4: Thematic Mapping" .
+
+:figure_label_0 a doco:Label ;
+    c4o:hasContent "Fig. 3 . 1 :" .
+
+:figure_label_1 a doco:Label ;
+    c4o:hasContent "Fig. 4 . 1 :" .
+
+:figure_label_10 a doco:Label ;
+    c4o:hasContent "6. 3 ." .
+
+:figure_label_11 a doco:Label ;
+    c4o:hasContent "Fig. 5 . 5 :" .
+
+:figure_label_12 a doco:Label ;
+    c4o:hasContent "Fig. 6 . 2 : 6 . 5 ." .
+
+:figure_label_13 a doco:Label ;
+    c4o:hasContent "Fig. 6 . 4 :" .
+
+:figure_label_2 a doco:Label ;
+    c4o:hasContent "Fig. 4 . 2 :" .
+
+:figure_label_3 a doco:Label ;
+    c4o:hasContent "Fig. 4 . 3 :" .
+
+:figure_label_4 a doco:Label ;
+    c4o:hasContent "Fig 4 . 5" .
+
+:figure_label_5 a doco:Label ;
+    c4o:hasContent "Fig. 4 . 4 :" .
+
+:figure_label_6 a doco:Label ;
+    c4o:hasContent "None" .
+
+:figure_label_7 a doco:Label ;
+    c4o:hasContent "Fig. 5 ." .
+
+:figure_label_8 a doco:Label ;
+    c4o:hasContent "Fig. 5 . 3 : 5 . 2 ." .
+
+:figure_label_9 a doco:Label ;
+    c4o:hasContent "Fig. 5 . 6 . 1 ." .
+
+:org_0_0 a frapo:Organization ;
+    foaf:name "Department of Computer Science, College of  Computer Science and Engineering, Taibah University, Al Madinah, al Munawarah, Saudi Arabia"^^xsd:string .
+
+:org_1_0 a frapo:Organization ;
+    foaf:name "Department of Computer Science, College of Computer Science and Engineering, Taibah University, Al Madinah, al Munawarah, Saudi Arabia"^^xsd:string .
+
+:org_2_0 a frapo:Organization ;
+    foaf:name "Department of Management Studies, University of Kashmir, Jammu and Kashmir, India"^^xsd:string .
+
+:org_3_0 a frapo:Organization ;
+    foaf:name "Deparment of Management, OPJS University, Rajasthan, India"^^xsd:string .
+
+:reference_22 a deo:Reference ;
+    c4o:hasContent "Figure ." ;
+    schema:pagination 7 .
+
+:reference_23 a deo:Reference ;
+    c4o:hasContent "Figure ." ;
+    schema:pagination 7 .
+
+:reference_24 a deo:Reference ;
+    dcterms:references :table_0 ;
+    c4o:hasContent "Table 4" ;
+    schema:pagination 8 .
+
+:reference_26 a deo:Reference ;
+    c4o:hasContent "Figure ." ;
+    schema:pagination 8 .
+
+:reference_28 a deo:Reference ;
+    c4o:hasContent "Figure ." ;
+    schema:pagination 10 .
+
+:reference_30 a deo:Reference ;
+    c4o:hasContent "Figure ." ;
+    schema:pagination 11 .
+
+:reference_32 a deo:Reference ;
+    c4o:hasContent "Figure 6" ;
+    schema:pagination 18 .
+
+:role_0_0 a pro:RoleInTime ;
+    pro:relatesToOrganization :org_0_0 ;
+    pro:withRole pro:author .
+
+:role_1_0 a pro:RoleInTime ;
+    pro:relatesToOrganization :org_1_0 ;
+    pro:withRole pro:author .
+
+:role_2_0 a pro:RoleInTime ;
+    pro:relatesToOrganization :org_2_0 ;
+    pro:withRole pro:author .
+
+:role_3_0 a pro:RoleInTime ;
+    pro:relatesToOrganization :org_3_0 ;
+    pro:withRole pro:author .
+
+:section0 a doco:Section ;
+    po:containsAsHeader :section_title0 .
+
+:section1 a doco:Section ;
+    po:containsAsHeader :section_title1 .
+
+:section10 a doco:Section ;
+    po:containsAsHeader :section_title10 .
+
+:section11 a doco:Section ;
+    po:contains :reference_32 ;
+    po:containsAsHeader :section_title11 .
+
+:section2 a doco:Section ;
+    po:containsAsHeader :section_title2 .
+
+:section3 a doco:Section ;
+    po:containsAsHeader :section_title3 .
+
+:section4 a doco:Section ;
+    po:containsAsHeader :section_title4 .
+
+:section5 a doco:Section ;
+    po:containsAsHeader :section_title5 .
+
+:section6 a doco:Section ;
+    po:containsAsHeader :section_title6 .
+
+:section7 a doco:Section ;
+    po:contains :reference_22,
+        :reference_23 ;
+    po:containsAsHeader :section_title7 .
+
+:section8 a doco:Section ;
+    po:contains :reference_24,
+        :reference_26,
+        :reference_28,
+        :reference_30 ;
+    po:containsAsHeader :section_title8 .
+
+:section9 a doco:Section ;
+    po:containsAsHeader :section_title9 .
+
+:section_title0 a doco:SectionTitle ;
+    c4o:hasContent "Introduction." .
+
+:section_title1 a doco:SectionTitle ;
+    c4o:hasContent "Related Work." .
+
+:section_title10 a doco:SectionTitle ;
+    c4o:hasContent "Collaboration Network Analysis." .
+
+:section_title11 a doco:SectionTitle ;
+    c4o:hasContent "Conclusion." .
+
+:section_title2 a doco:SectionTitle ;
+    c4o:hasContent "Methodology." .
+
+:section_title3 a doco:SectionTitle ;
+    c4o:hasContent "Literature search." .
+
+:section_title4 a doco:SectionTitle ;
+    c4o:hasContent "Study selection." .
+
+:section_title5 a doco:SectionTitle ;
+    c4o:hasContent "Performance Analysis." .
+
+:section_title6 a doco:SectionTitle ;
+    c4o:hasContent "Annual Scientific Production." .
+
+:section_title7 a doco:SectionTitle ;
+    c4o:hasContent "Most Globally cited documents." .
+
+:section_title8 a doco:SectionTitle ;
+    c4o:hasContent "The Most Productive" .
+
+:section_title9 a doco:SectionTitle ;
+    c4o:hasContent "Most Relevant Authors." .
+
+:table_1 a doco:Table ;
+    po:contains :table_box_1,
+        :table_description_1,
+        :table_label_1 .
+
+:table_2 a doco:Table ;
+    po:contains :table_box_2,
+        :table_description_2,
+        :table_label_2 .
+
+:table_3 a doco:Table ;
+    po:contains :table_box_3,
+        :table_description_3,
+        :table_label_3 .
+
+:table_4 a doco:Table ;
+    po:contains :table_box_4,
+        :table_description_4,
+        :table_label_4 .
+
+:table_5 a doco:Table ;
+    po:contains :table_box_5,
+        :table_description_5,
+        :table_label_5 .
+
+:table_box_0 a doco:TableBox ;
+    c4o:hasContent "[[57.6, 680.91, 480.43, 33.87]]" ;
+    schema:pagination 5 .
+
+:table_box_1 a doco:TableBox ;
+    c4o:hasContent "[[190.24, 104.46, 214.8, 276.61]]" ;
+    schema:pagination 6 .
+
+:table_box_2 a doco:TableBox ;
+    c4o:hasContent "[[122.99, 104.46, 349.3, 148.39]]" ;
+    schema:pagination 7 .
+
+:table_box_3 a doco:TableBox ;
+    c4o:hasContent "[[70.63, 104.46, 452.57, 378.73]]" ;
+    schema:pagination 8 .
+
+:table_box_4 a doco:TableBox ;
+    c4o:hasContent "[[57.6, 353.3, 480.08, 289.75]]" ;
+    schema:pagination 9 .
+
+:table_box_5 a doco:TableBox ;
+    c4o:hasContent "[[73.77, 122.5, 450.17, 147.2]]" ;
+    schema:pagination 15 .
+
+:table_description_0 a doco:TableLabel ;
+    c4o:hasContent "2 demonstrates that articles published in 2016, 2017, and 2018 are highly referenced, indicating that the study is of high quality. Farahani B et al. wrote a study in 2018 called 'Towards fog-driven IoT eHealth: Promises and Challenges of IoT in Medicine and Healthcare,' which underlines the relevance of the" .
+
+:table_description_1 a doco:TableLabel ;
+    c4o:hasContent "1: Data Description" .
+
+:table_description_2 a doco:TableLabel ;
+    c4o:hasContent "1: Annual total citations per year Mean total citations per year MTCperArt = Mean total citations per article" .
+
+:table_description_3 a doco:TableLabel ;
+    c4o:hasContent "None" .
+
+:table_description_4 a doco:TableLabel ;
+    c4o:hasContent "Country-wise publications and citation rank One of the most important components of bibliometric analysis is determining which institutions are the most prolific." .
+
+:table_description_5 a doco:TableLabel ;
+    c4o:hasContent "1: Source clustering through Bradford's Law" .
+
+:table_label_0 a doco:Label ;
+    c4o:hasContent "Table 4 ." .
+
+:table_label_1 a doco:Label ;
+    c4o:hasContent "Table 3 ." .
+
+:table_label_2 a doco:Label ;
+    c4o:hasContent "Table 4 ." .
+
+:table_label_3 a doco:Label ;
+    c4o:hasContent "Table 4 ." .
+
+:table_label_4 a doco:Label ;
+    c4o:hasContent "Table 4 . 3 :" .
+
+:table_label_5 a doco:Label ;
+    c4o:hasContent "Table 6 ." .
+
+:Journal_Issue a fabio:JournalIssue ;
+    frbr:partOf :Journal_Volume .
+
+:Journal_Volume a fabio:JournalVolume ;
+    prism:volume "24"^^xsd:string ;
+    frbr:part :Journal_Issue ;
+    frbr:partOf :Journal .
+
+:table_0 a doco:Table ;
+    po:contains :table_box_0,
+        :table_description_0,
+        :table_label_0 .
+

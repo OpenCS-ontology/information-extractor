@@ -12,7 +12,6 @@ def parse_sections_with_ref_and_formulas(g, doc_as_dict, objects_dict):
     ref_counter = 0
     section_counter = 0
     for _, paragraph in enumerate(doc_as_dict["TEI"]["text"]["body"]["div"]):
-
         if type(paragraph) != dict or "head" not in paragraph:
             continue
 
@@ -102,7 +101,6 @@ def parse_formula(g, section, formula_text, formula_label, formula_counter):
 def parse_reference(
     g: Graph, reference: dict, ref_counter: int, section, objects_dict: dict
 ):
-
     if reference["@type"] == "figure":
         entity = "Figure"
     elif reference["@type"] == "table":
@@ -142,7 +140,6 @@ def add_list_of_figures(back_matter, objects_dict, base_uri):
     g.add((listOfFigures, RDF.type, doco.ListOfFigures))
 
     for _, id in enumerate(objects_dict):
-
         if "fig" in id:
             g.add((listOfFigures, po.contains, objects_dict[id]))
         elif "tab" in id:
@@ -153,7 +150,6 @@ def add_list_of_figures(back_matter, objects_dict, base_uri):
 
 
 if __name__ == "__main__":
-
     if len(sys.argv) < 3:
         print(
             "Please, pass all of the arguments: input folder path, output folder path"
@@ -162,11 +158,6 @@ if __name__ == "__main__":
 
     input_path = sys.argv[1]
     output_path = "/home/output_xml_files"
-
-    if os.path.exists(output_path):
-        shutil.rmtree(output_path)
-
-    os.mkdir(output_path)
 
     if not os.path.exists(sys.argv[2]):
         os.mkdir(sys.argv[2])
@@ -181,20 +172,19 @@ if __name__ == "__main__":
         force=True,
     )
 
-    base_uri = "http://mini.pw.edu.pl/table_and_figure_ie/"
+    base_uri = "https://w3id.org/ocs/ont/papers/"
 
     # Namespaces:
-    doco = Namespace("http://purl.org/spar/doco")
+    doco = Namespace("http://purl.org/spar/doco/")
     dcterms = Namespace("http://purl.org/dc/terms/")
     schema = Namespace("http://schema.org/")
     co = Namespace("http://purl.org/co/")
-    c4o = Namespace("http://purl.org/spar/c4o")
+    c4o = Namespace("http://purl.org/spar/c4o/")
     po = Namespace("http://www.essepuntato.it/2008/12/pattern#")
     deo = Namespace("http://purl.org/spar/deo/")
     base_namespace = Namespace(base_uri)
 
     for file_name in os.listdir(output_path):
-
         file_path = os.path.join(output_path, file_name)
 
         print(f"Processing {file_name.replace('tei.xml', 'pdf')} file")
@@ -222,122 +212,128 @@ if __name__ == "__main__":
         g.add((paper, po.contains, back_matter))
         g.add((back_matter, RDF.type, doco.BackMatter))
 
-        with open(file_path, encoding="utf8") as xml_file:
+        try:
+            with open(file_path, encoding="utf8") as xml_file:
+                data_dict = xmltodict.parse(xml_file.read())
 
-            data_dict = xmltodict.parse(xml_file.read())
+                objects_dict = dict()
 
-            objects_dict = dict()
+                title = (
+                    data_dict["TEI"]["teiHeader"]["fileDesc"]["titleStmt"]["title"][
+                        "#text"
+                    ]
+                    .replace(" ", "_")
+                    .replace(":", "_")
+                )
 
-            title = (
-                data_dict["TEI"]["teiHeader"]["fileDesc"]["titleStmt"]["title"]["#text"]
-                .replace(" ", "_")
-                .replace(":", "_")
-            )
+                nr_of_figs = len(data_dict["TEI"]["text"]["body"]["figure"])
 
-            nr_of_figs = len(data_dict["TEI"]["text"]["body"]["figure"])
+                fig_counter = 0
+                table_counter = 0
+                for i in range(nr_of_figs):
+                    fig_dict = data_dict["TEI"]["text"]["body"]["figure"][i]
 
-            fig_counter = 0
-            table_counter = 0
-            for i in range(nr_of_figs):
+                    if type(fig_dict) == dict and "@type" in fig_dict:
+                        if fig_dict["@type"] == "table":
+                            object = URIRef(base_uri + f"table_{table_counter}")
+                            g.add((object, RDF.type, doco.Table))
 
-                fig_dict = data_dict["TEI"]["text"]["body"]["figure"][i]
+                            if "figDesc" in fig_dict:
+                                object_desc = URIRef(
+                                    base_uri + f"table_description_{table_counter}"
+                                )
+                                g.add((object_desc, RDF.type, doco.TableLabel))
 
-                if type(fig_dict) == dict and "@type" in fig_dict:
-                    if fig_dict["@type"] == "table":
-                        object = URIRef(base_uri + f"table_{table_counter}")
-                        g.add((object, RDF.type, doco.Table))
+                            if "@coords" in fig_dict:
+                                object_box = URIRef(
+                                    base_uri + f"table_box_{table_counter}"
+                                )
+                                g.add((object_box, RDF.type, doco.TableBox))
+
+                            if "head" in fig_dict:
+                                object_label = URIRef(
+                                    base_uri + f"table_label_{table_counter}"
+                                )
+
+                            table_counter += 1
+
+                    elif type(fig_dict) == dict and "@type" not in fig_dict:
+                        object = URIRef(base_uri + f"figure_{fig_counter}")
+                        g.add((object, RDF.type, doco.Figure))
 
                         if "figDesc" in fig_dict:
                             object_desc = URIRef(
-                                base_uri + f"table_description_{table_counter}"
+                                base_uri + f"figure_description_{fig_counter}"
                             )
-                            g.add((object_desc, RDF.type, doco.TableLabel))
+                            g.add((object_desc, RDF.type, doco.FigureLabel))
 
                         if "@coords" in fig_dict:
-
-                            object_box = URIRef(base_uri + f"table_box_{table_counter}")
-                            g.add((object_box, RDF.type, doco.TableBox))
+                            object_box = URIRef(base_uri + f"figure_box_{fig_counter}")
+                            g.add((object_box, RDF.type, doco.FigureBox))
 
                         if "head" in fig_dict:
-
                             object_label = URIRef(
-                                base_uri + f"table_label_{table_counter}"
+                                base_uri + f"figure_label_{fig_counter}"
                             )
 
-                        table_counter += 1
+                        fig_counter += 1
 
-                elif type(fig_dict) == dict and "@type" not in fig_dict:
+                    if type(fig_dict) == dict and "figDesc" in fig_dict:
+                        g.add((object, po.contains, object_desc))
 
-                    object = URIRef(base_uri + f"figure_{fig_counter}")
-                    g.add((object, RDF.type, doco.Figure))
+                        figDesc = fig_dict["figDesc"]
 
-                    if "figDesc" in fig_dict:
+                        if type(fig_dict["figDesc"]) != str and type(
+                            fig_dict["figDesc"]
+                        ) != type(None):
+                            figDesc = fig_dict["figDesc"]["#text"]
 
-                        object_desc = URIRef(
-                            base_uri + f"figure_description_{fig_counter}"
+                        g.add(
+                            (
+                                object_desc,
+                                c4o.hasContent,
+                                Literal(figDesc),
+                            )
                         )
-                        g.add((object_desc, RDF.type, doco.FigureLabel))
 
-                    if "@coords" in fig_dict:
+                    if type(fig_dict) == dict and "@coords" in fig_dict:
+                        g.add((object, po.contains, object_box))
+                        objects_list = []
+                        for im in fig_dict["@coords"].split(";"):
+                            im = im.replace("'", "")
+                            im = im.split(",")
+                            page = im[0]
+                            im_list = [float(coord) for coord in im[1:]]
+                            objects_list.append(im_list)
 
-                        object_box = URIRef(base_uri + f"figure_box_{fig_counter}")
-                        g.add((object_box, RDF.type, doco.FigureBox))
+                        g.add((object_box, c4o.hasContent, Literal(list(objects_list))))
 
-                    if "head" in fig_dict:
+                        g.add((object_box, schema.pagination, Literal(int(page))))
 
-                        object_label = URIRef(base_uri + f"figure_label_{fig_counter}")
+                    if type(fig_dict) == dict and "head" in fig_dict:
+                        g.add((object_label, RDF.type, doco.Label))
 
-                    fig_counter += 1
+                        g.add((object, po.contains, object_label))
 
-                if type(fig_dict) == dict and "figDesc" in fig_dict:
+                        g.add((object_label, c4o.hasContent, Literal(fig_dict["head"])))
 
-                    g.add((object, po.contains, object_desc))
+                    if type(fig_dict) == dict and "@xml:id" in fig_dict:
+                        id = fig_dict["@xml:id"]
 
-                    figDesc = fig_dict["figDesc"]
+                        if id not in objects_dict:
+                            objects_dict[id] = object
 
-                    if type(fig_dict["figDesc"]) != str and type(
-                        fig_dict["figDesc"]
-                    ) != type(None):
-                        figDesc = fig_dict["figDesc"]["#text"]
+                parse_sections_with_ref_and_formulas(g, data_dict, objects_dict)
+                add_list_of_figures(back_matter, objects_dict, base_uri)
 
-                    g.add((object_desc, c4o.hasContent, Literal(figDesc),))
+                f = open(os.path.join(sys.argv[2], f"{title}.ttl"), "w")
+                ret = g.serialize(format="turtle").decode("utf-8")
 
-                if type(fig_dict) == dict and "@coords" in fig_dict:
-                    g.add((object, po.contains, object_box))
-                    objects_list = []
-                    for im in fig_dict["@coords"].split(";"):
-                        im = im.replace("'", "")
-                        im = im.split(",")
-                        page = im[0]
-                        im_list = [float(coord) for coord in im[1:]]
-                        objects_list.append(im_list)
-
-                    g.add((object_box, c4o.hasContent, Literal(list(objects_list))))
-
-                    g.add((object_box, schema.pagination, Literal(int(page))))
-
-                if type(fig_dict) == dict and "head" in fig_dict:
-
-                    g.add((object_label, RDF.type, doco.Label))
-
-                    g.add((object, po.contains, object_label))
-
-                    g.add((object_label, c4o.hasContent, Literal(fig_dict["head"])))
-
-                if type(fig_dict) == dict and "@xml:id" in fig_dict:
-                    id = fig_dict["@xml:id"]
-
-                    if id not in objects_dict:
-                        objects_dict[id] = object
-
-            parse_sections_with_ref_and_formulas(g, data_dict, objects_dict)
-            add_list_of_figures(back_matter, objects_dict, base_uri)
-
-            f = open(os.path.join(sys.argv[2], f"{title}_figures_and_tables.ttl"), "w")
-            ret = g.serialize(format="turtle").decode("utf-8")
-
-            f.write(ret)
-            f.close()
+                f.write(ret)
+                f.close()
+        except:
+            print(
+                f"Processing of file {file_path} failed because there are no figures or grobid didn't succeed in scraping pdf"
+            )
 
     shutil.rmtree(output_path)
-
