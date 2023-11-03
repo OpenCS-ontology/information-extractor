@@ -20,3 +20,4 @@ RUN mkdir /input_pdf_files
 RUN mkdir /home/output_xml_files
 RUN mkdir /home/input_ttl_files
 RUN mkdir /home/output_ttl_files
+RUN mkdir /home/final_ttls_for_every_run
