@@ -42,4 +42,4 @@ for archive in "${archives[@]}"; do
 done
 
 python3 /home/merge_ttl_files.py
-cp /home/input_ttl_files/* /home/final_ttls_for_every_run
+cp -r /home/input_ttl_files/* /home/final_ttls_for_every_run
