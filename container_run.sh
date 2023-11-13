@@ -1,9 +1,21 @@
 batch_size=5
 archives=("scpe" "csis")
 
+jq '.timeout = 120' /home/grobid_client_python/config.json >tmpfile
+mv tmpfile /home/grobid_client_python/config.json
+
 for archive in "${archives[@]}"; do
-    mkdir /home/input_ttl_files/$archive
-    mkdir /home/output_ttl_files/$archive
+    input_ttls_for_archive=/home/input_ttl_files/$archive
+    output_ttls_for_archive=/home/output_ttl_files/$archive
+
+    if [ ! -d "$input_ttls_for_archive" ]; then
+        mkdir $input_ttls_for_archive
+    fi
+
+    if [ ! -d "$output_ttls_for_archive" ]; then
+        mkdir $output_ttls_for_archive
+    fi
+
     for dir in "/input_pdf_files/$archive"/*; do
         if [ -d "$dir" ]; then
             rm -rf /home/input/
@@ -11,7 +23,11 @@ for archive in "${archives[@]}"; do
 
             mkdir /home/input/
             mkdir /home/output_xml_files/
-            mkdir /home/output_ttl_files/$archive/$(basename "$dir")
+
+            volume_for_out_ttls=/home/output_ttl_files/$archive/$(basename "$dir")
+            if [ ! -d "$volume_for_out_ttls" ]; then
+                mkdir $volume_for_out_ttls
+            fi
 
             num_in_batch=1
 

@@ -6,6 +6,7 @@ RUN apt-get update \
     && apt-get install python3 -y \
     && sudo apt-get install python3-pip -y \
     && pip install xmltodict \
+    && sudo apt-get install -y jq \
     && sudo apt-get install git -y \
     && sudo apt-get install -y python3-rdflib \
     && git clone https://github.com/kermitt2/grobid_client_python /home/grobid_client_python \
