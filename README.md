@@ -1,7 +1,19 @@
-# table-and-figure-ie 
+# Table and figure extractor
+
+This component, for a given research article, extracts various structured information such as figures, labels, and formulas using the `GROBID` Docker container. It takes articles' PDFs and Turtle files as input and returns new Turtle files enriched with the extracted information.
 
 ## Authors
-Mateusz Jastrzębiowski, Aleksandra Muszkowska
+
+- [Tomasz Siudalski](https://github.com/tsiudalski)
+- [Grzegorz Zbrzeżny](https://github.com/grzegorzZ1)
+
+## Credits
+
+This project is based on the work of the following authors from the original project:
+
+- [Mateusz Jastrzębiowski](https://github.com/mjastrzebiowski)
+- [Aleksandra Muszkowska](https://github.com/muszkowska)
+
 
 ## Figures, Tables, Formulas extraction
 
