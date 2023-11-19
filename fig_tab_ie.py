@@ -8,6 +8,214 @@ from rdflib.namespace import FOAF
 import sys
 
 
+def add_authors(ref_instance, g, bib_reference, bibo):
+    if ref_instance.get("analytic", None):
+        if ref_instance["analytic"].get("author", None):
+            g.add(
+                (
+                    bib_reference,
+                    bibo.authorList,
+                    author_list := BNode(),
+                )
+            )
+            g.add((author_list, RDF.type, RDF.Seq))
+            for i, author_data in enumerate(
+                ref_instance["analytic"]["author"], start=1
+            ):
+                g.add((author_list, RDF[f"_{i}"], author := BNode()))
+                g.add((author, RDF.type, FOAF.Person))
+                if not isinstance(author_data, str):
+                    if author_data.get("persName", None):
+                        if author_data["persName"].get("forename", None):
+                            if isinstance(
+                                author_data["persName"]["forename"],
+                                list,
+                            ):
+                                first_name = author_data["persName"]["forename"][0]
+
+                            else:
+                                first_name = author_data["persName"]["forename"]
+                            g.add(
+                                (
+                                    author,
+                                    FOAF.givenName,
+                                    Literal(first_name["#text"]),
+                                )
+                            )
+                        if author_data["persName"].get("surname", None):
+                            g.add(
+                                (
+                                    author,
+                                    FOAF.familyName,
+                                    Literal(author_data["persName"]["surname"]),
+                                )
+                            )
+    return g
+
+
+def add_title(ref_instance, g, bib_reference, dcterms):
+    if ref_instance.get("analytic", None):
+        if ref_instance["analytic"].get("title", None):
+            g.add(
+                (
+                    bib_reference,
+                    dcterms.title,
+                    Literal(ref_instance["analytic"]["title"]["#text"]),
+                )
+            )
+    return g
+
+
+def add_year(ref_instance, g, bib_reference, dcterms):
+    if ref_instance["monogr"].get("imprint", None):
+        if ref_instance["monogr"]["imprint"].get("date", None):
+            if not isinstance(ref_instance["monogr"]["imprint"]["date"], str):
+                if ref_instance["monogr"]["imprint"]["date"].get("#text", None):
+                    year = re.search(
+                        r"\b\d{4}\b",
+                        ref_instance["monogr"]["imprint"]["date"]["#text"],
+                    ).group()
+                    g.add(
+                        (
+                            bib_reference,
+                            dcterms.issued,
+                            Literal(int(year)),
+                        )
+                    )
+                elif ref_instance["monogr"]["imprint"]["date"].get("@when", None):
+                    year = re.search(
+                        r"\b\d{4}\b",
+                        ref_instance["monogr"]["imprint"]["date"]["@when"],
+                    ).group()
+                    g.add(
+                        (
+                            bib_reference,
+                            dcterms.issued,
+                            Literal(int(year)),
+                        )
+                    )
+    return g
+
+
+def add_venue(ref_instance, g, bib_reference, dcterms):
+    if ref_instance["monogr"].get("title", None):
+        g.add(
+            (
+                bib_reference,
+                dcterms.publisher,
+                publisher := BNode(),
+            )
+        )
+        if isinstance(ref_instance["monogr"]["title"], list):
+            info = ref_instance["monogr"]["title"][0]
+        else:
+            info = ref_instance["monogr"]["title"]
+        g.add((publisher, FOAF.name, Literal(info["#text"])))
+    return g
+
+
+def add_volumes_issues_pages(ref_instance, g, bib_reference, bibo):
+    if ref_instance["monogr"].get("imprint", None):
+        if ref_instance["monogr"]["imprint"].get("biblScope", None):
+            biblScope = ref_instance["monogr"]["imprint"]["biblScope"]
+            if not isinstance(biblScope, list):
+                if biblScope["@unit"] == "volume":
+                    g.add(
+                        (
+                            bib_reference,
+                            bibo.volume,
+                            Literal(biblScope["#text"]),
+                        )
+                    )
+                if biblScope["@unit"] == "issue":
+                    g.add(
+                        (
+                            bib_reference,
+                            bibo.issue,
+                            Literal(biblScope["#text"]),
+                        )
+                    )
+                if biblScope["@unit"] == "page":
+                    if biblScope.get("@from", None):
+                        g.add(
+                            (
+                                bib_reference,
+                                bibo.pageStart,
+                                Literal(biblScope["@from"]),
+                            )
+                        )
+                    if biblScope.get("@to", None):
+                        g.add(
+                            (
+                                bib_reference,
+                                bibo.pageEnd,
+                                Literal(biblScope["@to"]),
+                            )
+                        )
+            else:
+                for biblScopeUnit in biblScope:
+                    if biblScopeUnit["@unit"] == "volume":
+                        g.add(
+                            (
+                                bib_reference,
+                                bibo.volume,
+                                Literal(biblScopeUnit["#text"]),
+                            )
+                        )  # string because we believe that things like 1-2 may happen
+                    if biblScopeUnit["@unit"] == "issue":
+                        g.add(
+                            (
+                                bib_reference,
+                                bibo.issue,
+                                Literal(biblScopeUnit["#text"]),
+                            )
+                        )  # string because we believe that things like 1-2 may happen
+                    if biblScopeUnit["@unit"] == "page":
+                        if biblScopeUnit.get("@from", None):
+                            g.add(
+                                (
+                                    bib_reference,
+                                    bibo.pageStart,
+                                    Literal(biblScopeUnit["@from"]),
+                                )
+                            )
+                        if biblScopeUnit.get("@to", None):
+                            g.add(
+                                (
+                                    bib_reference,
+                                    bibo.pageEnd,
+                                    Literal(biblScopeUnit["@to"]),
+                                )
+                            )
+    return g
+
+
+def get_doi(ref_instance, g, bib_reference, bibo):
+    if ref_instance.get("analytic", None):
+        if ref_instance["analytic"].get("idno", None):
+            if not isinstance(ref_instance["analytic"]["idno"], list):
+                if not isinstance(ref_instance["analytic"]["idno"], str):
+                    g.add(
+                        (
+                            bib_reference,
+                            bibo.doi,
+                            Literal(ref_instance["analytic"]["idno"]["#text"]),
+                        )
+                    )
+            else:
+                for id_type in ref_instance["analytic"]["idno"]:
+                    if id_type["@type"] == "DOI":
+                        g.add(
+                            (
+                                bib_reference,
+                                bibo.doi,
+                                Literal(id_type["#text"]),
+                            )
+                        )
+                        break
+    return g
+
+
 def to_arabic(number):
     roman_to_arabic_dict = {
         "I": "1",
@@ -432,238 +640,21 @@ if __name__ == "__main__":
                         g.add((list_item, co.itemContent, bib_reference))
                         g.add((bib_reference, RDF.type, deo.BibliographicReference))
                         # Authors
-                        if ref_instance.get("analytic", None):
-                            if ref_instance["analytic"].get("author", None):
-                                g.add(
-                                    (
-                                        bib_reference,
-                                        bibo.authorList,
-                                        author_list := BNode(),
-                                    )
-                                )
-                                g.add((author_list, RDF.type, RDF.Seq))
-                                for i, author_data in enumerate(
-                                    ref_instance["analytic"]["author"], start=1
-                                ):
-                                    g.add(
-                                        (author_list, RDF[f"_{i}"], author := BNode())
-                                    )
-                                    g.add((author, RDF.type, FOAF.Person))
-                                    if not isinstance(author_data, str):
-                                        if author_data.get("persName", None):
-                                            if author_data["persName"].get(
-                                                "forename", None
-                                            ):
-                                                if isinstance(
-                                                    author_data["persName"]["forename"],
-                                                    list,
-                                                ):
-                                                    first_name = author_data[
-                                                        "persName"
-                                                    ]["forename"][0]
-
-                                                else:
-                                                    first_name = author_data[
-                                                        "persName"
-                                                    ]["forename"]
-                                                g.add(
-                                                    (
-                                                        author,
-                                                        FOAF.givenName,
-                                                        Literal(first_name["#text"]),
-                                                    )
-                                                )
-                                            if author_data["persName"].get(
-                                                "surname", None
-                                            ):
-                                                g.add(
-                                                    (
-                                                        author,
-                                                        FOAF.familyName,
-                                                        Literal(
-                                                            author_data["persName"][
-                                                                "surname"
-                                                            ]
-                                                        ),
-                                                    )
-                                                )
+                        g = add_authors(ref_instance, g, bib_reference, bibo)
                         # Title
-                        if ref_instance.get("analytic", None):
-                            if ref_instance["analytic"].get("title", None):
-                                g.add(
-                                    (
-                                        bib_reference,
-                                        dcterms.title,
-                                        Literal(
-                                            ref_instance["analytic"]["title"]["#text"]
-                                        ),
-                                    )
-                                )
-                        # Year
+                        g = add_title(ref_instance, g, bib_reference, dcterms)
+
                         if ref_instance.get("monogr", None):
-                            if ref_instance["monogr"].get("imprint", None):
-                                if ref_instance["monogr"]["imprint"].get("date", None):
-                                    if not isinstance(
-                                        ref_instance["monogr"]["imprint"]["date"], str
-                                    ):
-                                        if ref_instance["monogr"]["imprint"][
-                                            "date"
-                                        ].get("#text", None):
-                                            year = re.search(
-                                                r"\b\d{4}\b",
-                                                ref_instance["monogr"]["imprint"][
-                                                    "date"
-                                                ]["#text"],
-                                            ).group()
-                                            g.add(
-                                                (
-                                                    bib_reference,
-                                                    dcterms.issued,
-                                                    Literal(int(year)),
-                                                )
-                                            )
-                                        elif ref_instance["monogr"]["imprint"][
-                                            "date"
-                                        ].get("@when", None):
-                                            year = re.search(
-                                                r"\b\d{4}\b",
-                                                ref_instance["monogr"]["imprint"][
-                                                    "date"
-                                                ]["@when"],
-                                            ).group()
-                                            g.add(
-                                                (
-                                                    bib_reference,
-                                                    dcterms.issued,
-                                                    Literal(int(year)),
-                                                )
-                                            )
+                            # Year
+                            g = add_year(ref_instance, g, bib_reference, dcterms)
                             # Venue
-                            if ref_instance["monogr"].get("title", None):
-                                g.add(
-                                    (
-                                        bib_reference,
-                                        dcterms.publisher,
-                                        publisher := BNode(),
-                                    )
-                                )
-                                if isinstance(ref_instance["monogr"]["title"], list):
-                                    info = ref_instance["monogr"]["title"][0]
-                                else:
-                                    info = ref_instance["monogr"]["title"]
-                                g.add((publisher, FOAF.name, Literal(info["#text"])))
+                            g = add_venue(ref_instance, g, bib_reference, dcterms)
                             # Volumes, issues and pages
-                            if ref_instance["monogr"].get("imprint", None):
-                                if ref_instance["monogr"]["imprint"].get(
-                                    "biblScope", None
-                                ):
-                                    biblScope = ref_instance["monogr"]["imprint"][
-                                        "biblScope"
-                                    ]
-                                    if not isinstance(biblScope, list):
-                                        if biblScope["@unit"] == "volume":
-                                            g.add(
-                                                (
-                                                    bib_reference,
-                                                    bibo.volume,
-                                                    Literal(biblScope["#text"]),
-                                                )
-                                            )
-                                        if biblScope["@unit"] == "issue":
-                                            g.add(
-                                                (
-                                                    bib_reference,
-                                                    bibo.issue,
-                                                    Literal(biblScope["#text"]),
-                                                )
-                                            )
-                                        if biblScope["@unit"] == "page":
-                                            if biblScope.get("@from", None):
-                                                g.add(
-                                                    (
-                                                        bib_reference,
-                                                        bibo.pageStart,
-                                                        Literal(biblScope["@from"]),
-                                                    )
-                                                )
-                                            if biblScope.get("@to", None):
-                                                g.add(
-                                                    (
-                                                        bib_reference,
-                                                        bibo.pageEnd,
-                                                        Literal(biblScope["@to"]),
-                                                    )
-                                                )
-                                    else:
-                                        for biblScopeUnit in biblScope:
-                                            if biblScopeUnit["@unit"] == "volume":
-                                                g.add(
-                                                    (
-                                                        bib_reference,
-                                                        bibo.volume,
-                                                        Literal(biblScopeUnit["#text"]),
-                                                    )
-                                                )  # string because we believe that things like 1-2 may happen
-                                            if biblScopeUnit["@unit"] == "issue":
-                                                g.add(
-                                                    (
-                                                        bib_reference,
-                                                        bibo.issue,
-                                                        Literal(biblScopeUnit["#text"]),
-                                                    )
-                                                )  # string because we believe that things like 1-2 may happen
-                                            if biblScopeUnit["@unit"] == "page":
-                                                if biblScopeUnit.get("@from", None):
-                                                    g.add(
-                                                        (
-                                                            bib_reference,
-                                                            bibo.pageStart,
-                                                            Literal(
-                                                                biblScopeUnit["@from"]
-                                                            ),
-                                                        )
-                                                    )
-                                                if biblScopeUnit.get("@to", None):
-                                                    g.add(
-                                                        (
-                                                            bib_reference,
-                                                            bibo.pageEnd,
-                                                            Literal(
-                                                                biblScopeUnit["@to"]
-                                                            ),
-                                                        )
-                                                    )
+                            g = add_volumes_issues_pages(
+                                ref_instance, g, bib_reference, bibo
+                            )
                         # DOI
-                        if ref_instance.get("analytic", None):
-                            if ref_instance["analytic"].get("idno", None):
-                                if not isinstance(
-                                    ref_instance["analytic"]["idno"], list
-                                ):
-                                    if not isinstance(
-                                        ref_instance["analytic"]["idno"], str
-                                    ):
-                                        g.add(
-                                            (
-                                                bib_reference,
-                                                bibo.doi,
-                                                Literal(
-                                                    ref_instance["analytic"]["idno"][
-                                                        "#text"
-                                                    ]
-                                                ),
-                                            )
-                                        )
-                                else:
-                                    for id_type in ref_instance["analytic"]["idno"]:
-                                        if id_type["@type"] == "DOI":
-                                            g.add(
-                                                (
-                                                    bib_reference,
-                                                    bibo.doi,
-                                                    Literal(id_type["#text"]),
-                                                )
-                                            )
-                                            break
+                        g = get_doi(ref_instance, g, bib_reference, bibo)
 
                         first_iter = False
                 g.add((back_matter, po.contains, bibliography))
