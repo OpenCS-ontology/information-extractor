@@ -4,6 +4,9 @@ archives=("scpe" "csis")
 jq '.timeout = 120' /home/grobid_client_python/config.json >tmpfile
 mv tmpfile /home/grobid_client_python/config.json
 
+rm -rf /home/final_ttls_for_current_run
+mkdir /home/final_ttls_for_current_run
+
 for archive in "${archives[@]}"; do
     input_ttls_for_archive=/home/input_ttl_files/$archive
     output_ttls_for_archive=/home/output_ttl_files/$archive
@@ -58,4 +61,4 @@ for archive in "${archives[@]}"; do
 done
 
 python3 /home/merge_ttl_files.py
-cp -r /home/input_ttl_files/* /home/final_ttls_for_every_run
+cp -r /home/final_ttls_for_current_run/* /home/final_ttls_for_every_run

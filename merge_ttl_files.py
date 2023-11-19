@@ -58,10 +58,13 @@ if __name__ == "__main__":
     archives = ["csis", "scpe"]
     input_path = "/home/input_ttl_files"
     output_path = "/home/output_ttl_files"
+    final_path = "/home/final_ttls_for_current_run"
     for archive in archives:
         root_dir = os.path.join(input_path, archive)
+        final_dir = os.path.join(final_path, archive)
         for dir in os.listdir(root_dir):
             dir_path = os.path.join(root_dir, dir)
+            final_dir_path = os.path.join(final_dir, dir)
             if os.path.isdir(dir_path):
                 for ttl_file in os.listdir(dir_path):
                     final_out_path = os.path.join(output_path, archive, dir)
@@ -84,7 +87,8 @@ if __name__ == "__main__":
                                 output_path, archive, dir, final_out_path
                             ),
                         )
-                        with open(os.path.join(dir_path, ttl_file), "wb") as file:
+                        os.makedirs(final_dir_path, exist_ok=True)
+                        with open(os.path.join(final_dir_path, ttl_file), "wb") as file:
                             if isinstance(g, str):
                                 g = g.encode()
                             file.write(g)
