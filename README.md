@@ -1,6 +1,7 @@
 # Information extractor
 
-This component, for a given research article, extracts various structured information such as figures, labels, formulas, sections and bibliographies using the `GROBID` Docker container. It takes articles' PDFs and Turtle files as input and returns new Turtle files enriched with the extracted information. It should be run as a Docker container.
+This component, for a given research article, extracts various structured information such as figures, labels, formulas, sections and bibliographies using the `GROBID` Docker container. It takes articles' PDFs and Turtle files as input and returns new Turtle files enriched with the extracted information. Its primary intent is to be executed as a Docker container within the [kg-pipeline](https://github.com/OpenCS-ontology/kg-pipeline). Nevertheless, it is equally feasible to run it autonomously.
+
 
 ## Authors
 
