@@ -11,7 +11,7 @@ This component, for a given research article, extracts various structured inform
 
 This project is based on the work of the following authors from the original projects:
 
-### [table-and-figure-ie]
+### table-and-figure-ie
 
 - [Mateusz Jastrzębiowski](https://github.com/mjastrzebiowski)
 - [Aleksandra Muszkowska](https://github.com/muszkowska)
