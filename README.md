@@ -9,21 +9,6 @@ This component, for a given research article, extracts various structured inform
 
 ## Credits
 
-This project is based on the work of the following authors from the original project:
-
-- [Mateusz Jastrzębiowski](https://github.com/mjastrzebiowski)
-- [Aleksandra Muszkowska](https://github.com/muszkowska)
-
-  ## Credits
-
-This project is based on the work of the following authors from the original project:
-
-- [Krystian Kurek](https://github.com/KrystianKurek)
-- [Anastasiya Danilenka](https://github.com/adanilenka)
-
-
-## Credits
-
 This project is based on the work of the following authors from the original projects:
 
 ### [table-and-figure-ie]
