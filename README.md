@@ -1,4 +1,4 @@
-# Table and figure extractor
+# Information extractor
 
 This component, for a given research article, extracts various structured information such as figures, labels, formulas, sections and bibliographies using the `GROBID` Docker container. It takes articles' PDFs and Turtle files as input and returns new Turtle files enriched with the extracted information.
 
