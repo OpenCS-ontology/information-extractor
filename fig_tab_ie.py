@@ -272,81 +272,234 @@ def to_arabic(number):
     return roman_to_arabic_dict.get(number, number)
 
 
-def parse_sections_with_ref_and_formulas(g, doc_as_dict, objects_dict):
+def parse_sections_with_ref_and_formulas(g, data_dict, objects_dict):
     formula_counter = 0
-    ref_counter = 0
     section_counter = 0
-    for _, paragraph in enumerate(doc_as_dict["TEI"]["text"]["body"]["div"]):
-        if type(paragraph) != dict or "head" not in paragraph:
-            continue
+    ref_counter = 0
+    sections_dict = {}
+    first_iter = True
+    first_iter_inner = True
+    hierarchy = ["", ""]
+    prev_section_name = ""
+    for i, section in enumerate(data_dict["TEI"]["text"]["body"]["div"]):
+        if isinstance(section, dict) and "head" in section:
+            if isinstance(section["head"], dict) and "#text" in section["head"]:
+                section_name = section["head"]["#text"]
+            elif isinstance(section["head"], str):
+                section_name = section.get("head", None)
+        else:
+            section_name = None
 
-        if type(paragraph["head"]) != dict or "#text" not in paragraph["head"]:
-            continue
+        try:
+            section_number: str = section["head"]["@n"]
+        except:
+            section_number = None
 
-        section_name: str = paragraph["head"]["#text"]
+        p = section.get("p", None)
+        if not isinstance(p, list):
+            p = [p]
 
-        g.add(
-            (
-                section := base_namespace[f"section{section_counter}"],
-                RDF.type,
-                doco.Section,
-            )
-        )
-        g.add(
-            (
-                section_title := base_namespace[f"section_title{section_counter}"],
-                RDF.type,
-                doco.SectionTitle,
-            )
-        )
-        g.add((section_title, c4o.hasContent, Literal(section_name)))
-        g.add((section, po.containsAsHeader, section_title))
-
-        section_counter += 1
-        if type(paragraph["head"]) == dict and "@coords" in paragraph["head"]:
-            g.add(
-                (
-                    section,
-                    schema.pagination,
-                    Literal(int(paragraph["head"]["@coords"].split(",")[0])),
-                )
-            )
-
-        g.add((body_matter, po.contains, section))
-
-        if "formula" in paragraph:
-            if type(paragraph["formula"]) == dict and "label" in paragraph["formula"]:
-                text = paragraph["formula"]["#text"]
-                label = paragraph["formula"]["label"].replace("(", "").replace(")", "")
-                parse_formula(g, section, text, label, formula_counter)
-                formula_counter += 1
+        for j, paragraph in enumerate(p):
+            if not isinstance(paragraph, dict):
+                if isinstance(paragraph, str):
+                    par_text = paragraph
+                else:
+                    continue
             else:
-                for _, formula in enumerate(paragraph["formula"]):
-                    if type(formula) == dict and "label" in formula:
-                        text = formula["#text"]
-                        label = formula["label"].replace("(", "").replace(")", "")
-                        parse_formula(g, section, text, label, formula_counter)
-                        formula_counter += 1
+                par_text = paragraph.get("#text", None)
 
-        if "p" in paragraph:
-            if type(paragraph["p"]) == list:
-                for _, reference in enumerate(paragraph["p"]):
-                    if type(reference) == dict and "ref" in reference:
-                        if type(reference["ref"]) == list:
-                            for _, inside_reference in enumerate(reference["ref"]):
-                                parse_reference(
-                                    g,
-                                    inside_reference,
-                                    ref_counter,
+            match = re.match(r"^([0-9\s.IVX]+) (.*)$", par_text)
+
+            if not match and not section_name and prev_section_name != "":
+                section_name = prev_section_name
+            elif match:
+                section_number, section_name = match.group(1), match.group(2)
+                section_name = section_name.split(". ", 1)[0]
+                section_name = section_number + " " + section_name
+                prev_section_name = section_name
+
+            if section_name != prev_section_name and section_name:
+                match = re.match(r"^([0-9\s.IVX]+) (.*)$", section_name)
+                if match:
+                    section_number, section_name = match.group(
+                        1
+                    ), match.group(2)
+                    section_name = section_name.split(". ", 1)[0]
+                    section_name = section_number + " " + section_name
+                    prev_section_name = section_name
+
+            if not section_name or not any(
+                c.isalpha() for c in section_name
+            ):
+                continue
+            if not section_number and section_name is not None:
+                match = re.match(r"^([0-9\s.IVX]+) (.*)$", section_name)
+                if match:
+                    section_number = match.group(1)
+                else:
+                    section_number = None
+            match = re.match(r"^([0-9\s.IVX]+) (.*)$", section_name)
+            if match:
+                section_name = match.group(2)
+                section_number = (
+                    ".".join(map(to_arabic, section_number.split(".")))
+                    if section_number is not None
+                    else None
+                )
+            if (section_name, section_number) not in sections_dict:
+                section_counter += 1
+                g.add(
+                    (
+                        section := URIRef(
+                            base_namespace + f"section{section_counter}"
+                        ),
+                        RDF.type,
+                        doco.Section,
+                    )
+                )
+                g.add(
+                    (
+                        section_title := URIRef(
+                            base_namespace + f"sectionTitle{section_counter}"
+                        ),
+                        RDF.type,
+                        doco.SectionTitle,
+                    )
+                )
+                g.add(
+                    (section_title, c4o.hasContent, Literal(section_name))
+                )
+                g.add((section, po.containsAsHeader, section_title))
+                if section_number:
+                    g.add(
+                        (
+                            section_label := URIRef(
+                                base_namespace + f"sectionLabel{section_counter}"
+                            ),
+                            RDF.type,
+                            doco.SectionLabel,
+                        )
+                    )
+                    g.add(
+                        (
+                            section_label,
+                            c4o.hasContent,
+                            Literal(section_number),
+                        )
+                    )
+                    g.add((section, po.contains, section_label))
+                if isinstance(section, dict):
+                    if isinstance(section.get("head"), dict):
+                        if "@coords" in section["head"]:
+                            g.add(
+                                (
                                     section,
-                                    objects_dict,
+                                    schema.pagination,
+                                    Literal(int(paragraph["head"]["@coords"].split(",")[0])),
                                 )
-                                ref_counter += 1
-                        else:
-                            parse_reference(
-                                g, reference["ref"], ref_counter, section, objects_dict
                             )
-                            ref_counter += 1
+
+                sections_dict[(section_name, section_number)] = section
+
+                depth = len(
+                    list(filter(None, str(section_number).split(".")))
+                )
+                if depth == 1:
+                    if hierarchy[0] == "":
+                        g.add(
+                            (
+                                body_matter,
+                                co.firstItem,
+                                body_list_item := BNode(),
+                            )
+                        )
+                    else:
+                        g.add(
+                            (
+                                body_list_item,
+                                co.nextItem,
+                                next_body_list_item := BNode(),
+                            )
+                        )
+                        body_list_item = next_body_list_item
+                    g.add((body_list_item, co.itemContent, section))
+                    g.add((body_matter, po.contains, section))
+                    hierarchy[0] = section
+                    first_iter = True
+                elif depth == 2:
+                    if first_iter:
+                        g.add(
+                            (
+                                hierarchy[0],
+                                co.firstItem,
+                                list_item := BNode(),
+                            )
+                        )
+                    else:
+                        g.add(
+                            (
+                                list_item,
+                                co.nextItem,
+                                next_list_item := BNode(),
+                            )
+                        )
+                        list_item = next_list_item
+                    g.add((list_item, co.itemContent, section))
+                    g.add((hierarchy[0], po.contains, section))
+                    hierarchy[1] = section
+                    first_iter = False
+                    first_iter_inner = True
+                elif hierarchy[1]:
+                    if first_iter_inner:
+                        g.add(
+                            (
+                                hierarchy[1],
+                                co.firstItem,
+                                list_item_inner := BNode(),
+                            )
+                        )
+                    else:
+                        g.add(
+                            (
+                                list_item_inner,
+                                co.nextItem,
+                                next_list_item_inner := BNode(),
+                            )
+                        )
+                        list_item_inner = next_list_item_inner
+                    g.add((list_item_inner, co.itemContent, section))
+                    g.add((hierarchy[1], po.contains, section))
+                    first_iter_inner = False
+            else:
+                section = sections_dict[(section_name, section_number)]
+
+            if isinstance(paragraph, dict) and "ref" in paragraph:
+                reference = paragraph["ref"]
+                if not type(reference) == list:
+                    reference = [reference]
+                for _, inside_reference in enumerate(reference):
+                    parse_reference(
+                        g,
+                        inside_reference,
+                        ref_counter,
+                        section,
+                        objects_dict,
+                    )
+                    ref_counter += 1
+                    
+            if isinstance(section, dict) and "formula" in section:
+                if type(paragraph["formula"]) == dict and "label" in paragraph["formula"]:
+                    text = paragraph["formula"]["#text"]
+                    label = paragraph["formula"]["label"].replace("(", "").replace(")", "")
+                    parse_formula(g, section, text, label, formula_counter)
+                    formula_counter += 1
+                else:
+                    for _, formula in enumerate(paragraph["formula"]):
+                        if type(formula) == dict and "label" in formula:
+                            text = formula["#text"]
+                            label = formula["label"].replace("(", "").replace(")", "")
+                            parse_formula(g, section, text, label, formula_counter)
+                            formula_counter += 1
 
 
 def parse_formula(g, section, formula_text, formula_label, formula_counter):
@@ -370,10 +523,14 @@ def parse_reference(
         entity = "Figure"
     elif reference["@type"] == "table":
         entity = "Table"
+    elif reference["@type"] == "bibr":
+        entity = "BIBREF"
     else:
-        entity = None
+        return
+    
+    ref_object = None
 
-    if entity is not None:
+    if entity in ["Figure", "Table"]:
         ref_object = URIRef(base_uri + f"reference_{ref_counter}")
         g.add((ref_object, RDF.type, deo.Reference))
         g.add((ref_object, c4o.hasContent, Literal(entity + " " + reference["#text"])))
@@ -387,14 +544,42 @@ def parse_reference(
             id = reference["@target"].replace("#", "")
             g.add((ref_object, dcterms.references, objects_dict[id]))
 
-        if type(reference) == dict and "@coords" in reference:
-            g.add(
-                (
-                    ref_object,
-                    schema.pagination,
-                    Literal(int(reference["@coords"].split(",")[0])),
-                )
+
+    elif entity == "BIBREF" and reference.get("@target"):
+        ref_id = "BIBREF" + reference.get("@target").lstrip("#b")
+        ref_object = URIRef(base_namespace + f"referenceTo{ref_id}")
+        g.add(
+            (
+                section,
+                po.contains,
+                ref_object,
             )
+        )
+        g.add((ref_object, RDF.type, deo.Reference))
+        ref_text = reference["#text"]
+        for char in [",", ".", "[", "]", "(", ")"]:
+            ref_text = ref_text.replace(char, "")
+        ref_text = f"[{ref_text}]"
+        g.add(
+            (ref_object, c4o.hasContent, Literal(ref_text))
+        )
+        g.add(
+            (
+                ref_object,
+                dcterms.references,
+                URIRef(base_namespace + ref_id),
+            )
+        )
+    
+    if type(reference) == dict and "@coords" in reference and ref_object:
+        g.add(
+            (
+                ref_object,
+                schema.pagination,
+                Literal(int(reference["@coords"].split(",")[0])),
+            )
+        )
+
 
 
 def add_list_of_figures(back_matter, objects_dict, base_uri):
@@ -486,9 +671,7 @@ if __name__ == "__main__":
                 objects_dict = dict()
 
                 title = (
-                    data_dict["TEI"]["teiHeader"]["fileDesc"]["titleStmt"]["title"][
-                        "#text"
-                    ]
+                    data_dict["TEI"]["teiHeader"]["fileDesc"]["titleStmt"]["title"]["#text"]
                     .replace(" ", "_")
                     .replace(":", "_")
                 )
@@ -607,8 +790,9 @@ if __name__ == "__main__":
                             if id not in objects_dict:
                                 objects_dict[id] = object
 
-                    parse_sections_with_ref_and_formulas(g, data_dict, objects_dict)
                     add_list_of_figures(back_matter, objects_dict, base_uri)
+                    parse_sections_with_ref_and_formulas(g, data_dict, objects_dict)
+                    
 
                 # bibliography
                 g.add(
@@ -661,229 +845,6 @@ if __name__ == "__main__":
                 g.add((back_matter, co.firstItem, bibliography_list_item := BNode()))
                 g.add((bibliography_list_item, co.itemContent, bibliography))
 
-                # sections
-                counter = 0
-                sections_dict = {}
-                first_iter = True
-                first_iter_inner = True
-                hierarchy = ["", ""]
-                prev_section_name = ""
-                for i, section in enumerate(data_dict["TEI"]["text"]["body"]["div"]):
-                    if isinstance(section, dict):
-                        if isinstance(section.get("head"), dict):
-                            section_name = section.get("head").get("#text", None)
-                        elif isinstance(section.get("head"), str):
-                            section_name = section.get("head", None)
-                    else:
-                        section_name = None
-
-                    try:
-                        section_number: str = section["head"]["@n"]
-                    except:
-                        section_number = None
-
-                    p = section.get("p", None)
-                    if not isinstance(p, list):
-                        p = [p]
-
-                    for j, paragraph in enumerate(p):
-                        if not isinstance(paragraph, dict):
-                            if isinstance(paragraph, str):
-                                par_text = paragraph
-                            else:
-                                continue
-                        else:
-                            par_text = paragraph.get("#text", None)
-                        match = re.match(r"^([0-9\s.IVX]+) (.*)$", par_text)
-
-                        if not match and not section_name and prev_section_name != "":
-                            section_name = prev_section_name
-                        elif match:
-                            section_number, section_name = match.group(1), match.group(
-                                2
-                            )
-                            section_name = section_name.split(". ", 1)[0]
-                            section_name = section_number + " " + section_name
-                            prev_section_name = section_name
-
-                        if section_name != prev_section_name and section_name:
-                            match = re.match(r"^([0-9\s.IVX]+) (.*)$", section_name)
-                            if match:
-                                section_number, section_name = match.group(
-                                    1
-                                ), match.group(2)
-                                section_name = section_name.split(". ", 1)[0]
-                                section_name = section_number + " " + section_name
-                                prev_section_name = section_name
-
-                        if not section_name or not any(
-                            c.isalpha() for c in section_name
-                        ):
-                            continue
-                        if not section_number and section_name is not None:
-                            match = re.match(r"^([0-9\s.IVX]+) (.*)$", section_name)
-                            if match:
-                                section_number = match.group(1)
-                            else:
-                                section_number = None
-                        match = re.match(r"^([0-9\s.IVX]+) (.*)$", section_name)
-                        if match:
-                            section_name = match.group(2)
-                            section_number = (
-                                ".".join(map(to_arabic, section_number.split(".")))
-                                if section_number is not None
-                                else None
-                            )
-                        if (section_name, section_number) not in sections_dict:
-                            counter += 1
-                            g.add(
-                                (
-                                    section := URIRef(
-                                        base_namespace + f"section{counter}"
-                                    ),
-                                    RDF.type,
-                                    doco.Section,
-                                )
-                            )
-                            g.add(
-                                (
-                                    section_title := URIRef(
-                                        base_namespace + f"sectionTitle{counter}"
-                                    ),
-                                    RDF.type,
-                                    doco.SectionTitle,
-                                )
-                            )
-                            g.add(
-                                (section_title, c4o.hasContent, Literal(section_name))
-                            )
-                            g.add((section, po.containsAsHeader, section_title))
-                            if section_number:
-                                g.add(
-                                    (
-                                        section_label := URIRef(
-                                            base_namespace + f"sectionLabel{counter}"
-                                        ),
-                                        RDF.type,
-                                        doco.SectionLabel,
-                                    )
-                                )
-                                g.add(
-                                    (
-                                        section_label,
-                                        c4o.hasContent,
-                                        Literal(section_number),
-                                    )
-                                )
-                                g.add((section, po.contains, section_label))
-                            sections_dict[(section_name, section_number)] = section
-
-                            depth = len(
-                                list(filter(None, str(section_number).split(".")))
-                            )
-                            if depth == 1:
-                                if hierarchy[0] == "":
-                                    g.add(
-                                        (
-                                            body_matter,
-                                            co.firstItem,
-                                            body_list_item := BNode(),
-                                        )
-                                    )
-                                else:
-                                    g.add(
-                                        (
-                                            body_list_item,
-                                            co.nextItem,
-                                            next_body_list_item := BNode(),
-                                        )
-                                    )
-                                    body_list_item = next_body_list_item
-                                g.add((body_list_item, co.itemContent, section))
-                                g.add((body_matter, po.contains, section))
-                                hierarchy[0] = section
-                                first_iter = True
-                            elif depth == 2:
-                                if first_iter:
-                                    g.add(
-                                        (
-                                            hierarchy[0],
-                                            co.firstItem,
-                                            list_item := BNode(),
-                                        )
-                                    )
-                                else:
-                                    g.add(
-                                        (
-                                            list_item,
-                                            co.nextItem,
-                                            next_list_item := BNode(),
-                                        )
-                                    )
-                                    list_item = next_list_item
-                                g.add((list_item, co.itemContent, section))
-                                g.add((hierarchy[0], po.contains, section))
-                                hierarchy[1] = section
-                                first_iter = False
-                                first_iter_inner = True
-                            else:
-                                if first_iter_inner:
-                                    g.add(
-                                        (
-                                            hierarchy[1],
-                                            co.firstItem,
-                                            list_item_inner := BNode(),
-                                        )
-                                    )
-                                else:
-                                    g.add(
-                                        (
-                                            list_item_inner,
-                                            co.nextItem,
-                                            next_list_item_inner := BNode(),
-                                        )
-                                    )
-                                    list_item_inner = next_list_item_inner
-                                g.add((list_item_inner, co.itemContent, section))
-                                g.add((hierarchy[1], po.contains, section))
-                                first_iter_inner = False
-                        else:
-                            section = sections_dict[(section_name, section_number)]
-
-                        if not isinstance(paragraph, dict):
-                            continue
-                        for citation in paragraph.get("ref", []):
-                            if not isinstance(citation, dict):
-                                continue
-                            if (citation.get("@type") == "bibr") and (
-                                citation.get("@target")
-                            ):
-                                ref_id = "BIBREF" + citation.get("@target").lstrip("#b")
-                                g.add(
-                                    (
-                                        section,
-                                        po.contains,
-                                        citation_node := URIRef(
-                                            base_namespace + f"referenceTo{ref_id}"
-                                        ),
-                                    )
-                                )
-                                g.add((citation_node, RDF.type, deo.Reference))
-                                cite_text = citation["#text"]
-                                for char in [",", ".", "[", "]", "(", ")"]:
-                                    cite_text = cite_text.replace(char, "")
-                                cite_text = f"[{cite_text}]"
-                                g.add(
-                                    (citation_node, c4o.hasContent, Literal(cite_text))
-                                )
-                                g.add(
-                                    (
-                                        citation_node,
-                                        dcterms.references,
-                                        URIRef(base_namespace + ref_id),
-                                    )
-                                )
-                # here add section and biblio
 
                 f = open(
                     os.path.join(sys.argv[2], f"{title.replace('/', '_')}.ttl"), "w"
