@@ -29,9 +29,3 @@ Solution performs following steps on each paper:
 4. Extract needed information from dictionaries
 5. Save the extracted information in the form of a Turtle file using `rdflib` library
 6. Merge the basic Turtle file of the original article with the one created during the processing in this module using `rdflib` library
-
-
-# Solution utilization
-This module is a part of `kg-pipeline` which orchestrates it automatically. However if you want to use it as an independent component you have to:
-1. Make sure Docker Desktop is installed and is running
-2. In shell terminal of your project pull Docker Image: `docker pull ghcr.io/opencs-ontology/information-extractor:main`
