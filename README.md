@@ -14,6 +14,28 @@ This project is based on the work of the following authors from the original pro
 - [Mateusz Jastrzębiowski](https://github.com/mjastrzebiowski)
 - [Aleksandra Muszkowska](https://github.com/muszkowska)
 
+  ## Credits
+
+This project is based on the work of the following authors from the original project:
+
+- [Krystian Kurek](https://github.com/KrystianKurek)
+- [Anastasiya Danilenka](https://github.com/adanilenka)
+
+
+## Credits
+
+This project is based on the work of the following authors from the original projects:
+
+### [table-and-figure-ie]
+
+- [Mateusz Jastrzębiowski](https://github.com/mjastrzebiowski)
+- [Aleksandra Muszkowska](https://github.com/muszkowska)
+
+### [section-and-bibliography-ie](https://github.com/OpenCS-ontology/section-and-bibliography-ie)
+
+- [Krystian Kurek](https://github.com/KrystianKurek)
+- [Anastasiya Danilenka](https://github.com/adanilenka)
+
 
 ## Figures, Tables, Formulas extraction
 
