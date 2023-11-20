@@ -1,6 +1,6 @@
 # Information extractor
 
-This component, for a given research article, extracts various structured information such as figures, labels, formulas, sections and bibliographies using the `GROBID` Docker container. It takes articles' PDFs and Turtle files as input and returns new Turtle files enriched with the extracted information. It should be run as a Docker container (we recommend usage of [Docker Desktop](https://www.docker.com/products/docker-desktop/)).
+This component, for a given research article, extracts various structured information such as figures, labels, formulas, sections and bibliographies using the `GROBID` Docker container. It takes articles' PDFs and Turtle files as input and returns new Turtle files enriched with the extracted information. It should be run as a Docker container.
 
 ## Authors
 
