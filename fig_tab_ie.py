@@ -3,27 +3,18 @@ import shutil
 import xmltodict
 import os
 import re
-from rdflib import Graph, Literal, Namespace, RDF, URIRef, BNode
-from rdflib.namespace import FOAF
+from rdflib import Graph, Literal, Namespace, RDF, URIRef, BNode, XSD
 import sys
 
 
-def add_authors(ref_instance, g, bib_reference, bibo):
+def add_authors(ref_instance, g, bib_reference):
     if ref_instance.get("analytic", None):
         if ref_instance["analytic"].get("author", None):
-            g.add(
-                (
-                    bib_reference,
-                    bibo.authorList,
-                    author_list := BNode(),
-                )
-            )
-            g.add((author_list, RDF.type, RDF.Seq))
             for i, author_data in enumerate(
                 ref_instance["analytic"]["author"], start=1
             ):
-                g.add((author_list, RDF[f"_{i}"], author := BNode()))
-                g.add((author, RDF.type, FOAF.Person))
+                g.add((bib_reference, dcterms.creator, author := BNode()))
+                g.add((author, RDF.type, schema.Person))
                 if not isinstance(author_data, str):
                     if author_data.get("persName", None):
                         if author_data["persName"].get("forename", None):
@@ -38,7 +29,7 @@ def add_authors(ref_instance, g, bib_reference, bibo):
                             g.add(
                                 (
                                     author,
-                                    FOAF.givenName,
+                                    schema.givenName,
                                     Literal(first_name["#text"]),
                                 )
                             )
@@ -46,7 +37,7 @@ def add_authors(ref_instance, g, bib_reference, bibo):
                             g.add(
                                 (
                                     author,
-                                    FOAF.familyName,
+                                    schema.familyName,
                                     Literal(author_data["persName"]["surname"]),
                                 )
                             )
@@ -110,11 +101,11 @@ def add_venue(ref_instance, g, bib_reference, dcterms):
             info = ref_instance["monogr"]["title"][0]
         else:
             info = ref_instance["monogr"]["title"]
-        g.add((publisher, FOAF.name, Literal(info["#text"])))
+        g.add((publisher, schema.name, Literal(info["#text"])))
     return g
 
 
-def add_volumes_issues_pages(ref_instance, g, bib_reference, bibo):
+def add_volumes_issues_pages(ref_instance, g, bib_reference, prism):
     if ref_instance["monogr"].get("imprint", None):
         if ref_instance["monogr"]["imprint"].get("biblScope", None):
             biblScope = ref_instance["monogr"]["imprint"]["biblScope"]
@@ -123,16 +114,16 @@ def add_volumes_issues_pages(ref_instance, g, bib_reference, bibo):
                     g.add(
                         (
                             bib_reference,
-                            bibo.volume,
-                            Literal(biblScope["#text"]),
+                            prism.volume,
+                            Literal(biblScope["#text"], datatype=XSD.integer),
                         )
                     )
                 if biblScope["@unit"] == "issue":
                     g.add(
                         (
                             bib_reference,
-                            bibo.issue,
-                            Literal(biblScope["#text"]),
+                            prism.issueIdentifier,
+                            Literal(biblScope["#text"], datatype=XSD.integer),
                         )
                     )
                 if biblScope["@unit"] == "page":
@@ -140,16 +131,16 @@ def add_volumes_issues_pages(ref_instance, g, bib_reference, bibo):
                         g.add(
                             (
                                 bib_reference,
-                                bibo.pageStart,
-                                Literal(biblScope["@from"]),
+                                prism.startingPage,
+                                Literal(biblScope["@from"], datatype=XSD.integer),
                             )
                         )
                     if biblScope.get("@to", None):
                         g.add(
                             (
                                 bib_reference,
-                                bibo.pageEnd,
-                                Literal(biblScope["@to"]),
+                                prism.endingPage,
+                                Literal(biblScope["@to"], datatype=XSD.integer),
                             )
                         )
             else:
@@ -158,16 +149,16 @@ def add_volumes_issues_pages(ref_instance, g, bib_reference, bibo):
                         g.add(
                             (
                                 bib_reference,
-                                bibo.volume,
-                                Literal(biblScopeUnit["#text"]),
+                                prism.volume,
+                                Literal(biblScopeUnit["#text"], datatype=XSD.integer),
                             )
                         )  # string because we believe that things like 1-2 may happen
                     if biblScopeUnit["@unit"] == "issue":
                         g.add(
                             (
                                 bib_reference,
-                                bibo.issue,
-                                Literal(biblScopeUnit["#text"]),
+                                prism.issueIdentifier,
+                                Literal(biblScopeUnit["#text"], datatype=XSD.integer),
                             )
                         )  # string because we believe that things like 1-2 may happen
                     if biblScopeUnit["@unit"] == "page":
@@ -175,41 +166,43 @@ def add_volumes_issues_pages(ref_instance, g, bib_reference, bibo):
                             g.add(
                                 (
                                     bib_reference,
-                                    bibo.pageStart,
-                                    Literal(biblScopeUnit["@from"]),
+                                    prism.strtingPage,
+                                    Literal(biblScopeUnit["@from"], datatype=XSD.integer),
                                 )
                             )
                         if biblScopeUnit.get("@to", None):
                             g.add(
                                 (
                                     bib_reference,
-                                    bibo.pageEnd,
-                                    Literal(biblScopeUnit["@to"]),
+                                    prism.endingPage,
+                                    Literal(biblScopeUnit["@to"], datatype=XSD.integer),
                                 )
                             )
     return g
 
 
-def get_doi(ref_instance, g, bib_reference, bibo):
+def get_doi(ref_instance, g, bib_reference, datacite):
     if ref_instance.get("analytic", None):
         if ref_instance["analytic"].get("idno", None):
             if not isinstance(ref_instance["analytic"]["idno"], list):
                 if not isinstance(ref_instance["analytic"]["idno"], str):
+                    DOI = "http://dx.doi.org/" + ref_instance["analytic"]["idno"]["#text"][0]                    
                     g.add(
                         (
                             bib_reference,
-                            bibo.doi,
-                            Literal(ref_instance["analytic"]["idno"]["#text"]),
+                            datacite.doi,
+                            Literal(DOI, datatype=XSD.anyURI),
                         )
                     )
             else:
                 for id_type in ref_instance["analytic"]["idno"]:
                     if id_type["@type"] == "DOI":
+                        DOI = "http://dx.doi.org/" + id_type["#text"][0]
                         g.add(
                             (
                                 bib_reference,
-                                bibo.doi,
-                                Literal(id_type["#text"]),
+                                datacite.doi,
+                                Literal(DOI, datatype=XSD.anyURI),
                             )
                         )
                         break
@@ -632,7 +625,8 @@ if __name__ == "__main__":
     c4o = Namespace("http://purl.org/spar/c4o/")
     po = Namespace("http://www.essepuntato.it/2008/12/pattern#")
     deo = Namespace("http://purl.org/spar/deo/")
-    bibo = Namespace("http://purl.org/ontology/bibo/")
+    datacite = Namespace("http://purl.org/spar/datacite/")
+    prism = Namespace("http://prismstandard.org/namespaces/basic/2.0/")
     base_namespace = Namespace(base_uri)
 
     for file_name in os.listdir(output_path):
@@ -643,8 +637,6 @@ if __name__ == "__main__":
         # Create a Graph
         g = Graph()
 
-        # Bind the FOAF namespace to a prefix for more readable output
-        g.bind("foaf", FOAF)
         g.bind("doco", doco)
         g.bind("dcterms", dcterms)
         g.bind("schema", schema)
@@ -652,7 +644,8 @@ if __name__ == "__main__":
         g.bind("c4o", c4o)
         g.bind("po", po)
         g.bind("deo", deo)
-        g.bind("bibo", bibo)
+        g.bind("datacite", datacite)
+        g.bind("prism", prism)
         g.bind("", base_namespace)
 
         paper = URIRef(base_uri + "paper")
@@ -824,21 +817,19 @@ if __name__ == "__main__":
                         g.add((list_item, co.itemContent, bib_reference))
                         g.add((bib_reference, RDF.type, deo.BibliographicReference))
                         # Authors
-                        g = add_authors(ref_instance, g, bib_reference, bibo)
+                        g = add_authors(ref_instance, g, bib_reference)
                         # Title
-                        g = add_title(ref_instance, g, bib_reference, dcterms)
+                        g = add_title(ref_instance, g, bib_reference)
 
                         if ref_instance.get("monogr", None):
                             # Year
-                            g = add_year(ref_instance, g, bib_reference, dcterms)
+                            g = add_year(ref_instance, g, bib_reference)
                             # Venue
-                            g = add_venue(ref_instance, g, bib_reference, dcterms)
+                            g = add_venue(ref_instance, g, bib_reference)
                             # Volumes, issues and pages
-                            g = add_volumes_issues_pages(
-                                ref_instance, g, bib_reference, bibo
-                            )
+                            g = add_volumes_issues_pages(ref_instance, g, bib_reference)
                         # DOI
-                        g = get_doi(ref_instance, g, bib_reference, bibo)
+                        g = get_doi(ref_instance, g, bib_reference)
 
                         first_iter = False
                 g.add((back_matter, po.contains, bibliography))
