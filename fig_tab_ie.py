@@ -169,7 +169,9 @@ def add_volumes_issues_pages(ref_instance, g, bib_reference):
                                 (
                                     bib_reference,
                                     prism.strtingPage,
-                                    Literal(biblScopeUnit["@from"], datatype=XSD.integer),
+                                    Literal(
+                                        biblScopeUnit["@from"], datatype=XSD.integer
+                                    ),
                                 )
                             )
                         if biblScopeUnit.get("@to", None):
@@ -188,7 +190,9 @@ def get_doi(ref_instance, g, bib_reference):
         if ref_instance["analytic"].get("idno", None):
             if not isinstance(ref_instance["analytic"]["idno"], list):
                 if not isinstance(ref_instance["analytic"]["idno"], str):
-                    DOI = "http://dx.doi.org/" + ref_instance["analytic"]["idno"]["#text"]                    
+                    DOI = (
+                        "http://dx.doi.org/" + ref_instance["analytic"]["idno"]["#text"]
+                    )
                     g.add(
                         (
                             bib_reference,
@@ -316,16 +320,12 @@ def parse_sections_with_ref_and_formulas(g, data_dict, objects_dict):
             if section_name != prev_section_name and section_name:
                 match = re.match(r"^([0-9\s.IVX]+) (.*)$", section_name)
                 if match:
-                    section_number, section_name = match.group(
-                        1
-                    ), match.group(2)
+                    section_number, section_name = match.group(1), match.group(2)
                     section_name = section_name.split(". ", 1)[0]
                     section_name = section_number + " " + section_name
                     prev_section_name = section_name
 
-            if not section_name or not any(
-                c.isalpha() for c in section_name
-            ):
+            if not section_name or not any(c.isalpha() for c in section_name):
                 continue
             if not section_number and section_name is not None:
                 match = re.match(r"^([0-9\s.IVX]+) (.*)$", section_name)
@@ -345,9 +345,7 @@ def parse_sections_with_ref_and_formulas(g, data_dict, objects_dict):
                 section_counter += 1
                 g.add(
                     (
-                        section := URIRef(
-                            base_namespace + f"section{section_counter}"
-                        ),
+                        section := URIRef(base_namespace + f"section{section_counter}"),
                         RDF.type,
                         doco.Section,
                     )
@@ -361,9 +359,7 @@ def parse_sections_with_ref_and_formulas(g, data_dict, objects_dict):
                         doco.SectionTitle,
                     )
                 )
-                g.add(
-                    (section_title, c4o.hasContent, Literal(section_name))
-                )
+                g.add((section_title, c4o.hasContent, Literal(section_name)))
                 g.add((section, po.containsAsHeader, section_title))
                 if section_number:
                     g.add(
@@ -390,15 +386,15 @@ def parse_sections_with_ref_and_formulas(g, data_dict, objects_dict):
                                 (
                                     section,
                                     schema.pagination,
-                                    Literal(int(paragraph["head"]["@coords"].split(",")[0])),
+                                    Literal(
+                                        int(paragraph["head"]["@coords"].split(",")[0])
+                                    ),
                                 )
                             )
 
                 sections_dict[(section_name, section_number)] = section
 
-                depth = len(
-                    list(filter(None, str(section_number).split(".")))
-                )
+                depth = len(list(filter(None, str(section_number).split("."))))
                 if depth == 1:
                     if hierarchy[0] == "":
                         g.add(
@@ -481,11 +477,16 @@ def parse_sections_with_ref_and_formulas(g, data_dict, objects_dict):
                         objects_dict,
                     )
                     ref_counter += 1
-                    
+
             if isinstance(section, dict) and "formula" in section:
-                if type(paragraph["formula"]) == dict and "label" in paragraph["formula"]:
+                if (
+                    type(paragraph["formula"]) == dict
+                    and "label" in paragraph["formula"]
+                ):
                     text = paragraph["formula"]["#text"]
-                    label = paragraph["formula"]["label"].replace("(", "").replace(")", "")
+                    label = (
+                        paragraph["formula"]["label"].replace("(", "").replace(")", "")
+                    )
                     parse_formula(g, section, text, label, formula_counter)
                     formula_counter += 1
                 else:
@@ -522,7 +523,7 @@ def parse_reference(
         entity = "BIBREF"
     else:
         return
-    
+
     ref_object = None
 
     if entity in ["Figure", "Table"]:
@@ -539,7 +540,6 @@ def parse_reference(
             id = reference["@target"].replace("#", "")
             g.add((ref_object, dcterms.references, objects_dict[id]))
 
-
     elif entity == "BIBREF" and reference.get("@target"):
         ref_id = "BIBREF" + reference.get("@target").lstrip("#b")
         ref_object = URIRef(base_namespace + f"referenceTo{ref_id}")
@@ -555,9 +555,7 @@ def parse_reference(
         for char in [",", ".", "[", "]", "(", ")"]:
             ref_text = ref_text.replace(char, "")
         ref_text = f"[{ref_text}]"
-        g.add(
-            (ref_object, c4o.hasContent, Literal(ref_text))
-        )
+        g.add((ref_object, c4o.hasContent, Literal(ref_text)))
         g.add(
             (
                 ref_object,
@@ -566,7 +564,7 @@ def parse_reference(
             )
         )
         g.add((bib_reference, RDF.type, deo.BibliographicReference))
-    
+
     if type(reference) == dict and "@coords" in reference and ref_object:
         g.add(
             (
@@ -575,7 +573,6 @@ def parse_reference(
                 Literal(int(reference["@coords"].split(",")[0])),
             )
         )
-
 
 
 def add_list_of_figures(back_matter, objects_dict, base_uri):
@@ -618,7 +615,7 @@ if __name__ == "__main__":
         force=True,
     )
 
-    base_uri = "https://w3id.org/ocs/ont/papers/"
+    base_uri = "https://w3id.org/ocs/kg/papers/"
 
     # Namespaces:
     doco = Namespace("http://purl.org/spar/doco/")
@@ -717,9 +714,7 @@ if __name__ == "__main__":
                             g.add((object_desc, RDF.type, doco.FigureLabel))
 
                         if "@coords" in fig_dict:
-                            object_box = URIRef(
-                                base_uri + f"figure_box_{fig_counter}"
-                            )
+                            object_box = URIRef(base_uri + f"figure_box_{fig_counter}")
                             g.add((object_box, RDF.type, doco.FigureBox))
 
                         if "head" in fig_dict:
@@ -788,7 +783,6 @@ if __name__ == "__main__":
 
                 add_list_of_figures(back_matter, objects_dict, base_uri)
                 parse_sections_with_ref_and_formulas(g, data_dict, objects_dict)
-                
 
             # bibliography
             g.add(
@@ -838,10 +832,7 @@ if __name__ == "__main__":
             g.add((back_matter, co.firstItem, bibliography_list_item := BNode()))
             g.add((bibliography_list_item, co.itemContent, bibliography))
 
-
-            f = open(
-                os.path.join(sys.argv[2], f"{title.replace('/', '_')}.ttl"), "w"
-            )
+            f = open(os.path.join(sys.argv[2], f"{title.replace('/', '_')}.ttl"), "w")
             ret = g.serialize(format="turtle").decode("utf-8")
 
             f.write(ret)
