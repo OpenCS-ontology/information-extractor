@@ -44,7 +44,7 @@ def add_authors(ref_instance, g, bib_reference):
     return g
 
 
-def add_title(ref_instance, g, bib_reference, dcterms):
+def add_title(ref_instance, g, bib_reference):
     if ref_instance.get("analytic", None):
         if ref_instance["analytic"].get("title", None):
             g.add(
@@ -57,7 +57,7 @@ def add_title(ref_instance, g, bib_reference, dcterms):
     return g
 
 
-def add_year(ref_instance, g, bib_reference, dcterms):
+def add_year(ref_instance, g, bib_reference):
     if ref_instance["monogr"].get("imprint", None):
         if ref_instance["monogr"]["imprint"].get("date", None):
             if not isinstance(ref_instance["monogr"]["imprint"]["date"], str):
@@ -65,14 +65,16 @@ def add_year(ref_instance, g, bib_reference, dcterms):
                     year = re.search(
                         r"\b\d{4}\b",
                         ref_instance["monogr"]["imprint"]["date"]["#text"],
-                    ).group()
-                    g.add(
-                        (
-                            bib_reference,
-                            dcterms.issued,
-                            Literal(int(year)),
-                        )
                     )
+                    if year:
+                        year = year.group()
+                        g.add(
+                            (
+                                bib_reference,
+                                dcterms.issued,
+                                Literal(int(year)),
+                            )
+                        )
                 elif ref_instance["monogr"]["imprint"]["date"].get("@when", None):
                     year = re.search(
                         r"\b\d{4}\b",
@@ -88,7 +90,7 @@ def add_year(ref_instance, g, bib_reference, dcterms):
     return g
 
 
-def add_venue(ref_instance, g, bib_reference, dcterms):
+def add_venue(ref_instance, g, bib_reference):
     if ref_instance["monogr"].get("title", None):
         g.add(
             (
@@ -105,7 +107,7 @@ def add_venue(ref_instance, g, bib_reference, dcterms):
     return g
 
 
-def add_volumes_issues_pages(ref_instance, g, bib_reference, prism):
+def add_volumes_issues_pages(ref_instance, g, bib_reference):
     if ref_instance["monogr"].get("imprint", None):
         if ref_instance["monogr"]["imprint"].get("biblScope", None):
             biblScope = ref_instance["monogr"]["imprint"]["biblScope"]
@@ -181,12 +183,12 @@ def add_volumes_issues_pages(ref_instance, g, bib_reference, prism):
     return g
 
 
-def get_doi(ref_instance, g, bib_reference, datacite):
+def get_doi(ref_instance, g, bib_reference):
     if ref_instance.get("analytic", None):
         if ref_instance["analytic"].get("idno", None):
             if not isinstance(ref_instance["analytic"]["idno"], list):
                 if not isinstance(ref_instance["analytic"]["idno"], str):
-                    DOI = "http://dx.doi.org/" + ref_instance["analytic"]["idno"]["#text"][0]                    
+                    DOI = "http://dx.doi.org/" + ref_instance["analytic"]["idno"]["#text"]                    
                     g.add(
                         (
                             bib_reference,
@@ -197,7 +199,7 @@ def get_doi(ref_instance, g, bib_reference, datacite):
             else:
                 for id_type in ref_instance["analytic"]["idno"]:
                     if id_type["@type"] == "DOI":
-                        DOI = "http://dx.doi.org/" + id_type["#text"][0]
+                        DOI = "http://dx.doi.org/" + id_type["#text"]
                         g.add(
                             (
                                 bib_reference,
@@ -560,9 +562,10 @@ def parse_reference(
             (
                 ref_object,
                 dcterms.references,
-                URIRef(base_namespace + ref_id),
+                bib_reference := URIRef(base_namespace + ref_id),
             )
         )
+        g.add((bib_reference, RDF.type, deo.BibliographicReference))
     
     if type(reference) == dict and "@coords" in reference and ref_object:
         g.add(
@@ -657,196 +660,195 @@ if __name__ == "__main__":
         g.add((paper, po.contains, back_matter))
         g.add((back_matter, RDF.type, doco.BackMatter))
 
-        try:
-            with open(file_path, encoding="utf8") as xml_file:
-                data_dict = xmltodict.parse(xml_file.read())
+        # try:
+        with open(file_path, encoding="utf8") as xml_file:
+            data_dict = xmltodict.parse(xml_file.read())
 
-                objects_dict = dict()
+            objects_dict = dict()
 
-                title = (
-                    data_dict["TEI"]["teiHeader"]["fileDesc"]["titleStmt"]["title"]["#text"]
-                    .replace(" ", "_")
-                    .replace(":", "_")
-                )
-                if data_dict["TEI"]["text"]["body"].get("figure", None):
-                    nr_of_figs = len(data_dict["TEI"]["text"]["body"]["figure"])
+            title = (
+                data_dict["TEI"]["teiHeader"]["fileDesc"]["titleStmt"]["title"]["#text"]
+                .replace(" ", "_")
+                .replace(":", "_")
+            )
+            if data_dict["TEI"]["text"]["body"].get("figure", None):
+                nr_of_figs = len(data_dict["TEI"]["text"]["body"]["figure"])
 
-                    fig_counter = 0
-                    table_counter = 0
-                    for i in range(nr_of_figs):
-                        if isinstance(data_dict["TEI"]["text"]["body"]["figure"], list):
-                            fig_dict = data_dict["TEI"]["text"]["body"]["figure"][i]
-                        else:
-                            fig_dict = None
+                fig_counter = 0
+                table_counter = 0
+                for i in range(nr_of_figs):
+                    if isinstance(data_dict["TEI"]["text"]["body"]["figure"], list):
+                        fig_dict = data_dict["TEI"]["text"]["body"]["figure"][i]
+                    else:
+                        fig_dict = None
 
-                        if type(fig_dict) == dict and "@type" in fig_dict:
-                            if fig_dict["@type"] == "table":
-                                object = URIRef(base_uri + f"table_{table_counter}")
-                                g.add((object, RDF.type, doco.Table))
-
-                                if "figDesc" in fig_dict:
-                                    object_desc = URIRef(
-                                        base_uri + f"table_description_{table_counter}"
-                                    )
-                                    g.add((object_desc, RDF.type, doco.TableLabel))
-
-                                if "@coords" in fig_dict:
-                                    object_box = URIRef(
-                                        base_uri + f"table_box_{table_counter}"
-                                    )
-                                    g.add((object_box, RDF.type, doco.TableBox))
-
-                                if "head" in fig_dict:
-                                    object_label = URIRef(
-                                        base_uri + f"table_label_{table_counter}"
-                                    )
-
-                                table_counter += 1
-
-                        elif type(fig_dict) == dict and "@type" not in fig_dict:
-                            object = URIRef(base_uri + f"figure_{fig_counter}")
-                            g.add((object, RDF.type, doco.Figure))
+                    if type(fig_dict) == dict and "@type" in fig_dict:
+                        if fig_dict["@type"] == "table":
+                            object = URIRef(base_uri + f"table_{table_counter}")
+                            g.add((object, RDF.type, doco.Table))
 
                             if "figDesc" in fig_dict:
                                 object_desc = URIRef(
-                                    base_uri + f"figure_description_{fig_counter}"
+                                    base_uri + f"table_description_{table_counter}"
                                 )
-                                g.add((object_desc, RDF.type, doco.FigureLabel))
+                                g.add((object_desc, RDF.type, doco.TableLabel))
 
                             if "@coords" in fig_dict:
                                 object_box = URIRef(
-                                    base_uri + f"figure_box_{fig_counter}"
+                                    base_uri + f"table_box_{table_counter}"
                                 )
-                                g.add((object_box, RDF.type, doco.FigureBox))
+                                g.add((object_box, RDF.type, doco.TableBox))
 
                             if "head" in fig_dict:
                                 object_label = URIRef(
-                                    base_uri + f"figure_label_{fig_counter}"
+                                    base_uri + f"table_label_{table_counter}"
                                 )
 
-                            fig_counter += 1
+                            table_counter += 1
 
-                        if type(fig_dict) == dict and "figDesc" in fig_dict:
-                            g.add((object, po.contains, object_desc))
+                    elif type(fig_dict) == dict and "@type" not in fig_dict:
+                        object = URIRef(base_uri + f"figure_{fig_counter}")
+                        g.add((object, RDF.type, doco.Figure))
 
-                            figDesc = fig_dict["figDesc"]
+                        if "figDesc" in fig_dict:
+                            object_desc = URIRef(
+                                base_uri + f"figure_description_{fig_counter}"
+                            )
+                            g.add((object_desc, RDF.type, doco.FigureLabel))
 
-                            if type(fig_dict["figDesc"]) != str and type(
-                                fig_dict["figDesc"]
-                            ) != type(None):
-                                figDesc = fig_dict["figDesc"]["#text"]
+                        if "@coords" in fig_dict:
+                            object_box = URIRef(
+                                base_uri + f"figure_box_{fig_counter}"
+                            )
+                            g.add((object_box, RDF.type, doco.FigureBox))
 
-                            g.add(
-                                (
-                                    object_desc,
-                                    c4o.hasContent,
-                                    Literal(figDesc),
-                                )
+                        if "head" in fig_dict:
+                            object_label = URIRef(
+                                base_uri + f"figure_label_{fig_counter}"
                             )
 
-                        if type(fig_dict) == dict and "@coords" in fig_dict:
-                            g.add((object, po.contains, object_box))
-                            objects_list = []
-                            for im in fig_dict["@coords"].split(";"):
-                                im = im.replace("'", "")
-                                im = im.split(",")
-                                page = im[0]
-                                im_list = [float(coord) for coord in im[1:]]
-                                objects_list.append(im_list)
+                        fig_counter += 1
 
-                            g.add(
-                                (
-                                    object_box,
-                                    c4o.hasContent,
-                                    Literal(list(objects_list)),
-                                )
-                            )
+                    if type(fig_dict) == dict and "figDesc" in fig_dict:
+                        g.add((object, po.contains, object_desc))
 
-                            g.add((object_box, schema.pagination, Literal(int(page))))
+                        figDesc = fig_dict["figDesc"]
 
-                        if type(fig_dict) == dict and "head" in fig_dict:
-                            g.add((object_label, RDF.type, doco.Label))
+                        if type(fig_dict["figDesc"]) != str and type(
+                            fig_dict["figDesc"]
+                        ) != type(None):
+                            figDesc = fig_dict["figDesc"]["#text"]
 
-                            g.add((object, po.contains, object_label))
-
-                            g.add(
-                                (
-                                    object_label,
-                                    c4o.hasContent,
-                                    Literal(fig_dict["head"]),
-                                )
-                            )
-
-                        if type(fig_dict) == dict and "@xml:id" in fig_dict:
-                            id = fig_dict["@xml:id"]
-
-                            if id not in objects_dict:
-                                objects_dict[id] = object
-
-                    add_list_of_figures(back_matter, objects_dict, base_uri)
-                    parse_sections_with_ref_and_formulas(g, data_dict, objects_dict)
-                    
-
-                # bibliography
-                g.add(
-                    (
-                        bibliography := base_namespace.bibliography,
-                        RDF.type,
-                        doco.Bibliography,
-                    )
-                )
-                g.add((bibliography, co.firstItem, list_item := BNode()))
-                first_iter = True
-                if isinstance(data_dict["TEI"]["text"]["back"]["div"], list):
-                    iterate_over = data_dict["TEI"]["text"]["back"]["div"][1]
-                else:
-                    iterate_over = data_dict["TEI"]["text"]["back"]["div"]
-                if iterate_over.get("listBibl", None):
-                    for ref_instance in iterate_over["listBibl"]["biblStruct"]:
-                        bib_nr = re.search(r"\d+", ref_instance["@xml:id"]).group()
                         g.add(
                             (
-                                bibliography,
-                                po.contains,
-                                bib_reference := base_namespace[f"BIBREF{bib_nr}"],
+                                object_desc,
+                                c4o.hasContent,
+                                Literal(figDesc),
                             )
                         )
-                        if not first_iter:
-                            g.add((list_item, co.nextItem, next_list_item := BNode()))
-                            list_item = next_list_item
-                        g.add((list_item, co.itemContent, bib_reference))
-                        g.add((bib_reference, RDF.type, deo.BibliographicReference))
-                        # Authors
-                        g = add_authors(ref_instance, g, bib_reference)
-                        # Title
-                        g = add_title(ref_instance, g, bib_reference)
 
-                        if ref_instance.get("monogr", None):
-                            # Year
-                            g = add_year(ref_instance, g, bib_reference)
-                            # Venue
-                            g = add_venue(ref_instance, g, bib_reference)
-                            # Volumes, issues and pages
-                            g = add_volumes_issues_pages(ref_instance, g, bib_reference)
-                        # DOI
-                        g = get_doi(ref_instance, g, bib_reference)
+                    if type(fig_dict) == dict and "@coords" in fig_dict:
+                        g.add((object, po.contains, object_box))
+                        objects_list = []
+                        for im in fig_dict["@coords"].split(";"):
+                            im = im.replace("'", "")
+                            im = im.split(",")
+                            page = im[0]
+                            im_list = [float(coord) for coord in im[1:]]
+                            objects_list.append(im_list)
 
-                        first_iter = False
-                g.add((back_matter, po.contains, bibliography))
-                g.add((back_matter, co.firstItem, bibliography_list_item := BNode()))
-                g.add((bibliography_list_item, co.itemContent, bibliography))
+                        g.add(
+                            (
+                                object_box,
+                                c4o.hasContent,
+                                Literal(list(objects_list)),
+                            )
+                        )
 
+                        g.add((object_box, schema.pagination, Literal(int(page))))
 
-                f = open(
-                    os.path.join(sys.argv[2], f"{title.replace('/', '_')}.ttl"), "w"
+                    if type(fig_dict) == dict and "head" in fig_dict:
+                        g.add((object_label, RDF.type, doco.Label))
+
+                        g.add((object, po.contains, object_label))
+
+                        g.add(
+                            (
+                                object_label,
+                                c4o.hasContent,
+                                Literal(fig_dict["head"]),
+                            )
+                        )
+
+                    if type(fig_dict) == dict and "@xml:id" in fig_dict:
+                        id = fig_dict["@xml:id"]
+
+                        if id not in objects_dict:
+                            objects_dict[id] = object
+
+                add_list_of_figures(back_matter, objects_dict, base_uri)
+                parse_sections_with_ref_and_formulas(g, data_dict, objects_dict)
+                
+
+            # bibliography
+            g.add(
+                (
+                    bibliography := base_namespace.bibliography,
+                    RDF.type,
+                    doco.Bibliography,
                 )
-                ret = g.serialize(format="turtle").decode("utf-8")
-
-                f.write(ret)
-                f.close()
-        except:
-            print(
-                f"Processing of file {file_path} failed because there are no figures or grobid didn't succeed in scraping pdf"
             )
+            g.add((bibliography, co.firstItem, list_item := BNode()))
+            first_iter = True
+            if isinstance(data_dict["TEI"]["text"]["back"]["div"], list):
+                iterate_over = data_dict["TEI"]["text"]["back"]["div"][1]
+            else:
+                iterate_over = data_dict["TEI"]["text"]["back"]["div"]
+            if iterate_over.get("listBibl", None):
+                for ref_instance in iterate_over["listBibl"]["biblStruct"]:
+                    bib_nr = re.search(r"\d+", ref_instance["@xml:id"]).group()
+                    g.add(
+                        (
+                            bibliography,
+                            po.contains,
+                            bib_reference := base_namespace[f"BIBREF{bib_nr}"],
+                        )
+                    )
+                    if not first_iter:
+                        g.add((list_item, co.nextItem, next_list_item := BNode()))
+                        list_item = next_list_item
+                    g.add((list_item, co.itemContent, bib_reference))
+                    # Authors
+                    g = add_authors(ref_instance, g, bib_reference)
+                    # Title
+                    g = add_title(ref_instance, g, bib_reference)
+
+                    if ref_instance.get("monogr", None):
+                        # Year
+                        g = add_year(ref_instance, g, bib_reference)
+                        # Venue
+                        g = add_venue(ref_instance, g, bib_reference)
+                        # Volumes, issues and pages
+                        g = add_volumes_issues_pages(ref_instance, g, bib_reference)
+                    # DOI
+                    g = get_doi(ref_instance, g, bib_reference)
+
+                    first_iter = False
+            g.add((back_matter, po.contains, bibliography))
+            g.add((back_matter, co.firstItem, bibliography_list_item := BNode()))
+            g.add((bibliography_list_item, co.itemContent, bibliography))
+
+
+            f = open(
+                os.path.join(sys.argv[2], f"{title.replace('/', '_')}.ttl"), "w"
+            )
+            ret = g.serialize(format="turtle").decode("utf-8")
+
+            f.write(ret)
+            f.close()
+        # except:
+        #     print(
+        #         f"Processing of file {file_path} failed because there are no figures or grobid didn't succeed in scraping pdf"
+        #     )
 
     shutil.rmtree(output_path)
