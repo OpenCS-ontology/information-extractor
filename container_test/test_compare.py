@@ -18,7 +18,8 @@ def are_graphs_equal(g1, g2):
 if __name__ == "__main__":
     test_out = "/container_test/created_ttl"
     test_in_ttl = "/container_test/true_ttl"
-
+    os.mkdir(test_out)
+    print("Searching for the same file")
     for ttl_file in os.listdir(test_in_ttl):
         print(ttl_file)
         final_in_path = os.path.join(test_in_ttl, ttl_file)
