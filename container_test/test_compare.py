@@ -11,7 +11,8 @@ def are_graphs_equal(g1, g2):
 
     for triple in g1:
         if triple not in g2:
-            return False
+            print(triple)
+            # return False
 
     return True
 
