@@ -5,6 +5,7 @@ from rapidfuzz import fuzz
 
 
 def are_graphs_equal(g1, g2):
+    print(len(g1), len(g2))
     if len(g1) != len(g2):
         return False
 
