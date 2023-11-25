@@ -10,8 +10,30 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
+  container-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up containers
+        run: |
+          docker build -t information_extractor_image .
+          docker run -d --name extractor-container information_extractor_image
+
+          sleep 10
+
+      - name: Check if container runs properly
+        run: |
+          docker exec extractor-container bash /container_test/test_script.sh
+
+      - name: Clean up
+        run: |
+          docker stop extractor-container
+          docker rm  extractor-container
   build-and-push-image:
     runs-on: ubuntu-latest
+    needs: container-test
     permissions:
       contents: read
       packages: write
@@ -40,24 +62,4 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-  container-test:
-    runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Set up containers
-        run: |
-          docker build -t information_extractor_image .
-          docker run -d --name extractor-container information_extractor_image
-
-          sleep 10
-
-      - name: Check if container runs properly
-        run: |
-          docker exec extractor-container bash /container_test/test_script.sh
-
-      - name: Clean up
-        run: |
-          docker stop extractor-container
-          docker rm  extractor-container
