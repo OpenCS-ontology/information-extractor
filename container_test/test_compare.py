@@ -4,17 +4,11 @@ import os
 from rapidfuzz import fuzz
 
 
-def are_graphs_equal(g1, g2):
-    print(len(g1), len(g2))
-    if len(g1) != len(g2):
-        return False
+def are_graphs_equal(graph1, graph2):
+    triples1 = set(graph1)
+    triples2 = set(graph2)
 
-    for triple in g1:
-        if triple not in g2:
-            print(triple)
-            # return False
-
-    return True
+    return triples1 == triples2
 
 
 if __name__ == "__main__":
