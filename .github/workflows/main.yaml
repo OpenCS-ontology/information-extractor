@@ -40,6 +40,8 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+  add-grobid:
+    container: foppiano/grobid:0.7.2
   container-test:
     runs-on: ubuntu-latest
     container: ghcr.io/opencs-ontology/information-extractor:main
