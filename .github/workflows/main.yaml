@@ -46,4 +46,4 @@ jobs:
     steps:
       - name: Check if container runs properly
         run: |
-          /container_test/test_script.sh
+          bash /container_test/test_script.sh

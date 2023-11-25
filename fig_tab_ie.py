@@ -125,7 +125,7 @@ def add_volumes_issues_pages(ref_instance, g, bib_reference):
                         (
                             bib_reference,
                             prism.issueIdentifier,
-                            Literal(biblScope["#text"], datatype=XSD.integer),
+                            Literal(biblScope["#text"]),
                         )
                     )
                 if biblScope["@unit"] == "page":
@@ -664,7 +664,9 @@ if __name__ == "__main__":
                 objects_dict = dict()
 
                 title = (
-                    data_dict["TEI"]["teiHeader"]["fileDesc"]["titleStmt"]["title"]["#text"]
+                    data_dict["TEI"]["teiHeader"]["fileDesc"]["titleStmt"]["title"][
+                        "#text"
+                    ]
                     .replace(" ", "_")
                     .replace(":", "_")
                 )
@@ -714,7 +716,9 @@ if __name__ == "__main__":
                                 g.add((object_desc, RDF.type, doco.FigureLabel))
 
                             if "@coords" in fig_dict:
-                                object_box = URIRef(base_uri + f"figure_box_{fig_counter}")
+                                object_box = URIRef(
+                                    base_uri + f"figure_box_{fig_counter}"
+                                )
                                 g.add((object_box, RDF.type, doco.FigureBox))
 
                             if "head" in fig_dict:
@@ -832,7 +836,9 @@ if __name__ == "__main__":
                 g.add((back_matter, co.firstItem, bibliography_list_item := BNode()))
                 g.add((bibliography_list_item, co.itemContent, bibliography))
 
-                f = open(os.path.join(sys.argv[2], f"{title.replace('/', '_')}.ttl"), "w")
+                f = open(
+                    os.path.join(sys.argv[2], f"{title.replace('/', '_')}.ttl"), "w"
+                )
                 ret = g.serialize(format="turtle").decode("utf-8")
 
                 f.write(ret)
