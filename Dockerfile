@@ -18,6 +18,7 @@ RUN apt-get update \
 COPY fig_tab_ie.py /home/fig_tab_ie.py
 COPY merge_ttl_files.py /home/merge_ttl_files.py
 COPY container_run.sh /home/container_run.sh 
+COPY container_test container_test
 RUN mkdir /input_pdf_files
 RUN mkdir /home/output_xml_files
 RUN mkdir /home/input_ttl_files
