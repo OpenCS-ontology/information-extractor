@@ -43,7 +43,7 @@ jobs:
   container-test:
     runs-on: ubuntu-latest
     container: ghcr.io/opencs-ontology/information-extractor:main
-      steps:
-        - name: Check if container runs properly
-          run: |
-            /container_test/test_script.sh
+    steps:
+      - name: Check if container runs properly
+        run: |
+          /container_test/test_script.sh
