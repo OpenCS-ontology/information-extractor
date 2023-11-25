@@ -46,7 +46,7 @@ jobs:
     steps:
       - name: Set up containers
         run: |
-          docker build -t information_extractor_image
+          docker build -t information_extractor_image .
           docker run -d --name extractor-container information_extractor_image
 
           sleep 10
