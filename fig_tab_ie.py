@@ -117,7 +117,7 @@ def add_volumes_issues_pages(ref_instance, g, bib_reference):
                         (
                             bib_reference,
                             prism.volume,
-                            Literal(biblScope["#text"], datatype=XSD.integer),
+                            Literal(biblScope["#text"]),
                         )
                     )
                 if biblScope["@unit"] == "issue":
@@ -134,7 +134,7 @@ def add_volumes_issues_pages(ref_instance, g, bib_reference):
                             (
                                 bib_reference,
                                 prism.startingPage,
-                                Literal(biblScope["@from"], datatype=XSD.integer),
+                                Literal(biblScope["@from"]),
                             )
                         )
                     if biblScope.get("@to", None):
@@ -142,7 +142,7 @@ def add_volumes_issues_pages(ref_instance, g, bib_reference):
                             (
                                 bib_reference,
                                 prism.endingPage,
-                                Literal(biblScope["@to"], datatype=XSD.integer),
+                                Literal(biblScope["@to"]),
                             )
                         )
             else:
@@ -152,7 +152,7 @@ def add_volumes_issues_pages(ref_instance, g, bib_reference):
                             (
                                 bib_reference,
                                 prism.volume,
-                                Literal(biblScopeUnit["#text"], datatype=XSD.integer),
+                                Literal(biblScopeUnit["#text"]),
                             )
                         )  # string because we believe that things like 1-2 may happen
                     if biblScopeUnit["@unit"] == "issue":
@@ -160,7 +160,7 @@ def add_volumes_issues_pages(ref_instance, g, bib_reference):
                             (
                                 bib_reference,
                                 prism.issueIdentifier,
-                                Literal(biblScopeUnit["#text"], datatype=XSD.integer),
+                                Literal(biblScopeUnit["#text"]),
                             )
                         )  # string because we believe that things like 1-2 may happen
                     if biblScopeUnit["@unit"] == "page":
@@ -168,9 +168,9 @@ def add_volumes_issues_pages(ref_instance, g, bib_reference):
                             g.add(
                                 (
                                     bib_reference,
-                                    prism.strtingPage,
+                                    prism.startingPage,
                                     Literal(
-                                        biblScopeUnit["@from"], datatype=XSD.integer
+                                        biblScopeUnit["@from"]
                                     ),
                                 )
                             )
@@ -179,7 +179,7 @@ def add_volumes_issues_pages(ref_instance, g, bib_reference):
                                 (
                                     bib_reference,
                                     prism.endingPage,
-                                    Literal(biblScopeUnit["@to"], datatype=XSD.integer),
+                                    Literal(biblScopeUnit["@to"]),
                                 )
                             )
     return g
