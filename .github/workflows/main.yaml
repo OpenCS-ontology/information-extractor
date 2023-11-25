@@ -46,10 +46,7 @@ jobs:
     steps:
       - name: Set up containers
         run: |
-          # docker pull foppiano/grobid:0.7.2
           docker pull ghcr.io/opencs-ontology/information-extractor:main
-
-          # docker run -d --name grobid-container foppiano/grobid:0.7.2
           docker run -d --name extractor-container ghcr.io/opencs-ontology/information-extractor:main
 
           sleep 10
