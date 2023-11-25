@@ -46,11 +46,10 @@ jobs:
     steps:
       - name: Set up containers
         run: |
-          sleep 60
-          docker pull ghcr.io/opencs-ontology/information-extractor:main
-          docker run -d --name extractor-container ghcr.io/opencs-ontology/information-extractor:main
+          docker build -t information_extractor_image
+          docker run -d --name extractor-container information_extractor_image
 
-          sleep 5
+          sleep 10
 
       - name: Check if container runs properly
         run: |
