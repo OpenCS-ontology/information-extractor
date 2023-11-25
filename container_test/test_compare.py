@@ -2,13 +2,13 @@ import subprocess
 from rdflib import Graph
 import os
 from rapidfuzz import fuzz
+from rdflib.compare import isomorphic
 
 
 def are_graphs_equal(graph1, graph2):
-    triples1 = set(graph1)
-    triples2 = set(graph2)
+    isomorphic_result = isomorphic(graph1, graph2)
 
-    return triples1 == triples2
+    return isomorphic_result
 
 
 if __name__ == "__main__":
