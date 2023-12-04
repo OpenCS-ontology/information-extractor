@@ -1,0 +1,1191 @@
+@prefix : <https://w3id.org/ocs/kg/papers/> .
+@prefix c4o: <http://purl.org/spar/c4o/> .
+@prefix co: <http://purl.org/co/> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix deo: <http://purl.org/spar/deo/> .
+@prefix doco: <http://purl.org/spar/doco/> .
+@prefix po: <http://www.essepuntato.it/2008/12/pattern#> .
+@prefix prism: <http://prismstandard.org/namespaces/basic/2.0/> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:paper po:contains :back_matter,
+        :body_matter .
+
+:ListOfFigures a doco:ListOfFigures ;
+    po:contains :figure_0,
+        :figure_1,
+        :figure_2,
+        :figure_3,
+        :figure_4,
+        :figure_5,
+        :figure_6,
+        :figure_7,
+        :figure_8,
+        :figure_9 .
+
+:ListOfTables a doco:ListOfTables .
+
+:back_matter a doco:BackMatter ;
+    co:firstItem [ co:itemContent :bibliography ] ;
+    po:contains :ListOfFigures,
+        :ListOfTables,
+        :bibliography .
+
+:body_matter a doco:BodyMatter ;
+    co:firstItem [ co:itemContent :section1 ;
+            co:nextItem [ co:itemContent :section2 ;
+                    co:nextItem [ co:itemContent :section3 ;
+                            co:nextItem [ co:itemContent :section4 ;
+                                    co:nextItem [ co:itemContent :section5 ;
+                                            co:nextItem [ co:itemContent :section6 ;
+                                                    co:nextItem [ co:itemContent :section7 ;
+                                                            co:nextItem [ co:itemContent :section8 ;
+                                                                    co:nextItem [ co:itemContent :section9 ;
+                                                                            co:nextItem [ co:itemContent :section10 ;
+                                                                                    co:nextItem [ co:itemContent :section11 ;
+                                                                                            co:nextItem [ co:itemContent :section12 ;
+                                                                                                    co:nextItem [ co:itemContent :section13 ;
+                                                                                                            co:nextItem [ co:itemContent :section14 ;
+                                                                                                                    co:nextItem [ co:itemContent :section15 ;
+                                                                                                                            co:nextItem [ co:itemContent :section16 ;
+                                                                                                                                    co:nextItem [ co:itemContent :section17 ;
+                                                                                                                                            co:nextItem [ co:itemContent :section18 ;
+                                                                                                                                                    co:nextItem [ co:itemContent :section19 ;
+                                                                                                                                                            co:nextItem [ co:itemContent :section20 ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ;
+    po:contains :section1,
+        :section10,
+        :section11,
+        :section12,
+        :section13,
+        :section14,
+        :section15,
+        :section16,
+        :section17,
+        :section18,
+        :section19,
+        :section2,
+        :section20,
+        :section3,
+        :section4,
+        :section5,
+        :section6,
+        :section7,
+        :section8,
+        :section9 .
+
+:figure_1 a doco:Figure ;
+    po:contains :figure_box_1,
+        :figure_description_1,
+        :figure_label_1 .
+
+:figure_3 a doco:Figure ;
+    po:contains :figure_box_3,
+        :figure_description_3,
+        :figure_label_3 .
+
+:figure_7 a doco:Figure ;
+    po:contains :figure_box_7,
+        :figure_description_7,
+        :figure_label_7 .
+
+:figure_box_0 a doco:FigureBox ;
+    c4o:hasContent "[[303.45, 167.58, 244.31, 8.56], [303.45, 176.3, 168.09, 8.81]]" ;
+    schema:pagination 2 .
+
+:figure_box_1 a doco:FigureBox ;
+    c4o:hasContent "[[306.36, 456.26, 109.94, 5.17], [314.5, 464.01, 138.44, 5.17], [314.5, 471.77, 134.37, 5.17], [314.51, 479.52, 69.22, 5.17], [318.58, 487.28, 4.07, 5.17], [318.58, 495.04, 69.22, 5.17], [318.58, 502.79, 65.15, 5.17], [314.5, 510.55, 8.14, 5.17]]" ;
+    schema:pagination 2 .
+
+:figure_box_2 a doco:FigureBox ;
+    c4o:hasContent "[[75.77, 132.82, 187.79, 8.81]]" ;
+    schema:pagination 3 .
+
+:figure_box_3 a doco:FigureBox ;
+    c4o:hasContent "[[311.05, 196.0, 229.12, 8.56]]" ;
+    schema:pagination 4 .
+
+:figure_box_4 a doco:FigureBox ;
+    c4o:hasContent "[[303.45, 189.19, 244.31, 8.81], [303.45, 197.92, 132.03, 8.56], [438.99, 197.58, 4.22, 4.1], [439.43, 203.96, 3.55, 4.68], [446.94, 197.92, 100.82, 8.56], [303.45, 206.64, 100.86, 8.56]]" ;
+    schema:pagination 5 .
+
+:figure_box_5 a doco:FigureBox ;
+    c4o:hasContent "[[303.45, 357.07, 244.31, 8.56], [303.45, 365.8, 33.39, 8.56]]" ;
+    schema:pagination 5 .
+
+:figure_box_6 a doco:FigureBox ;
+    c4o:hasContent "[[318.19, 226.99, 214.84, 8.81], [375.8, 91.38, 97.75, 110.4]]" ;
+    schema:pagination 7 .
+
+:figure_box_7 a doco:FigureBox ;
+    c4o:hasContent "[[105.83, 182.7, 127.66, 8.56], [228.64, 200.24, 177.29, 110.67]]" ;
+    schema:pagination 8 .
+
+:figure_box_8 a doco:FigureBox ;
+    c4o:hasContent "[[303.45, 250.85, 244.31, 8.56], [303.45, 259.58, 244.31, 8.56], [303.45, 268.31, 91.15, 8.56], [178.14, 202.39, 177.29, 110.67]]" ;
+    schema:pagination 8 .
+
+:figure_box_9 a doco:FigureBox ;
+    c4o:hasContent "[[320.31, 414.36, 210.6, 8.56], [437.6, 292.93, 102.81, 90.39]]" ;
+    schema:pagination 8 .
+
+:figure_description_0 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 1.Recursively enumerating the ways that a rectangle A can be partitioned into a union of rectangles, union(B, C)." .
+
+:figure_description_1 a doco:FigureLabel ;
+    c4o:hasContent "partition(A, union(B,C)) :mereology(equal, A, union(Br,Cr)), mereology(discrete_from, Br, Cr), ((B = Br, C = Cr) ; partition(Br, B), partition(Cr, C) )." .
+
+:figure_description_2 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 2. Square partitioning solutions for n = 4, 6, 7, 8, 9." .
+
+:figure_description_3 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 3. Minimum distance circle C can not have diameter less than ε." .
+
+:figure_description_4 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 5. Point p is constrained to lie anywhere to the left of line (a, b). The angle from point b to p about c is fixed at π 2 counter-clockwise. The distance between c, p is not constrained." .
+
+:figure_description_5 a doco:FigureLabel ;
+    c4o:hasContent "Fig.6.Relative orientation encodings for regions and more efficient encodings." .
+
+:figure_description_6 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 9. Consistent tent configuration with n = 7 points: a, . . . , g." .
+
+:figure_description_7 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 10. Contact benchmark problems." .
+
+:figure_description_8 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 12. Space-time history volumes derived from intermediate configurations produced during the solving process. Task requirement is five mutually touching, same-sized circles." .
+
+:figure_description_9 a doco:FigureLabel ;
+    c4o:hasContent "Fig. 13. Lamp shade product design with qualitative constraints." .
+
+:figure_label_0 a doco:Label ;
+    c4o:hasContent "Fig. 1 ." .
+
+:figure_label_1 a doco:Label ;
+    c4o:hasContent "None" .
+
+:figure_label_2 a doco:Label ;
+    c4o:hasContent "Fig. 2 ." .
+
+:figure_label_3 a doco:Label ;
+    c4o:hasContent "Fig. 3 .Fig. 4 ." .
+
+:figure_label_4 a doco:Label ;
+    c4o:hasContent "Fig. 5 ." .
+
+:figure_label_5 a doco:Label ;
+    c4o:hasContent "Fig. 6 ." .
+
+:figure_label_6 a doco:Label ;
+    c4o:hasContent "Fig. 9 ." .
+
+:figure_label_7 a doco:Label ;
+    c4o:hasContent "Fig. 10 .Fig. 11 ." .
+
+:figure_label_8 a doco:Label ;
+    c4o:hasContent "Fig. 12 ." .
+
+:figure_label_9 a doco:Label ;
+    c4o:hasContent "Fig. 13 ." .
+
+:referenceToBIBREF0 a deo:Reference ;
+    dcterms:references :BIBREF0 ;
+    c4o:hasContent "[1]" ;
+    schema:pagination 1 .
+
+:referenceToBIBREF10 a deo:Reference ;
+    dcterms:references :BIBREF10 ;
+    c4o:hasContent "[11]" ;
+    schema:pagination 6 .
+
+:referenceToBIBREF11 a deo:Reference ;
+    dcterms:references :BIBREF11 ;
+    c4o:hasContent "[12]" ;
+    schema:pagination 2 .
+
+:referenceToBIBREF12 a deo:Reference ;
+    dcterms:references :BIBREF12 ;
+    c4o:hasContent "[13]" ;
+    schema:pagination 2 .
+
+:referenceToBIBREF13 a deo:Reference ;
+    dcterms:references :BIBREF13 ;
+    c4o:hasContent "[14]" ;
+    schema:pagination 3 .
+
+:referenceToBIBREF14 a deo:Reference ;
+    dcterms:references :BIBREF14 ;
+    c4o:hasContent "[15]" ;
+    schema:pagination 3 .
+
+:referenceToBIBREF18 a deo:Reference ;
+    dcterms:references :BIBREF18 ;
+    c4o:hasContent "[19]" ;
+    schema:pagination 3 .
+
+:referenceToBIBREF19 a deo:Reference ;
+    dcterms:references :BIBREF19 ;
+    c4o:hasContent "[20]" ;
+    schema:pagination 1 .
+
+:referenceToBIBREF2 a deo:Reference ;
+    dcterms:references :BIBREF2 ;
+    c4o:hasContent "[3]" ;
+    schema:pagination 1,
+        2 .
+
+:referenceToBIBREF20 a deo:Reference ;
+    dcterms:references :BIBREF20 ;
+    c4o:hasContent "[21]" ;
+    schema:pagination 1 .
+
+:referenceToBIBREF21 a deo:Reference ;
+    dcterms:references :BIBREF21 ;
+    c4o:hasContent "[22]" ;
+    schema:pagination 1 .
+
+:referenceToBIBREF22 a deo:Reference ;
+    dcterms:references :BIBREF22 ;
+    c4o:hasContent "[23]" ;
+    schema:pagination 7 .
+
+:referenceToBIBREF23 a deo:Reference ;
+    dcterms:references :BIBREF23 ;
+    c4o:hasContent "[24]" ;
+    schema:pagination 2 .
+
+:referenceToBIBREF24 a deo:Reference ;
+    dcterms:references :BIBREF24 ;
+    c4o:hasContent "[25]" ;
+    schema:pagination 1 .
+
+:referenceToBIBREF27 a deo:Reference ;
+    dcterms:references :BIBREF27 ;
+    c4o:hasContent "[28]" ;
+    schema:pagination 2 .
+
+:referenceToBIBREF28 a deo:Reference ;
+    dcterms:references :BIBREF28 ;
+    c4o:hasContent "[29]" ;
+    schema:pagination 2 .
+
+:referenceToBIBREF29 a deo:Reference ;
+    dcterms:references :BIBREF29 ;
+    c4o:hasContent "[30]" ;
+    schema:pagination 5 .
+
+:referenceToBIBREF3 a deo:Reference ;
+    dcterms:references :BIBREF3 ;
+    c4o:hasContent "[4]" ;
+    schema:pagination 1 .
+
+:referenceToBIBREF30 a deo:Reference ;
+    dcterms:references :BIBREF30 ;
+    c4o:hasContent "[31]" ;
+    schema:pagination 2 .
+
+:referenceToBIBREF32 a deo:Reference ;
+    dcterms:references :BIBREF32 ;
+    c4o:hasContent "[33]" ;
+    schema:pagination 6 .
+
+:referenceToBIBREF4 a deo:Reference ;
+    dcterms:references :BIBREF4 ;
+    c4o:hasContent "[5]" ;
+    schema:pagination 7 .
+
+:referenceToBIBREF5 a deo:Reference ;
+    dcterms:references :BIBREF5 ;
+    c4o:hasContent "[6]" ;
+    schema:pagination 2 .
+
+:referenceToBIBREF6 a deo:Reference ;
+    dcterms:references :BIBREF6 ;
+    c4o:hasContent "[7]" ;
+    schema:pagination 2 .
+
+:referenceToBIBREF7 a deo:Reference ;
+    dcterms:references :BIBREF7 ;
+    c4o:hasContent "[8]" ;
+    schema:pagination 3 .
+
+:reference_30 a deo:Reference ;
+    dcterms:references :figure_0 ;
+    c4o:hasContent "Figure 1" ;
+    schema:pagination 2 .
+
+:reference_31 a deo:Reference ;
+    dcterms:references :figure_2 ;
+    c4o:hasContent "Figure 2" ;
+    schema:pagination 2 .
+
+:reference_42 a deo:Reference ;
+    c4o:hasContent "Table I" ;
+    schema:pagination 3 .
+
+:reference_43 a deo:Reference ;
+    c4o:hasContent "Figure 3" ;
+    schema:pagination 4 .
+
+:reference_45 a deo:Reference ;
+    c4o:hasContent "Figure 4" ;
+    schema:pagination 4 .
+
+:reference_48 a deo:Reference ;
+    dcterms:references :figure_4 ;
+    c4o:hasContent "Figure 5" ;
+    schema:pagination 5 .
+
+:reference_49 a deo:Reference ;
+    dcterms:references :figure_5 ;
+    c4o:hasContent "Figure 6(a)" ;
+    schema:pagination 5 .
+
+:reference_50 a deo:Reference ;
+    dcterms:references :figure_5 ;
+    c4o:hasContent "Figure 6" ;
+    schema:pagination 5 .
+
+:reference_51 a deo:Reference ;
+    dcterms:references :figure_5 ;
+    c4o:hasContent "Figure 6" ;
+    schema:pagination 5 .
+
+:reference_52 a deo:Reference ;
+    c4o:hasContent "Figure 7(a)" ;
+    schema:pagination 5 .
+
+:reference_55 a deo:Reference ;
+    c4o:hasContent "Figure 7" ;
+    schema:pagination 6 .
+
+:reference_56 a deo:Reference ;
+    c4o:hasContent "Figure 8(a)" ;
+    schema:pagination 6 .
+
+:reference_58 a deo:Reference ;
+    dcterms:references :figure_5 ;
+    c4o:hasContent "Figure 6" ;
+    schema:pagination 6 .
+
+:reference_59 a deo:Reference ;
+    c4o:hasContent "Figure 8" ;
+    schema:pagination 6 .
+
+:reference_60 a deo:Reference ;
+    c4o:hasContent "Figure 8" ;
+    schema:pagination 7 .
+
+:reference_69 a deo:Reference ;
+    dcterms:references :figure_6 ;
+    c4o:hasContent "Figure 9" ;
+    schema:pagination 7 .
+
+:reference_70 a deo:Reference ;
+    dcterms:references :figure_0 ;
+    c4o:hasContent "Figure 10" ;
+    schema:pagination 7 .
+
+:reference_71 a deo:Reference ;
+    dcterms:references :figure_0 ;
+    c4o:hasContent "Figure 11" ;
+    schema:pagination 7 .
+
+:reference_72 a deo:Reference ;
+    dcterms:references :figure_0 ;
+    c4o:hasContent "Figure 11" ;
+    schema:pagination 8 .
+
+:reference_75 a deo:Reference ;
+    dcterms:references :figure_8 ;
+    c4o:hasContent "Figure 12" ;
+    schema:pagination 8 .
+
+:reference_76 a deo:Reference ;
+    dcterms:references :figure_9 ;
+    c4o:hasContent "Figure 13" ;
+    schema:pagination 8 .
+
+:sectionLabel1 a doco:SectionLabel ;
+    c4o:hasContent "1." .
+
+:sectionLabel16 a doco:SectionLabel ;
+    c4o:hasContent "4." .
+
+:sectionLabel20 a doco:SectionLabel ;
+    c4o:hasContent "5." .
+
+:sectionLabel4 a doco:SectionLabel ;
+    c4o:hasContent "2." .
+
+:sectionLabel7 a doco:SectionLabel ;
+    c4o:hasContent "3." .
+
+:sectionTitle1 a doco:SectionTitle ;
+    c4o:hasContent "INTRODUCTION" .
+
+:sectionTitle10 a doco:SectionTitle ;
+    c4o:hasContent "B. Point-segment coincidence" .
+
+:sectionTitle11 a doco:SectionTitle ;
+    c4o:hasContent "COIN(p," .
+
+:sectionTitle12 a doco:SectionTitle ;
+    c4o:hasContent "C. Relative Orientation" .
+
+:sectionTitle13 a doco:SectionTitle ;
+    c4o:hasContent "D. Topological relations between circles" .
+
+:sectionTitle14 a doco:SectionTitle ;
+    c4o:hasContent "BRACE(l ab , C" .
+
+:sectionTitle15 a doco:SectionTitle ;
+    c4o:hasContent "E. Egg-yolk approach for defining relations between regions" .
+
+:sectionTitle16 a doco:SectionTitle ;
+    c4o:hasContent "EMPIRICAL EVALUATION" .
+
+:sectionTitle17 a doco:SectionTitle ;
+    c4o:hasContent "A. Tent Benchmark Problem" .
+
+:sectionTitle18 a doco:SectionTitle ;
+    c4o:hasContent "B. Contact problems" .
+
+:sectionTitle19 a doco:SectionTitle ;
+    c4o:hasContent "C. Computer Aided Product Design" .
+
+:sectionTitle2 a doco:SectionTitle ;
+    c4o:hasContent "A. Motivations for utilising geometric constraint solving" .
+
+:sectionTitle20 a doco:SectionTitle ;
+    c4o:hasContent "DISCUSSION AND CONCLUSIONS" .
+
+:sectionTitle3 a doco:SectionTitle ;
+    c4o:hasContent "B. An example of Spatial Reasoning in CLP(QS)" .
+
+:sectionTitle4 a doco:SectionTitle ;
+    c4o:hasContent "SPATIAL REASONING BY POLYNOMIAL ENCODINGS" .
+
+:sectionTitle5 a doco:SectionTitle ;
+    c4o:hasContent "A. Constructive Geometric Constraint Solving" .
+
+:sectionTitle6 a doco:SectionTitle ;
+    c4o:hasContent "B. The Standard Geometric Constraint Language" .
+
+:sectionTitle7 a doco:SectionTitle ;
+    c4o:hasContent "ENCODING QUALITATIVE SPATIAL RELATIONS USING GEOMETRIC CONSTRAINT LANGUAGES" .
+
+:sectionTitle8 a doco:SectionTitle ;
+    c4o:hasContent "A. Minimum distance" .
+
+:sectionTitle9 a doco:SectionTitle ;
+    c4o:hasContent "MDIST(C) ≡" .
+
+:bibliography a doco:Bibliography ;
+    co:firstItem [ co:itemContent :BIBREF0 ;
+            co:nextItem [ co:itemContent :BIBREF1 ;
+                    co:nextItem [ co:itemContent :BIBREF2 ;
+                            co:nextItem [ co:itemContent :BIBREF3 ;
+                                    co:nextItem [ co:itemContent :BIBREF4 ;
+                                            co:nextItem [ co:itemContent :BIBREF5 ;
+                                                    co:nextItem [ co:itemContent :BIBREF6 ;
+                                                            co:nextItem [ co:itemContent :BIBREF7 ;
+                                                                    co:nextItem [ co:itemContent :BIBREF8 ;
+                                                                            co:nextItem [ co:itemContent :BIBREF9 ;
+                                                                                    co:nextItem [ co:itemContent :BIBREF10 ;
+                                                                                            co:nextItem [ co:itemContent :BIBREF11 ;
+                                                                                                    co:nextItem [ co:itemContent :BIBREF12 ;
+                                                                                                            co:nextItem [ co:itemContent :BIBREF13 ;
+                                                                                                                    co:nextItem [ co:itemContent :BIBREF14 ;
+                                                                                                                            co:nextItem [ co:itemContent :BIBREF15 ;
+                                                                                                                                    co:nextItem [ co:itemContent :BIBREF16 ;
+                                                                                                                                            co:nextItem [ co:itemContent :BIBREF17 ;
+                                                                                                                                                    co:nextItem [ co:itemContent :BIBREF18 ;
+                                                                                                                                                            co:nextItem [ co:itemContent :BIBREF19 ;
+                                                                                                                                                                    co:nextItem [ co:itemContent :BIBREF20 ;
+                                                                                                                                                                            co:nextItem [ co:itemContent :BIBREF21 ;
+                                                                                                                                                                                    co:nextItem [ co:itemContent :BIBREF22 ;
+                                                                                                                                                                                            co:nextItem [ co:itemContent :BIBREF23 ;
+                                                                                                                                                                                                    co:nextItem [ co:itemContent :BIBREF24 ;
+                                                                                                                                                                                                            co:nextItem [ co:itemContent :BIBREF25 ;
+                                                                                                                                                                                                                    co:nextItem [ co:itemContent :BIBREF26 ;
+                                                                                                                                                                                                                            co:nextItem [ co:itemContent :BIBREF27 ;
+                                                                                                                                                                                                                                    co:nextItem [ co:itemContent :BIBREF28 ;
+                                                                                                                                                                                                                                            co:nextItem [ co:itemContent :BIBREF29 ;
+                                                                                                                                                                                                                                                    co:nextItem [ co:itemContent :BIBREF30 ;
+                                                                                                                                                                                                                                                            co:nextItem [ co:itemContent :BIBREF31 ;
+                                                                                                                                                                                                                                                                    co:nextItem [ co:itemContent :BIBREF32 ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ;
+    po:contains :BIBREF0,
+        :BIBREF1,
+        :BIBREF10,
+        :BIBREF11,
+        :BIBREF12,
+        :BIBREF13,
+        :BIBREF14,
+        :BIBREF15,
+        :BIBREF16,
+        :BIBREF17,
+        :BIBREF18,
+        :BIBREF19,
+        :BIBREF2,
+        :BIBREF20,
+        :BIBREF21,
+        :BIBREF22,
+        :BIBREF23,
+        :BIBREF24,
+        :BIBREF25,
+        :BIBREF26,
+        :BIBREF27,
+        :BIBREF28,
+        :BIBREF29,
+        :BIBREF3,
+        :BIBREF30,
+        :BIBREF31,
+        :BIBREF32,
+        :BIBREF4,
+        :BIBREF5,
+        :BIBREF6,
+        :BIBREF7,
+        :BIBREF8,
+        :BIBREF9 .
+
+:figure_2 a doco:Figure ;
+    po:contains :figure_box_2,
+        :figure_description_2,
+        :figure_label_2 .
+
+:figure_4 a doco:Figure ;
+    po:contains :figure_box_4,
+        :figure_description_4,
+        :figure_label_4 .
+
+:figure_6 a doco:Figure ;
+    po:contains :figure_box_6,
+        :figure_description_6,
+        :figure_label_6 .
+
+:figure_8 a doco:Figure ;
+    po:contains :figure_box_8,
+        :figure_description_8,
+        :figure_label_8 .
+
+:figure_9 a doco:Figure ;
+    po:contains :figure_box_9,
+        :figure_description_9,
+        :figure_label_9 .
+
+:referenceToBIBREF1 a deo:Reference ;
+    dcterms:references :BIBREF1 ;
+    c4o:hasContent "[2]" ;
+    schema:pagination 2 .
+
+:referenceToBIBREF16 a deo:Reference ;
+    dcterms:references :BIBREF16 ;
+    c4o:hasContent "[17]" ;
+    schema:pagination 2,
+        8 .
+
+:referenceToBIBREF17 a deo:Reference ;
+    dcterms:references :BIBREF17 ;
+    c4o:hasContent "[18]" ;
+    schema:pagination 2,
+        8 .
+
+:referenceToBIBREF25 a deo:Reference ;
+    dcterms:references :BIBREF25 ;
+    c4o:hasContent "[26]" ;
+    schema:pagination 1,
+        7 .
+
+:referenceToBIBREF26 a deo:Reference ;
+    dcterms:references :BIBREF26 ;
+    c4o:hasContent "[27]" ;
+    schema:pagination 2,
+        3 .
+
+:referenceToBIBREF31 a deo:Reference ;
+    dcterms:references :BIBREF31 ;
+    c4o:hasContent "[32]" ;
+    schema:pagination 2 .
+
+:referenceToBIBREF9 a deo:Reference ;
+    dcterms:references :BIBREF9 ;
+    c4o:hasContent "[10]" ;
+    schema:pagination 3 .
+
+:section1 a doco:Section ;
+    po:contains :referenceToBIBREF0,
+        :referenceToBIBREF1,
+        :referenceToBIBREF19,
+        :referenceToBIBREF2,
+        :referenceToBIBREF20,
+        :referenceToBIBREF21,
+        :referenceToBIBREF23,
+        :referenceToBIBREF24,
+        :referenceToBIBREF25,
+        :referenceToBIBREF27,
+        :referenceToBIBREF28,
+        :referenceToBIBREF3,
+        :referenceToBIBREF30,
+        :referenceToBIBREF31,
+        :referenceToBIBREF5,
+        :referenceToBIBREF6,
+        :sectionLabel1 ;
+    po:containsAsHeader :sectionTitle1 .
+
+:section10 a doco:Section ;
+    po:contains :reference_45 ;
+    po:containsAsHeader :sectionTitle10 .
+
+:section11 a doco:Section ;
+    po:containsAsHeader :sectionTitle11 .
+
+:section12 a doco:Section ;
+    po:contains :referenceToBIBREF15,
+        :referenceToBIBREF8,
+        :reference_48,
+        :reference_49,
+        :reference_50,
+        :reference_51 ;
+    po:containsAsHeader :sectionTitle12 .
+
+:section13 a doco:Section ;
+    po:contains :reference_52 ;
+    po:containsAsHeader :sectionTitle13 .
+
+:section14 a doco:Section ;
+    po:contains :referenceToBIBREF29 ;
+    po:containsAsHeader :sectionTitle14 .
+
+:section15 a doco:Section ;
+    po:contains :referenceToBIBREF10,
+        :referenceToBIBREF32,
+        :reference_55,
+        :reference_56,
+        :reference_58,
+        :reference_59,
+        :reference_60 ;
+    po:containsAsHeader :sectionTitle15 .
+
+:section16 a doco:Section ;
+    po:contains :referenceToBIBREF8,
+        :sectionLabel16 ;
+    po:containsAsHeader :sectionTitle16 .
+
+:section17 a doco:Section ;
+    po:contains :referenceToBIBREF22,
+        :referenceToBIBREF25,
+        :referenceToBIBREF4,
+        :reference_69 ;
+    po:containsAsHeader :sectionTitle17 .
+
+:section18 a doco:Section ;
+    po:contains :referenceToBIBREF16,
+        :referenceToBIBREF17,
+        :reference_70,
+        :reference_71,
+        :reference_72,
+        :reference_75 ;
+    po:containsAsHeader :sectionTitle18 .
+
+:section19 a doco:Section ;
+    po:contains :reference_76 ;
+    po:containsAsHeader :sectionTitle19 .
+
+:section2 a doco:Section ;
+    po:contains :referenceToBIBREF1,
+        :referenceToBIBREF11,
+        :referenceToBIBREF12,
+        :referenceToBIBREF15,
+        :referenceToBIBREF16,
+        :referenceToBIBREF17,
+        :referenceToBIBREF26 ;
+    po:containsAsHeader :sectionTitle2 .
+
+:section20 a doco:Section ;
+    po:contains :sectionLabel20 ;
+    po:containsAsHeader :sectionTitle20 .
+
+:section3 a doco:Section ;
+    po:contains :referenceToBIBREF31,
+        :reference_30,
+        :reference_31 ;
+    po:containsAsHeader :sectionTitle3 .
+
+:section4 a doco:Section ;
+    po:contains :referenceToBIBREF9,
+        :sectionLabel4 ;
+    po:containsAsHeader :sectionTitle4 .
+
+:section5 a doco:Section ;
+    po:contains :referenceToBIBREF13,
+        :referenceToBIBREF14,
+        :referenceToBIBREF15,
+        :referenceToBIBREF18,
+        :referenceToBIBREF26,
+        :referenceToBIBREF7,
+        :referenceToBIBREF9 ;
+    po:containsAsHeader :sectionTitle5 .
+
+:section6 a doco:Section ;
+    po:contains :reference_42 ;
+    po:containsAsHeader :sectionTitle6 .
+
+:section7 a doco:Section ;
+    po:contains :sectionLabel7 ;
+    po:containsAsHeader :sectionTitle7 .
+
+:section8 a doco:Section ;
+    po:contains :reference_43 ;
+    po:containsAsHeader :sectionTitle8 .
+
+:section9 a doco:Section ;
+    po:contains :referenceToBIBREF8 ;
+    po:containsAsHeader :sectionTitle9 .
+
+:BIBREF0 a deo:BibliographicReference ;
+    dcterms:issued 2007 ;
+    dcterms:publisher [ schema:name "Handbook of Spatial Logics" ] .
+
+:BIBREF1 a deo:BibliographicReference ;
+    prism:endingPage "877" ;
+    prism:issueIdentifier "4" ;
+    prism:startingPage "865" ;
+    prism:volume "13" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Arnon" ;
+            schema:givenName "Dennis" ],
+        [ a schema:Person ;
+            schema:familyName "Collins" ;
+            schema:givenName "George" ],
+        [ a schema:Person ;
+            schema:familyName "Mccallum" ;
+            schema:givenName "Scott" ] ;
+    dcterms:issued 1984 ;
+    dcterms:publisher [ schema:name "SIAM Journal on Computing" ] ;
+    dcterms:title "Cylindrical Algebraic Decomposition I: The Basic Algorithm" ;
+    datacite:doi "http://dx.doi.org/10.1137/0213054"^^xsd:anyURI .
+
+:BIBREF10 a deo:BibliographicReference ;
+    prism:endingPage "187" ;
+    prism:startingPage "171" ;
+    prism:volume "2" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Gotts" ;
+            schema:givenName "N" ],
+        [ a schema:Person ;
+            schema:familyName "Cohn" ;
+            schema:givenName "A" ] ;
+    dcterms:issued 1996 ;
+    dcterms:publisher [ schema:name "Geographic Objects with Indeterminate Boundaries" ] ;
+    dcterms:title "The ‘Egg-Yolk’ Representation of Regions with Indeterminate Boundaries" ;
+    datacite:doi "http://dx.doi.org/10.1201/9781003062660-16"^^xsd:anyURI .
+
+:BIBREF11 a deo:BibliographicReference ;
+    prism:endingPage "183" ;
+    prism:startingPage "134" ;
+    dcterms:creator [ a schema:Person ] ;
+    dcterms:issued 1975 ;
+    dcterms:publisher [ schema:name "Lecture Notes in Computer Science" ] ;
+    dcterms:title "Quantifier elimination for real closed fields by cylindrical algebraic decompostion" ;
+    datacite:doi "http://dx.doi.org/10.1007/3-540-07407-4_17"^^xsd:anyURI .
+
+:BIBREF12 a deo:BibliographicReference ;
+    prism:endingPage "328" ;
+    prism:issueIdentifier "3" ;
+    prism:startingPage "299" ;
+    prism:volume "12" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Collins" ;
+            schema:givenName "George" ],
+        [ a schema:Person ;
+            schema:familyName "Hong" ;
+            schema:givenName "Hoon" ] ;
+    dcterms:issued 1991 ;
+    dcterms:publisher [ schema:name "Journal of Symbolic Computation" ] ;
+    dcterms:title "Partial Cylindrical Algebraic Decomposition for quantifier elimination" ;
+    datacite:doi "http://dx.doi.org/10.1016/s0747-7171(08)80152-6"^^xsd:anyURI .
+
+:BIBREF13 a deo:BibliographicReference ;
+    prism:endingPage "122" ;
+    prism:issueIdentifier "2" ;
+    prism:startingPage "115" ;
+    prism:volume "30" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Gao" ;
+            schema:givenName "Xiao-Shan" ],
+        [ a schema:Person ;
+            schema:familyName "Chou" ;
+            schema:givenName "Shang-Ching" ] ;
+    dcterms:issued 1998 ;
+    dcterms:publisher [ schema:name "Computer-Aided Design" ] ;
+    dcterms:title "Solving geometric constraint systems. II. A symbolic approach and decision of Rc-constructibility" ;
+    datacite:doi "http://dx.doi.org/10.1016/s0010-4485(97)00055-9"^^xsd:anyURI .
+
+:BIBREF14 a deo:BibliographicReference ;
+    prism:endingPage "54" ;
+    prism:issueIdentifier "1" ;
+    prism:startingPage "47" ;
+    prism:volume "30" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Chou" ;
+            schema:givenName "Shang-Ching" ],
+        [ a schema:Person ;
+            schema:familyName "Gao" ;
+            schema:givenName "Xiao-Shan" ] ;
+    dcterms:issued 1998 ;
+    dcterms:publisher [ schema:name "Computer-Aided Design" ] ;
+    dcterms:title "Solving geometric constraint systems. I. A global propagation approach" ;
+    datacite:doi "http://dx.doi.org/10.1016/s0010-4485(97)00052-3"^^xsd:anyURI .
+
+:BIBREF15 a deo:BibliographicReference ;
+    prism:endingPage "879" ;
+    prism:issueIdentifier "14" ;
+    prism:startingPage "867" ;
+    prism:volume "31" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Chou" ;
+            schema:givenName "Shang-Ching" ],
+        [ a schema:Person ;
+            schema:familyName "Ge" ;
+            schema:givenName "Jian-Xin" ],
+        [ a schema:Person ;
+            schema:familyName "Gao" ;
+            schema:givenName "Xiao-Shan" ] ;
+    dcterms:issued 1999 ;
+    dcterms:publisher [ schema:name "Computer-Aided Design" ] ;
+    dcterms:title "Geometric constraint satisfaction using optimization methods" ;
+    datacite:doi "http://dx.doi.org/10.1016/s0010-4485(99)00074-3"^^xsd:anyURI .
+
+:BIBREF16 a deo:BibliographicReference ;
+    dcterms:creator [ a schema:Person ] ;
+    dcterms:issued 1985 ;
+    dcterms:publisher [ schema:name "Formal Theories of the Commonsense World" ] ;
+    dcterms:title "The second naive physics manifesto" .
+
+:BIBREF17 a deo:BibliographicReference ;
+    dcterms:issued 2005 ;
+    dcterms:publisher [ schema:name "Cohn, Prof. Anthony George, (born 19 Aug. 1954), Professor of Automated Reasoning, School of Computing, University of Leeds, since 1996" ] .
+
+:BIBREF18 a deo:BibliographicReference ;
+    prism:volume "1" ;
+    dcterms:creator [ a schema:Person ] ;
+    dcterms:issued 1956 ;
+    dcterms:publisher [ schema:name "The thirteen books of Euclid's Elements" ] .
+
+:BIBREF19 a deo:BibliographicReference ;
+    dcterms:issued 1988 ;
+    dcterms:publisher [ schema:name "Geometric Reasoning" ] .
+
+:BIBREF2 a deo:BibliographicReference ;
+    prism:endingPage "230" ;
+    prism:startingPage "210" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Schultz" ;
+            schema:givenName "Carl" ],
+        [ a schema:Person ;
+            schema:familyName "Lee" ;
+            schema:givenName "Jae" ],
+        [ a schema:Person ;
+            schema:familyName "Bhatt" ;
+            schema:givenName "Mehul" ] ;
+    dcterms:issued 2011 ;
+    dcterms:publisher [ schema:name "Spatial Information Theory" ] ;
+    dcterms:title "CLP(QS): A Declarative Spatial Reasoning Framework" ;
+    datacite:doi "http://dx.doi.org/10.1007/978-3-642-23196-4_12"^^xsd:anyURI .
+
+:BIBREF20 a deo:BibliographicReference ;
+    prism:endingPage "469" ;
+    prism:issueIdentifier "3" ;
+    prism:startingPage "435" ;
+    prism:volume "41" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Ladkin" ;
+            schema:givenName "Peter" ],
+        [ a schema:Person ;
+            schema:familyName "Maddux" ;
+            schema:givenName "Roger" ] ;
+    dcterms:issued 1994 ;
+    dcterms:publisher [ schema:name "Journal of the ACM" ] ;
+    dcterms:title "On binary constraint problems" ;
+    datacite:doi "http://dx.doi.org/10.1145/176584.176585"^^xsd:anyURI .
+
+:BIBREF21 a deo:BibliographicReference ;
+    dcterms:creator [ a schema:Person ] ;
+    dcterms:issued 2014 ;
+    dcterms:publisher [ schema:name "Proceedings of the 2014 6th International Conference on Electronics, Computers and Artificial Intelligence (ECAI)" ] ;
+    dcterms:title "Keynotes" ;
+    datacite:doi "http://dx.doi.org/10.1109/ecai.2014.7090137"^^xsd:anyURI .
+
+:BIBREF22 a deo:BibliographicReference ;
+    prism:volume "27" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Wolter" ;
+            schema:givenName "D" ],
+        [ a schema:Person ;
+            schema:familyName "Lee" ;
+            schema:givenName "J" ] ;
+    dcterms:issued 2011 ;
+    dcterms:publisher [ schema:name "IJCAI-2011 Workshop" ] ;
+    dcterms:title "A new perspective on reasoning with qualitative spatial knowledge" .
+
+:BIBREF23 a deo:BibliographicReference ;
+    prism:endingPage "108" ;
+    prism:issueIdentifier "2" ;
+    prism:startingPage "97" ;
+    prism:volume "34" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Li" ;
+            schema:givenName "Yan-Tao" ],
+        [ a schema:Person ;
+            schema:familyName "Sun" ;
+            schema:givenName "Jia-Guang" ],
+        [ a schema:Person ;
+            schema:familyName "Hu" ;
+            schema:givenName "Shi-Min" ] ;
+    dcterms:issued 2002 ;
+    dcterms:publisher [ schema:name "Computer-Aided Design" ] ;
+    dcterms:title "A constructive approach to solving 3-D geometric constraint systems using dependence analysis" ;
+    datacite:doi "http://dx.doi.org/10.1016/s0010-4485(01)00054-9"^^xsd:anyURI .
+
+:BIBREF24 a deo:BibliographicReference ;
+    dcterms:issued 2011 ;
+    dcterms:publisher [ schema:name "Qualitative Spatial and Temporal Reasoning" ] .
+
+:BIBREF25 a deo:BibliographicReference ;
+    prism:endingPage "68" ;
+    prism:startingPage "54" ;
+    dcterms:creator [ a schema:Person ] ;
+    dcterms:issued 1993 ;
+    dcterms:publisher [ schema:name "Lecture Notes in Computer Science" ] ;
+    dcterms:title "Qualitative triangulation for spatial reasoning" ;
+    datacite:doi "http://dx.doi.org/10.1007/3-540-57207-4_5"^^xsd:anyURI .
+
+:BIBREF26 a deo:BibliographicReference ;
+    prism:endingPage "407" ;
+    prism:startingPage "397" ;
+    dcterms:creator [ a schema:Person ] ;
+    dcterms:issued 1991 ;
+    dcterms:publisher [ schema:name "Proceedings of the first ACM symposium on Solid modeling foundations and CAD/CAM applications - SMA '91" ] ;
+    dcterms:title "Algebraic solution for geometry from dimensional constraints" ;
+    datacite:doi "http://dx.doi.org/10.1145/112515.112573"^^xsd:anyURI .
+
+:BIBREF27 a deo:BibliographicReference ;
+    prism:endingPage "108" ;
+    prism:startingPage "95" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Pesant" ;
+            schema:givenName "Gilles" ],
+        [ a schema:Person ;
+            schema:familyName "Boyer" ;
+            schema:givenName "Michel" ] ;
+    dcterms:issued 1994 ;
+    dcterms:publisher [ schema:name "Lecture Notes in Computer Science" ] ;
+    dcterms:title "QUAD-CLP(R): Adding the power of quadratic constraints" ;
+    datacite:doi "http://dx.doi.org/10.1007/3-540-58601-6_93"^^xsd:anyURI .
+
+:BIBREF28 a deo:BibliographicReference ;
+    prism:endingPage "262" ;
+    prism:issueIdentifier "3" ;
+    prism:startingPage "241" ;
+    prism:volume "22" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Boyer" ;
+            schema:givenName "Michel" ],
+        [ a schema:Person ;
+            schema:familyName "Pesant" ;
+            schema:givenName "Gilles" ] ;
+    dcterms:issued 1999 ;
+    dcterms:publisher [ schema:name "Journal of Automated Reasoning" ] ;
+    dcterms:title "Reasoning about solids using constraint logic programming" ;
+    datacite:doi "http://dx.doi.org/10.1023/a:1006080931326"^^xsd:anyURI .
+
+:BIBREF29 a deo:BibliographicReference ;
+    prism:endingPage "176" ;
+    prism:startingPage "165" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Randell" ;
+            schema:givenName "D" ],
+        [ a schema:Person ;
+            schema:familyName "Cohn" ;
+            schema:givenName "A" ],
+        [ a schema:Person ;
+            schema:familyName "Cui" ;
+            schema:givenName "Z" ] ;
+    dcterms:issued 1992 ;
+    dcterms:publisher [ schema:name "KR'92. Principles of Knowledge Representation and Reasoning" ] ;
+    dcterms:title "A spatial logic based on regions and connection" .
+
+:BIBREF3 a deo:BibliographicReference ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Schultz" ;
+            schema:givenName "C" ],
+        [ a schema:Person ;
+            schema:familyName "Freksa" ;
+            schema:givenName "C" ],
+        [ a schema:Person ;
+            schema:familyName "Bhatt" ;
+            schema:givenName "M" ] ;
+    dcterms:issued 2013 ;
+    dcterms:publisher [ schema:name "Representing space in cognition: Interrelations of behavior, language, and formal models. Series: Explorations in Language and Space" ] ;
+    dcterms:title "The 'Space' in Spatial Assistance Systems: Conception, Formalisation and Computation" .
+
+:BIBREF30 a deo:BibliographicReference ;
+    prism:endingPage "203" ;
+    prism:issueIdentifier "2" ;
+    prism:startingPage "177" ;
+    prism:volume "26" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Schultz" ;
+            schema:givenName "Carl" ],
+        [ a schema:Person ;
+            schema:familyName "Bhatt" ;
+            schema:givenName "Mehul" ] ;
+    dcterms:issued 2012 ;
+    dcterms:publisher [ schema:name "Artificial Intelligence for Engineering Design, Analysis and Manufacturing" ] ;
+    dcterms:title "Multimodal spatial data access for architecture design assistance" ;
+    datacite:doi "http://dx.doi.org/10.1017/s0890060412000066"^^xsd:anyURI .
+
+:BIBREF31 a deo:BibliographicReference ;
+    prism:endingPage "800" ;
+    prism:startingPage "795" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Schultz" ;
+            schema:givenName "C" ],
+        [ a schema:Person ;
+            schema:familyName "Bhatt" ;
+            schema:givenName "M" ] ;
+    dcterms:issued 2014 ;
+    dcterms:publisher [ schema:name "ECAI 2014 -21st European Conference on Artificial Intelligence" ] ;
+    dcterms:title "Declarative spatial reasoning with boolean combinations of axis-aligned rectangular polytopes" .
+
+:BIBREF32 a deo:BibliographicReference ;
+    prism:endingPage "198" ;
+    prism:startingPage "151" ;
+    dcterms:creator [ a schema:Person ] ;
+    dcterms:issued 1999 ;
+    dcterms:publisher [ schema:name "Geometry" ] ;
+    dcterms:title "Projective Geometry: conics" ;
+    datacite:doi "http://dx.doi.org/10.1017/cbo9780511807503.006"^^xsd:anyURI .
+
+:BIBREF4 a deo:BibliographicReference ;
+    prism:endingPage "111" ;
+    prism:issueIdentifier "1" ;
+    prism:startingPage "109" ;
+    prism:volume "30" ;
+    dcterms:creator [ a schema:Person ] ;
+    dcterms:issued 2009 ;
+    dcterms:publisher [ schema:name "Artificial Intelligence" ] ;
+    dcterms:title "Call for papers: IJCAI-87 international joint conference on artificial intelligence" ;
+    datacite:doi "http://dx.doi.org/10.1016/0004-3702(86)90069-x"^^xsd:anyURI .
+
+:BIBREF5 a deo:BibliographicReference ;
+    prism:endingPage "288" ;
+    prism:startingPage "274" ;
+    dcterms:creator [ a schema:Person ] ;
+    dcterms:issued 1996 ;
+    dcterms:publisher [ schema:name "Artificial Intelligence and Symbolic Mathematical Computation" ] ;
+    dcterms:title "Solving geometrical constraint systems using CLP based on linear constraint solver" ;
+    datacite:doi "http://dx.doi.org/10.1007/3-540-61732-9_63"^^xsd:anyURI .
+
+:BIBREF6 a deo:BibliographicReference ;
+    prism:endingPage "405" ;
+    prism:issueIdentifier "4" ;
+    prism:startingPage "383" ;
+    prism:volume "4" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Cohen" ;
+            schema:givenName "J" ],
+        [ a schema:Person ;
+            schema:familyName "Trilling" ;
+            schema:givenName "L" ],
+        [ a schema:Person ;
+            schema:familyName "Bouhineau" ;
+            schema:givenName "D" ] ;
+    dcterms:issued 1999 ;
+    dcterms:publisher [ schema:name "Constraints" ] ;
+    dcterms:title "An application of CLP: Checking the correctness of theorems in geometry" .
+
+:BIBREF7 a deo:BibliographicReference ;
+    prism:endingPage "501" ;
+    prism:issueIdentifier "6" ;
+    prism:startingPage "487" ;
+    prism:volume "27" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Paige" ;
+            schema:givenName "Robert" ],
+        [ a schema:Person ;
+            schema:familyName "Hoffmann" ;
+            schema:givenName "Christoph" ],
+        [ a schema:Person ;
+            schema:familyName "Bouma" ;
+            schema:givenName "William" ],
+        [ a schema:Person ;
+            schema:familyName "Fudos" ;
+            schema:givenName "Ioannis" ],
+        [ a schema:Person ;
+            schema:familyName "Cai" ;
+            schema:givenName "Jiazhen" ] ;
+    dcterms:issued 1995 ;
+    dcterms:publisher [ schema:name "Computer-Aided Design" ] ;
+    dcterms:title "Geometric constraint solver" ;
+    datacite:doi "http://dx.doi.org/10.1016/0010-4485(94)00013-4"^^xsd:anyURI .
+
+:BIBREF8 a deo:BibliographicReference ;
+    prism:endingPage "1208" ;
+    prism:issueIdentifier "5" ;
+    prism:startingPage "1190" ;
+    prism:volume "16" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Byrd" ;
+            schema:givenName "Richard" ],
+        [ a schema:Person ;
+            schema:familyName "Zhu" ;
+            schema:givenName "Ciyou" ],
+        [ a schema:Person ;
+            schema:familyName "Lu" ;
+            schema:givenName "Peihuang" ],
+        [ a schema:Person ;
+            schema:familyName "Nocedal" ;
+            schema:givenName "Jorge" ] ;
+    dcterms:issued 1995 ;
+    dcterms:publisher [ schema:name "SIAM Journal on Scientific Computing" ] ;
+    dcterms:title "A Limited Memory Algorithm for Bound Constrained Optimization" ;
+    datacite:doi "http://dx.doi.org/10.1137/0916069"^^xsd:anyURI .
+
+:BIBREF9 a deo:BibliographicReference ;
+    prism:endingPage "89" ;
+    prism:startingPage "75" ;
+    prism:volume "41" ;
+    dcterms:creator [ a schema:Person ] ;
+    dcterms:issued 1988 ;
+    dcterms:publisher [ schema:name "Mechanical Geometry Theorem Proving" ] ;
+    dcterms:title "Geometry Theorem Proving Using The Gröbner Basis Method" ;
+    datacite:doi "http://dx.doi.org/10.1007/978-94-009-4037-6_5"^^xsd:anyURI .
+
+:referenceToBIBREF15 a deo:Reference ;
+    dcterms:references :BIBREF15 ;
+    c4o:hasContent "[16]" ;
+    schema:pagination 2,
+        3,
+        5 .
+
+:referenceToBIBREF8 a deo:Reference ;
+    dcterms:references :BIBREF8 ;
+    c4o:hasContent "[9]" ;
+    schema:pagination 4,
+        5,
+        7 .
+
+:figure_0 a doco:Figure ;
+    po:contains :figure_box_0,
+        :figure_description_0,
+        :figure_label_0 .
+
+:figure_5 a doco:Figure ;
+    po:contains :figure_box_5,
+        :figure_description_5,
+        :figure_label_5 .
+
