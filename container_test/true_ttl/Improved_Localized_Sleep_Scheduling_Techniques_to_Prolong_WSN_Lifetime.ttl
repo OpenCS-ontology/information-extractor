@@ -1,0 +1,1078 @@
+@prefix : <https://w3id.org/ocs/kg/papers/> .
+@prefix c4o: <http://purl.org/spar/c4o/> .
+@prefix co: <http://purl.org/co/> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix deo: <http://purl.org/spar/deo/> .
+@prefix doco: <http://purl.org/spar/doco/> .
+@prefix fabio: <http://purl.org/spar/fabio/> .
+@prefix frapo: <http://purl.org/cerif/frapo/> .
+@prefix frbr: <http://purl.org/vocab/frbr/core#> .
+@prefix literal: <http://www.essepuntato.it/2010/06/literalreification/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix po: <http://www.essepuntato.it/2008/12/pattern#> .
+@prefix prism: <http://prismstandard.org/namespaces/basic/2.0/> .
+@prefix pro: <http://purl.org/spar/pro/> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:paper_969c788bb a fabio:ResearchPaper ;
+    prism:keyword "Coverage"^^xsd:string,
+        "Energy Efficient"^^xsd:string,
+        "Sleep Scheduling"^^xsd:string,
+        "Wireless Sensor Network"^^xsd:string ;
+    dcterms:created "2021-02-09"^^xsd:date ;
+    dcterms:creator [ :hasItem :author_39409c0fd,
+                :author_75987c47d,
+                :author_b093aaf13,
+                :author_cee4670b5 ] ;
+    dcterms:title "Improved Localized Sleep Scheduling Techniques to Prolong WSN Lifetime"^^xsd:string ;
+    datacite:hasDescription [ datacite:hasDescriptionType datacite:abstract ;
+            literal:hasLiteralValue "A standard Wireless Sensor Networks(WSNs) comprises of low-cost sensor nodes embedded with small batteries. To enhance the network lifetime of WSN, the number of active nodes among the deployed nodes should be minimum. Along with this, it must be ensured that coverage of the targeted area would not get affected by the currently active nodes. Considering different applications of WSN, there is still a demand for full coverage or partial coverage of the deployed area. Irrespective of the circumstances, a proper sleep scheduling algorithm needs to be followed. Else, the active nodes will be tuckered out of the battery. Random distribution of the sensor nodes in a common area may have multiple active nodes. It is essential to identify the redundant number of active nodes and put them into sleep to conserve energy. This paper has proposed a methodology where the active sensor nodes form a hierarchical structure that heals itself by following a level-wise approach. In the meantime, it also detects the total number of redundant nodes in the coverage area. The performance of the proposed protocol is evaluated using the Castalia simulator. The simulation results show that the proposed level-wise periodic tree construction approach increases the network's durability in conjunction with the level wise approach."^^xsd:string ] ;
+    frbr:realization :Journal_Article_49fe570f4 ;
+    po:contains :back_matter_969c788bb,
+        :body_matter_969c788bb .
+
+:Journal_Article_49fe570f4 a fabio:JournalArticle ;
+    prism:endingPage 92 ;
+    prism:pageCount 11 ;
+    prism:startingPage 81 ;
+    datacite:doi "10.12694/scpe.v22i1.1847"^^xsd:anyURI ;
+    fabio:hasURL "https://www.scpe.org/index.php/scpe/article/view/1847"^^xsd:anyURI ;
+    frbr:partOf :Journal_Issue_156669b1b ;
+    owl:sameAs <https://www.scpe.org/index.php/scpe/article/view/1847> .
+
+:Journal_c4ccb651b a fabio:Journal ;
+    frbr:part :Journal_Volume_fbb89698a .
+
+:ListOfFigures_969c788bb a doco:ListOfFigures ;
+    po:contains :figure_0_969c788bb,
+        :figure_1_969c788bb,
+        :figure_2_969c788bb,
+        :figure_3_969c788bb,
+        :figure_4_969c788bb .
+
+:ListOfTables_969c788bb a doco:ListOfTables ;
+    po:contains :table_0_969c788bb .
+
+:author_39409c0fd a schema:Person ;
+    pro:holdsRoleInTime :role_de7fcc2e5 ;
+    schema:familyName "Roy"^^xsd:string ;
+    schema:givenName "Soham"^^xsd:string ;
+    schema:name "Soham Roy"^^xsd:string .
+
+:author_75987c47d a schema:Person ;
+    pro:holdsRoleInTime :role_8581a3682 ;
+    schema:familyName "Kar"^^xsd:string ;
+    schema:givenName "Udit Narayana"^^xsd:string ;
+    schema:name "Udit Narayana Kar"^^xsd:string .
+
+:author_b093aaf13 a schema:Person ;
+    pro:holdsRoleInTime :role_7874e9207 ;
+    schema:familyName "Swain"^^xsd:string ;
+    schema:givenName "Amulya Ratna"^^xsd:string ;
+    schema:name "Amulya Ratna Swain"^^xsd:string .
+
+:author_cee4670b5 a schema:Person ;
+    pro:holdsRoleInTime :role_f8739ed62 ;
+    schema:familyName "Tarasia"^^xsd:string ;
+    schema:givenName "Nachiketa"^^xsd:string ;
+    schema:name "Nachiketa Tarasia"^^xsd:string .
+
+:back_matter_969c788bb a doco:BackMatter ;
+    co:firstItem [ co:itemContent :bibliography_969c788bb ] ;
+    po:contains :ListOfFigures_969c788bb,
+        :ListOfTables_969c788bb,
+        :bibliography_969c788bb .
+
+:body_matter_969c788bb a doco:BodyMatter ;
+    co:firstItem [ co:itemContent :section1_969c788bb ;
+            co:nextItem [ co:itemContent :section2_969c788bb ;
+                    co:nextItem [ co:itemContent :section3_969c788bb ;
+                            co:nextItem [ co:itemContent :section5_969c788bb ;
+                                    co:nextItem [ co:itemContent :section6_969c788bb ;
+                                            co:nextItem [ co:itemContent :section7_969c788bb ;
+                                                    co:nextItem [ co:itemContent :section8_969c788bb ;
+                                                            co:nextItem [ co:itemContent :section9_969c788bb ] ] ] ] ] ] ] ] ;
+    po:contains :section1_969c788bb,
+        :section2_969c788bb,
+        :section3_969c788bb,
+        :section5_969c788bb,
+        :section6_969c788bb,
+        :section7_969c788bb,
+        :section8_969c788bb,
+        :section9_969c788bb .
+
+:figure_0_969c788bb a doco:Figure ;
+    po:contains :figure_box_0_969c788bb,
+        :figure_description_0_969c788bb,
+        :figure_label_0_969c788bb .
+
+:figure_1_969c788bb a doco:Figure ;
+    po:contains :figure_box_1_969c788bb,
+        :figure_description_1_969c788bb,
+        :figure_label_1_969c788bb .
+
+:figure_2_969c788bb a doco:Figure ;
+    po:contains :figure_box_2_969c788bb,
+        :figure_description_2_969c788bb,
+        :figure_label_2_969c788bb .
+
+:figure_3_969c788bb a doco:Figure ;
+    po:contains :figure_box_3_969c788bb,
+        :figure_description_3_969c788bb,
+        :figure_label_3_969c788bb .
+
+:figure_4_969c788bb a doco:Figure ;
+    po:contains :figure_box_4_969c788bb,
+        :figure_description_4_969c788bb,
+        :figure_label_4_969c788bb .
+
+:figure_box_0_969c788bb a doco:FigureBox ;
+    c4o:hasContent "[[57.6, 222.96, 480.07, 9.96], [57.6, 234.92, 344.06, 9.96]]" ;
+    schema:pagination 8 .
+
+:figure_box_1_969c788bb a doco:FigureBox ;
+    c4o:hasContent "[[84.4, 222.96, 426.48, 9.96]]" ;
+    schema:pagination 9 .
+
+:figure_box_2_969c788bb a doco:FigureBox ;
+    c4o:hasContent "[[57.6, 385.3, 480.08, 9.96], [57.6, 397.25, 241.01, 9.96]]" ;
+    schema:pagination 9 .
+
+:figure_box_3_969c788bb a doco:FigureBox ;
+    c4o:hasContent "[[90.31, 222.08, 414.66, 9.96]]" ;
+    schema:pagination 10 .
+
+:figure_box_4_969c788bb a doco:FigureBox ;
+    c4o:hasContent "[[57.6, 653.2, 480.07, 9.96], [57.6, 665.15, 96.17, 9.96]]" ;
+    schema:pagination 10 .
+
+:figure_description_0_969c788bb a doco:FigureLabel ;
+    c4o:hasContent "Fig.4.1: Number of nodes alive after each tree reconstruction round in the normal level-wise tree construction approach vs the proposed level-wise tree construction along with coverage." .
+
+:figure_description_1_969c788bb a doco:FigureLabel ;
+    c4o:hasContent "Fig. 4.3: Number of nodes present in each level of the tree in different tree reconstruction rounds." .
+
+:figure_description_2_969c788bb a doco:FigureLabel ;
+    c4o:hasContent "Fig. 4.4: Number of nodes select as parent in the next round of tree reconstruction from different group of nodes (sleep nodes, intermediate node, and leaf nodes)." .
+
+:figure_description_3_969c788bb a doco:FigureLabel ;
+    c4o:hasContent "Fig. 4.5: Different types of nodes at different level of tree in different round tree reconstruction" .
+
+:figure_description_4_969c788bb a doco:FigureLabel ;
+    c4o:hasContent "Fig. 4.7: Comparison of number of sleep nodes, coverage leaf nodes, and intermediate node in different round of tree reconstruction." .
+
+:figure_label_0_969c788bb a doco:Label ;
+    c4o:hasContent "Fig. 4 . 1 :Fig. 4 . 2 :" .
+
+:figure_label_1_969c788bb a doco:Label ;
+    c4o:hasContent "Figure 4 .Fig. 4 . 3 :" .
+
+:figure_label_2_969c788bb a doco:Label ;
+    c4o:hasContent "Fig. 4 . 4 :" .
+
+:figure_label_3_969c788bb a doco:Label ;
+    c4o:hasContent "Fig. 4 . 5 :Fig. 4 . 6 :" .
+
+:figure_label_4_969c788bb a doco:Label ;
+    c4o:hasContent "Fig. 4 . 7 :" .
+
+:referenceToBIBREF0_969c788bb a deo:Reference ;
+    dcterms:references :BIBREF0_969c788bb ;
+    c4o:hasContent "[1]" ;
+    schema:pagination 1 .
+
+:referenceToBIBREF10_969c788bb a deo:Reference ;
+    dcterms:references :BIBREF10_969c788bb ;
+    c4o:hasContent "[11]" ;
+    schema:pagination 3 .
+
+:referenceToBIBREF11_969c788bb a deo:Reference ;
+    dcterms:references :BIBREF11_969c788bb ;
+    c4o:hasContent "[12]" ;
+    schema:pagination 3 .
+
+:referenceToBIBREF12_969c788bb a deo:Reference ;
+    dcterms:references :BIBREF12_969c788bb ;
+    c4o:hasContent "[13]" ;
+    schema:pagination 3 .
+
+:referenceToBIBREF13_969c788bb a deo:Reference ;
+    dcterms:references :BIBREF13_969c788bb ;
+    c4o:hasContent "[14]" ;
+    schema:pagination 3 .
+
+:referenceToBIBREF14_969c788bb a deo:Reference ;
+    dcterms:references :BIBREF14_969c788bb ;
+    c4o:hasContent "[15]" ;
+    schema:pagination 3 .
+
+:referenceToBIBREF15_969c788bb a deo:Reference ;
+    dcterms:references :BIBREF15_969c788bb ;
+    c4o:hasContent "[16]" ;
+    schema:pagination 3 .
+
+:referenceToBIBREF16_969c788bb a deo:Reference ;
+    dcterms:references :BIBREF16_969c788bb ;
+    c4o:hasContent "[17]" ;
+    schema:pagination 3 .
+
+:referenceToBIBREF17_969c788bb a deo:Reference ;
+    dcterms:references :BIBREF17_969c788bb ;
+    c4o:hasContent "[18]" ;
+    schema:pagination 3 .
+
+:referenceToBIBREF18_969c788bb a deo:Reference ;
+    dcterms:references :BIBREF18_969c788bb ;
+    c4o:hasContent "[19]" ;
+    schema:pagination 3 .
+
+:referenceToBIBREF19_969c788bb a deo:Reference ;
+    dcterms:references :BIBREF19_969c788bb ;
+    c4o:hasContent "[20]" ;
+    schema:pagination 3 .
+
+:referenceToBIBREF1_969c788bb a deo:Reference ;
+    dcterms:references :BIBREF1_969c788bb ;
+    c4o:hasContent "[2]" ;
+    schema:pagination 1 .
+
+:referenceToBIBREF20_969c788bb a deo:Reference ;
+    dcterms:references :BIBREF20_969c788bb ;
+    c4o:hasContent "[21]" ;
+    schema:pagination 3 .
+
+:referenceToBIBREF21_969c788bb a deo:Reference ;
+    dcterms:references :BIBREF21_969c788bb ;
+    c4o:hasContent "[22]" ;
+    schema:pagination 3 .
+
+:referenceToBIBREF22_969c788bb a deo:Reference ;
+    dcterms:references :BIBREF22_969c788bb ;
+    c4o:hasContent "[23]" ;
+    schema:pagination 4 .
+
+:referenceToBIBREF23_969c788bb a deo:Reference ;
+    dcterms:references :BIBREF23_969c788bb ;
+    c4o:hasContent "[24]" ;
+    schema:pagination 4 .
+
+:referenceToBIBREF24_969c788bb a deo:Reference ;
+    dcterms:references :BIBREF24_969c788bb ;
+    c4o:hasContent "[25]" ;
+    schema:pagination 4 .
+
+:referenceToBIBREF25_969c788bb a deo:Reference ;
+    dcterms:references :BIBREF25_969c788bb ;
+    c4o:hasContent "[26]" ;
+    schema:pagination 6 .
+
+:referenceToBIBREF26_969c788bb a deo:Reference ;
+    dcterms:references :BIBREF26_969c788bb ;
+    c4o:hasContent "[27]" ;
+    schema:pagination 8,
+        9 .
+
+:referenceToBIBREF27_969c788bb a deo:Reference ;
+    dcterms:references :BIBREF27_969c788bb ;
+    c4o:hasContent "[28]" ;
+    schema:pagination 2 .
+
+:referenceToBIBREF28_969c788bb a deo:Reference ;
+    dcterms:references :BIBREF28_969c788bb ;
+    c4o:hasContent "[29]" ;
+    schema:pagination 2 .
+
+:referenceToBIBREF29_969c788bb a deo:Reference ;
+    dcterms:references :BIBREF29_969c788bb ;
+    c4o:hasContent "[30]" ;
+    schema:pagination 3 .
+
+:referenceToBIBREF2_969c788bb a deo:Reference ;
+    dcterms:references :BIBREF2_969c788bb ;
+    c4o:hasContent "[3]" ;
+    schema:pagination 1 .
+
+:referenceToBIBREF4_969c788bb a deo:Reference ;
+    dcterms:references :BIBREF4_969c788bb ;
+    c4o:hasContent "[5]" ;
+    schema:pagination 1 .
+
+:referenceToBIBREF5_969c788bb a deo:Reference ;
+    dcterms:references :BIBREF5_969c788bb ;
+    c4o:hasContent "[6]" ;
+    schema:pagination 2 .
+
+:referenceToBIBREF6_969c788bb a deo:Reference ;
+    dcterms:references :BIBREF6_969c788bb ;
+    c4o:hasContent "[7]" ;
+    schema:pagination 2 .
+
+:referenceToBIBREF7_969c788bb a deo:Reference ;
+    dcterms:references :BIBREF7_969c788bb ;
+    c4o:hasContent "[8]" ;
+    schema:pagination 2 .
+
+:referenceToBIBREF8_969c788bb a deo:Reference ;
+    dcterms:references :BIBREF8_969c788bb ;
+    c4o:hasContent "[9]" ;
+    schema:pagination 2 .
+
+:referenceToBIBREF9_969c788bb a deo:Reference ;
+    dcterms:references :BIBREF9_969c788bb ;
+    c4o:hasContent "[10]" ;
+    schema:pagination 3 .
+
+:reference_28_969c788bb a deo:Reference ;
+    dcterms:references :table_0_969c788bb ;
+    c4o:hasContent "Table 3" ;
+    schema:pagination 4 .
+
+:reference_31_969c788bb a deo:Reference ;
+    c4o:hasContent "Figure 4" ;
+    schema:pagination 6 .
+
+:reference_33_969c788bb a deo:Reference ;
+    c4o:hasContent "Figure 4" ;
+    schema:pagination 8 .
+
+:reference_34_969c788bb a deo:Reference ;
+    c4o:hasContent "Figure 4" ;
+    schema:pagination 8 .
+
+:reference_35_969c788bb a deo:Reference ;
+    c4o:hasContent "Figure 4" ;
+    schema:pagination 9 .
+
+:reference_37_969c788bb a deo:Reference ;
+    c4o:hasContent "Figure 4" ;
+    schema:pagination 9 .
+
+:role_7874e9207 a pro:RoleInTime ;
+    pro:relatesToOrganization :org_89cfa45cf ;
+    pro:withRole pro:author .
+
+:role_8581a3682 a pro:RoleInTime ;
+    pro:relatesToOrganization :org_89cfa45cf ;
+    pro:withRole pro:author .
+
+:role_de7fcc2e5 a pro:RoleInTime ;
+    pro:relatesToOrganization :org_89cfa45cf ;
+    pro:withRole pro:author .
+
+:role_f8739ed62 a pro:RoleInTime ;
+    pro:relatesToOrganization :org_89cfa45cf ;
+    pro:withRole pro:author .
+
+:sectionLabel1_969c788bb a doco:SectionLabel ;
+    c4o:hasContent "1." .
+
+:sectionLabel2_969c788bb a doco:SectionLabel ;
+    c4o:hasContent "2." .
+
+:sectionLabel3_969c788bb a doco:SectionLabel ;
+    c4o:hasContent "3." .
+
+:sectionLabel4_969c788bb a doco:SectionLabel ;
+    c4o:hasContent "3.1." .
+
+:sectionLabel8_969c788bb a doco:SectionLabel ;
+    c4o:hasContent "4." .
+
+:sectionLabel9_969c788bb a doco:SectionLabel ;
+    c4o:hasContent "5." .
+
+:sectionTitle1_969c788bb a doco:SectionTitle ;
+    c4o:hasContent "Introduction" .
+
+:sectionTitle2_969c788bb a doco:SectionTitle ;
+    c4o:hasContent "State of the Art." .
+
+:sectionTitle3_969c788bb a doco:SectionTitle ;
+    c4o:hasContent "Proposed Work." .
+
+:sectionTitle4_969c788bb a doco:SectionTitle ;
+    c4o:hasContent "Construction." .
+
+:sectionTitle5_969c788bb a doco:SectionTitle ;
+    c4o:hasContent "CONS(N(i))" .
+
+:sectionTitle6_969c788bb a doco:SectionTitle ;
+    c4o:hasContent "CRL(n)" .
+
+:sectionTitle7_969c788bb a doco:SectionTitle ;
+    c4o:hasContent "CHECK_REDUNDANCY(N(k))" .
+
+:sectionTitle8_969c788bb a doco:SectionTitle ;
+    c4o:hasContent "Simulation Results." .
+
+:sectionTitle9_969c788bb a doco:SectionTitle ;
+    c4o:hasContent "Conclusion." .
+
+:table_box_0_969c788bb a doco:TableBox ;
+    c4o:hasContent "[[126.26, 104.46, 289.16, 106.25]]" ;
+    schema:pagination 5 .
+
+:table_description_0_969c788bb a doco:TableLabel ;
+    c4o:hasContent "1: Abbreviation" .
+
+:table_label_0_969c788bb a doco:Label ;
+    c4o:hasContent "Table 3 ." .
+
+:BIBREF3_969c788bb prism:endingPage "334" ;
+    prism:startingPage "303" ;
+    prism:volume "4" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Amit" ;
+            schema:givenName "G" ],
+        [ a schema:Person ;
+            schema:familyName "Sajal" ;
+            schema:givenName "D" ] ;
+    dcterms:issued 2008 ;
+    dcterms:publisher [ schema:name "Sci. Direct, Pervasive Mob. Comput" ] ;
+    dcterms:title "Coverage and connectivity issues in wireless sensor networks: a survey" .
+
+:Journal_Issue_156669b1b a fabio:JournalIssue ;
+    frbr:partOf :Journal_Volume_fbb89698a .
+
+:Journal_Volume_fbb89698a a fabio:JournalVolume ;
+    prism:volume 22 ;
+    frbr:part :Journal_Issue_156669b1b ;
+    frbr:partOf :Journal_c4ccb651b .
+
+:bibliography_969c788bb a doco:Bibliography ;
+    co:firstItem [ co:itemContent :BIBREF0_969c788bb ;
+            co:nextItem [ co:itemContent :BIBREF1_969c788bb ;
+                    co:nextItem [ co:itemContent :BIBREF2_969c788bb ;
+                            co:nextItem [ co:itemContent :BIBREF3_969c788bb ;
+                                    co:nextItem [ co:itemContent :BIBREF4_969c788bb ;
+                                            co:nextItem [ co:itemContent :BIBREF5_969c788bb ;
+                                                    co:nextItem [ co:itemContent :BIBREF6_969c788bb ;
+                                                            co:nextItem [ co:itemContent :BIBREF7_969c788bb ;
+                                                                    co:nextItem [ co:itemContent :BIBREF8_969c788bb ;
+                                                                            co:nextItem [ co:itemContent :BIBREF9_969c788bb ;
+                                                                                    co:nextItem [ co:itemContent :BIBREF10_969c788bb ;
+                                                                                            co:nextItem [ co:itemContent :BIBREF11_969c788bb ;
+                                                                                                    co:nextItem [ co:itemContent :BIBREF12_969c788bb ;
+                                                                                                            co:nextItem [ co:itemContent :BIBREF13_969c788bb ;
+                                                                                                                    co:nextItem [ co:itemContent :BIBREF14_969c788bb ;
+                                                                                                                            co:nextItem [ co:itemContent :BIBREF15_969c788bb ;
+                                                                                                                                    co:nextItem [ co:itemContent :BIBREF16_969c788bb ;
+                                                                                                                                            co:nextItem [ co:itemContent :BIBREF17_969c788bb ;
+                                                                                                                                                    co:nextItem [ co:itemContent :BIBREF18_969c788bb ;
+                                                                                                                                                            co:nextItem [ co:itemContent :BIBREF19_969c788bb ;
+                                                                                                                                                                    co:nextItem [ co:itemContent :BIBREF20_969c788bb ;
+                                                                                                                                                                            co:nextItem [ co:itemContent :BIBREF21_969c788bb ;
+                                                                                                                                                                                    co:nextItem [ co:itemContent :BIBREF22_969c788bb ;
+                                                                                                                                                                                            co:nextItem [ co:itemContent :BIBREF23_969c788bb ;
+                                                                                                                                                                                                    co:nextItem [ co:itemContent :BIBREF24_969c788bb ;
+                                                                                                                                                                                                            co:nextItem [ co:itemContent :BIBREF25_969c788bb ;
+                                                                                                                                                                                                                    co:nextItem [ co:itemContent :BIBREF26_969c788bb ;
+                                                                                                                                                                                                                            co:nextItem [ co:itemContent :BIBREF27_969c788bb ;
+                                                                                                                                                                                                                                    co:nextItem [ co:itemContent :BIBREF28_969c788bb ;
+                                                                                                                                                                                                                                            co:nextItem [ co:itemContent :BIBREF29_969c788bb ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ;
+    po:contains :BIBREF0_969c788bb,
+        :BIBREF10_969c788bb,
+        :BIBREF11_969c788bb,
+        :BIBREF12_969c788bb,
+        :BIBREF13_969c788bb,
+        :BIBREF14_969c788bb,
+        :BIBREF15_969c788bb,
+        :BIBREF16_969c788bb,
+        :BIBREF17_969c788bb,
+        :BIBREF18_969c788bb,
+        :BIBREF19_969c788bb,
+        :BIBREF1_969c788bb,
+        :BIBREF20_969c788bb,
+        :BIBREF21_969c788bb,
+        :BIBREF22_969c788bb,
+        :BIBREF23_969c788bb,
+        :BIBREF24_969c788bb,
+        :BIBREF25_969c788bb,
+        :BIBREF26_969c788bb,
+        :BIBREF27_969c788bb,
+        :BIBREF28_969c788bb,
+        :BIBREF29_969c788bb,
+        :BIBREF2_969c788bb,
+        :BIBREF3_969c788bb,
+        :BIBREF4_969c788bb,
+        :BIBREF5_969c788bb,
+        :BIBREF6_969c788bb,
+        :BIBREF7_969c788bb,
+        :BIBREF8_969c788bb,
+        :BIBREF9_969c788bb .
+
+:section1_969c788bb a doco:Section ;
+    po:contains :referenceToBIBREF0_969c788bb,
+        :referenceToBIBREF1_969c788bb,
+        :referenceToBIBREF2_969c788bb,
+        :referenceToBIBREF4_969c788bb,
+        :sectionLabel1_969c788bb ;
+    po:containsAsHeader :sectionTitle1_969c788bb .
+
+:section2_969c788bb a doco:Section ;
+    po:contains :referenceToBIBREF10_969c788bb,
+        :referenceToBIBREF11_969c788bb,
+        :referenceToBIBREF12_969c788bb,
+        :referenceToBIBREF13_969c788bb,
+        :referenceToBIBREF14_969c788bb,
+        :referenceToBIBREF15_969c788bb,
+        :referenceToBIBREF16_969c788bb,
+        :referenceToBIBREF17_969c788bb,
+        :referenceToBIBREF18_969c788bb,
+        :referenceToBIBREF19_969c788bb,
+        :referenceToBIBREF20_969c788bb,
+        :referenceToBIBREF21_969c788bb,
+        :referenceToBIBREF22_969c788bb,
+        :referenceToBIBREF23_969c788bb,
+        :referenceToBIBREF24_969c788bb,
+        :referenceToBIBREF27_969c788bb,
+        :referenceToBIBREF28_969c788bb,
+        :referenceToBIBREF29_969c788bb,
+        :referenceToBIBREF5_969c788bb,
+        :referenceToBIBREF6_969c788bb,
+        :referenceToBIBREF7_969c788bb,
+        :referenceToBIBREF8_969c788bb,
+        :referenceToBIBREF9_969c788bb,
+        :sectionLabel2_969c788bb ;
+    po:containsAsHeader :sectionTitle2_969c788bb .
+
+:section3_969c788bb a doco:Section ;
+    co:firstItem [ co:itemContent :section4_969c788bb ] ;
+    po:contains :section4_969c788bb,
+        :sectionLabel3_969c788bb ;
+    po:containsAsHeader :sectionTitle3_969c788bb .
+
+:section4_969c788bb a doco:Section ;
+    po:contains :reference_28_969c788bb,
+        :sectionLabel4_969c788bb ;
+    po:containsAsHeader :sectionTitle4_969c788bb .
+
+:section5_969c788bb a doco:Section ;
+    po:containsAsHeader :sectionTitle5_969c788bb .
+
+:section6_969c788bb a doco:Section ;
+    po:containsAsHeader :sectionTitle6_969c788bb .
+
+:section7_969c788bb a doco:Section ;
+    po:containsAsHeader :sectionTitle7_969c788bb .
+
+:section8_969c788bb a doco:Section ;
+    po:contains :referenceToBIBREF25_969c788bb,
+        :referenceToBIBREF26_969c788bb,
+        :reference_31_969c788bb,
+        :reference_33_969c788bb,
+        :reference_34_969c788bb,
+        :reference_35_969c788bb,
+        :reference_37_969c788bb,
+        :sectionLabel8_969c788bb ;
+    po:containsAsHeader :sectionTitle8_969c788bb .
+
+:section9_969c788bb a doco:Section ;
+    po:contains :sectionLabel9_969c788bb ;
+    po:containsAsHeader :sectionTitle9_969c788bb .
+
+:table_0_969c788bb a doco:Table ;
+    po:contains :table_box_0_969c788bb,
+        :table_description_0_969c788bb,
+        :table_label_0_969c788bb .
+
+:BIBREF0_969c788bb a deo:BibliographicReference ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Jamalipour" ;
+            schema:givenName "A" ],
+        [ a schema:Person ;
+            schema:familyName "Zheng" ;
+            schema:givenName "J" ] ;
+    dcterms:issued 2009 ;
+    dcterms:publisher [ schema:name "A JOHN WILEY and SONS" ] ;
+    dcterms:title "Wireless Sensor Networks" ;
+    datacite:doi "http://dx.doi.org/10.1002/9780470443521"^^xsd:anyURI .
+
+:BIBREF10_969c788bb a deo:BibliographicReference ;
+    prism:endingPage "121" ;
+    prism:startingPage "115" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Huang" ;
+            schema:givenName "Chi-Fu" ],
+        [ a schema:Person ;
+            schema:familyName "Tseng" ;
+            schema:givenName "Yu-Chee" ] ;
+    dcterms:issued 2003 ;
+    dcterms:publisher [ schema:name "Proceedings of the 2nd ACM international conference on Wireless sensor networks and applications" ] ;
+    dcterms:title "The coverage problem in a wireless sensor network" ;
+    datacite:doi "http://dx.doi.org/10.1145/941350.941367"^^xsd:anyURI .
+
+:BIBREF11_969c788bb a deo:BibliographicReference ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Das" ;
+            schema:givenName "S" ],
+        [ a schema:Person ;
+            schema:familyName "Zhou" ;
+            schema:givenName "Z" ],
+        [ a schema:Person ;
+            schema:familyName "Gupta" ;
+            schema:givenName "H" ] ;
+    dcterms:issued 2004 ;
+    dcterms:publisher [ schema:name "Proceed-ings of the International Conference on Computer Communications and Networks (IC3N)" ] ;
+    dcterms:title "Connected K-Coverage Problem" .
+
+:BIBREF12_969c788bb a deo:BibliographicReference ;
+    prism:endingPage "271" ;
+    prism:issueIdentifier "4" ;
+    prism:startingPage "269" ;
+    prism:volume "10" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Yazdani" ;
+            schema:givenName "N" ],
+        [ a schema:Person ;
+            schema:familyName "Lucas" ;
+            schema:givenName "C" ],
+        [ a schema:Person ;
+            schema:familyName "Mousavi" ;
+            schema:givenName "H" ],
+        [ a schema:Person ;
+            schema:familyName "Nayyeri" ;
+            schema:givenName "A" ] ;
+    dcterms:issued 2006 ;
+    dcterms:publisher [ schema:name "IEEE Communications Letters" ] ;
+    dcterms:title "Energy conserving movement-assisted deployment of ad hoc sensor networks" ;
+    datacite:doi "http://dx.doi.org/10.1109/lcomm.2006.1613743"^^xsd:anyURI .
+
+:BIBREF13_969c788bb a deo:BibliographicReference ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Li" ;
+            schema:givenName "Xu" ],
+        [ a schema:Person ;
+            schema:familyName "Stojmenovic" ;
+            schema:givenName "Ivan" ],
+        [ a schema:Person ;
+            schema:familyName "Nayak" ;
+            schema:givenName "Amiya" ],
+        [ a schema:Person ;
+            schema:familyName "Fletcher" ;
+            schema:givenName "Greg" ] ;
+    dcterms:issued 2010 ;
+    dcterms:publisher [ schema:name "2010 IEEE 72nd Vehicular Technology Conference - Fall" ] ;
+    dcterms:title "Randomized Robot-Assisted Relocation of Sensors for Coverage Repair in Wireless Sensor Networks" ;
+    datacite:doi "http://dx.doi.org/10.1109/vetecf.2010.5594513"^^xsd:anyURI .
+
+:BIBREF14_969c788bb a deo:BibliographicReference ;
+    prism:endingPage "1962" ;
+    prism:issueIdentifier "7" ;
+    prism:startingPage "1951" ;
+    prism:volume "11" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Nayak" ;
+            schema:givenName "Amiya" ],
+        [ a schema:Person ;
+            schema:familyName "Fletcher" ;
+            schema:givenName "Greg" ],
+        [ a schema:Person ;
+            schema:familyName "Li" ;
+            schema:givenName "Xu" ],
+        [ a schema:Person ;
+            schema:familyName "Stojmenovic" ;
+            schema:givenName "Ivan" ] ;
+    dcterms:issued 2013 ;
+    dcterms:publisher [ schema:name "Ad Hoc Networks" ] ;
+    dcterms:title "Randomized carrier-based sensor relocation in wireless sensor and robot networks" ;
+    datacite:doi "http://dx.doi.org/10.1016/j.adhoc.2012.06.007"^^xsd:anyURI .
+
+:BIBREF15_969c788bb a deo:BibliographicReference ;
+    prism:endingPage "476" ;
+    prism:startingPage "472" ;
+    prism:volume "2" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Potkonjak" ;
+            schema:givenName "M" ],
+        [ a schema:Person ;
+            schema:familyName "Slijepcevic" ;
+            schema:givenName "S" ] ;
+    dcterms:issued 2001 ;
+    dcterms:publisher [ schema:name "ICC 2001. IEEE International Conference on Communications. Conference Record (Cat. No.01CH37240)" ] ;
+    dcterms:title "Power efficient organization of wireless sensor networks" ;
+    datacite:doi "http://dx.doi.org/10.1109/icc.2001.936985"^^xsd:anyURI .
+
+:BIBREF16_969c788bb a deo:BibliographicReference ;
+    prism:endingPage "229" ;
+    prism:issueIdentifier "03n04" ;
+    prism:startingPage "213" ;
+    prism:volume "03" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Jia" ;
+            schema:givenName "Xiaohua" ],
+        [ a schema:Person ;
+            schema:familyName "Maccallum" ;
+            schema:givenName "David" ],
+        [ a schema:Person ;
+            schema:familyName "Du" ;
+            schema:givenName "Ding-Zhu" ],
+        [ a schema:Person ;
+            schema:familyName "Min" ;
+            schema:givenName "Manki" ],
+        [ a schema:Person ;
+            schema:familyName "Cardei" ;
+            schema:givenName "Mihaela" ],
+        [ a schema:Person ;
+            schema:familyName "Cheng" ;
+            schema:givenName "Maggie" ],
+        [ a schema:Person ;
+            schema:familyName "Li" ;
+            schema:givenName "Deying" ] ;
+    dcterms:issued 2002 ;
+    dcterms:publisher [ schema:name "Journal of Interconnection Networks" ] ;
+    dcterms:title "Wireless Sensor Networks with Energy Efficient Organization" ;
+    datacite:doi "http://dx.doi.org/10.1142/s021926590200063x"^^xsd:anyURI .
+
+:BIBREF17_969c788bb a deo:BibliographicReference ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Tian" ;
+            schema:givenName "Di" ],
+        [ a schema:Person ;
+            schema:familyName "Georganas" ;
+            schema:givenName "Nicolas" ] ;
+    dcterms:issued 2002 ;
+    dcterms:publisher [ schema:name "Proceedings of the 1st ACM international workshop on Wireless sensor networks and applications" ] ;
+    dcterms:title "A coverage-preserving node scheduling scheme for large wireless sensor networks" ;
+    datacite:doi "http://dx.doi.org/10.1145/570738.570744"^^xsd:anyURI .
+
+:BIBREF18_969c788bb a deo:BibliographicReference ;
+    prism:endingPage "280" ;
+    prism:startingPage "268" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Li" ;
+            schema:givenName "Yingshu" ],
+        [ a schema:Person ;
+            schema:familyName "Gao" ;
+            schema:givenName "Shan" ],
+        [ a schema:Person ;
+            schema:familyName "Vu" ;
+            schema:givenName "Chinh" ] ;
+    dcterms:issued 2006 ;
+    dcterms:publisher [ schema:name "Lecture Notes in Computer Science" ] ;
+    dcterms:title "Sensor Scheduling for k-Coverage in Wireless Sensor Networks" ;
+    datacite:doi "http://dx.doi.org/10.1007/11943952_23"^^xsd:anyURI .
+
+:BIBREF19_969c788bb a deo:BibliographicReference ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Tian" ;
+            schema:givenName "Di" ],
+        [ a schema:Person ;
+            schema:familyName "Georganas" ;
+            schema:givenName "Nicolas" ] ;
+    dcterms:issued 2002 ;
+    dcterms:publisher [ schema:name "Proceedings of the 1st ACM international workshop on Wireless sensor networks and applications" ] ;
+    dcterms:title "A coverage-preserving node scheduling scheme for large wireless sensor networks" ;
+    datacite:doi "http://dx.doi.org/10.1145/570738.570744"^^xsd:anyURI .
+
+:BIBREF1_969c788bb a deo:BibliographicReference ;
+    prism:endingPage "632" ;
+    prism:startingPage "619" ;
+    prism:volume "35" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Chunlin" ;
+            schema:givenName "Z" ],
+        [ a schema:Person ;
+            schema:familyName "Chuan" ;
+            schema:givenName "Z" ],
+        [ a schema:Person ;
+            schema:familyName "Guangjie" ;
+            schema:givenName "H" ],
+        [ a schema:Person ;
+            schema:familyName "Lei" ;
+            schema:givenName "S" ] ;
+    dcterms:issued 2012 ;
+    dcterms:publisher [ schema:name "J. Network Comput. Appl" ] ;
+    dcterms:title "A survey on coverage and connectivity issues in wireless sensor networks" .
+
+:BIBREF20_969c788bb a deo:BibliographicReference ;
+    prism:volume "3" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Yingshu Li" ],
+        [ a schema:Person ;
+            schema:familyName "Weili Wu" ],
+        [ a schema:Person ;
+            schema:familyName "Thai" ;
+            schema:givenName "M" ],
+        [ a schema:Person ;
+            schema:familyName "Cardei" ;
+            schema:givenName "Mihaela" ] ;
+    dcterms:issued 2005 ;
+    dcterms:publisher [ schema:name "Proceedings IEEE 24th Annual Joint Conference of the IEEE Computer and Communications Societies." ] ;
+    dcterms:title "Energy-efficient target coverage in wireless sensor networks" ;
+    datacite:doi "http://dx.doi.org/10.1109/infcom.2005.1498475"^^xsd:anyURI .
+
+:BIBREF21_969c788bb a deo:BibliographicReference ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Stankovic" ;
+            schema:givenName "John" ],
+        [ a schema:Person ;
+            schema:familyName "He" ;
+            schema:givenName "Tian" ],
+        [ a schema:Person ;
+            schema:familyName "Yan" ;
+            schema:givenName "Ting" ] ;
+    dcterms:issued 2003 ;
+    dcterms:publisher [ schema:name "Proceedings of the 1st international conference on Embedded networked sensor systems" ] ;
+    dcterms:title "Differentiated surveillance for sensor networks" ;
+    datacite:doi "http://dx.doi.org/10.1145/958491.958498"^^xsd:anyURI .
+
+:BIBREF22_969c788bb a deo:BibliographicReference ;
+    prism:volume "5" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Chiasserini" ;
+            schema:givenName "C-F" ],
+        [ a schema:Person ;
+            schema:familyName "Bianco" ;
+            schema:givenName "A" ],
+        [ a schema:Person ;
+            schema:familyName "Brandimarte" ;
+            schema:givenName "P" ],
+        [ a schema:Person ;
+            schema:familyName "Alfieri" ;
+            schema:givenName "Arianna" ] ;
+    dcterms:issued 2004 ;
+    dcterms:publisher [ schema:name "IEEE Global Telecommunications Conference, 2004. GLOBECOM '04." ] ;
+    dcterms:title "Exploiting sensor spatial redundancy to improve network lifetime" ;
+    datacite:doi "http://dx.doi.org/10.1109/glocom.2004.1378936"^^xsd:anyURI .
+
+:BIBREF23_969c788bb a deo:BibliographicReference ;
+    prism:endingPage "58" ;
+    prism:issueIdentifier "5" ;
+    prism:startingPage "51" ;
+    prism:volume "43" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Pottie" ;
+            schema:givenName "Gregory" ],
+        [ a schema:Person ;
+            schema:familyName "Kaiser" ;
+            schema:givenName "William" ] ;
+    dcterms:issued 2000 ;
+    dcterms:publisher [ schema:name "Communications of the ACM" ] ;
+    dcterms:title "Wireless integrated network sensors" ;
+    datacite:doi "http://dx.doi.org/10.1145/332833.332838"^^xsd:anyURI .
+
+:BIBREF24_969c788bb a deo:BibliographicReference ;
+    prism:endingPage "50" ;
+    prism:issueIdentifier "2" ;
+    prism:startingPage "40" ;
+    prism:volume "19" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Schurgers" ;
+            schema:givenName "C" ],
+        [ a schema:Person ;
+            schema:familyName "Srivastava" ;
+            schema:givenName "M" ],
+        [ a schema:Person ;
+            schema:familyName "Raghunathan" ;
+            schema:givenName "Vijay" ],
+        [ a schema:Person ;
+            schema:familyName "Sung Park" ] ;
+    dcterms:issued 2002 ;
+    dcterms:publisher [ schema:name "IEEE Signal Processing Magazine" ] ;
+    dcterms:title "Energy-aware wireless microsensor networks" ;
+    datacite:doi "http://dx.doi.org/10.1109/79.985679"^^xsd:anyURI .
+
+:BIBREF25_969c788bb a deo:BibliographicReference ;
+    dcterms:publisher [ schema:name "Telosb data sheet" ] ;
+    dcterms:title "Graphic technology. Print product metadata for PDF files" ;
+    datacite:doi "http://dx.doi.org/10.3403/bsiso21812"^^xsd:anyURI .
+
+:BIBREF26_969c788bb a deo:BibliographicReference ;
+    prism:endingPage "121" ;
+    prism:issueIdentifier "2" ;
+    prism:startingPage "113" ;
+    prism:volume "16" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Ratna Swain" ;
+            schema:givenName "Amulya" ],
+        [ a schema:Person ;
+            schema:familyName "Roy" ;
+            schema:givenName "Soham" ],
+        [ a schema:Person ;
+            schema:familyName "Tarasia" ;
+            schema:givenName "Nachiketa" ],
+        [ a schema:Person ;
+            schema:familyName "Narayana Kar" ;
+            schema:givenName "Udit" ] ;
+    dcterms:issued 2020 ;
+    dcterms:publisher [ schema:name "Journal of communications software and systems" ] ;
+    dcterms:title "A Level-Wise Periodic Tree Construction Mechanism for Sleep Scheduling in WSN" ;
+    datacite:doi "http://dx.doi.org/10.24138/jcomss.v16i2.974"^^xsd:anyURI .
+
+:BIBREF27_969c788bb a deo:BibliographicReference ;
+    prism:endingPage "1263" ;
+    prism:issueIdentifier "2" ;
+    prism:startingPage "1243" ;
+    prism:volume "112" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Mhatre" ;
+            schema:givenName "Kavita" ],
+        [ a schema:Person ;
+            schema:familyName "Khot" ;
+            schema:givenName "Uday" ] ;
+    dcterms:issued 2020 ;
+    dcterms:publisher [ schema:name "Wireless Personal Communications" ] ;
+    dcterms:title "Energy Efficient Opportunistic Routing with Sleep Scheduling in Wireless Sensor Networks" ;
+    datacite:doi "http://dx.doi.org/10.1007/s11277-020-07100-z"^^xsd:anyURI .
+
+:BIBREF28_969c788bb a deo:BibliographicReference ;
+    prism:endingPage "563" ;
+    prism:startingPage "558" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Fang" ;
+            schema:givenName "Wei" ],
+        [ a schema:Person ;
+            schema:familyName "Zhou" ;
+            schema:givenName "Zhangbing" ],
+        [ a schema:Person ;
+            schema:familyName "Shu" ;
+            schema:givenName "Lei" ],
+        [ a schema:Person ;
+            schema:familyName "Hancke" ;
+            schema:givenName "Gerhard" ],
+        [ a schema:Person ;
+            schema:familyName "Mukherjee" ;
+            schema:givenName "Mithun" ] ;
+    dcterms:issued 2017 ;
+    dcterms:publisher [ schema:name "2017 IEEE International Conference on Communications Workshops (ICC Workshops)" ] ;
+    dcterms:title "Energy utilization concerned sleep scheduling in Wireless Powered Communication Networks" ;
+    datacite:doi "http://dx.doi.org/10.1109/iccw.2017.7962717"^^xsd:anyURI .
+
+:BIBREF29_969c788bb a deo:BibliographicReference ;
+    prism:endingPage "319" ;
+    prism:issueIdentifier "1" ;
+    prism:startingPage "304" ;
+    prism:volume "13" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Sukumar" ;
+            schema:givenName "R" ],
+        [ a schema:Person ;
+            schema:familyName "Balasubramanian" ;
+            schema:givenName "C" ],
+        [ a schema:Person ;
+            schema:familyName "Guruprakash" ;
+            schema:givenName "B" ] ;
+    dcterms:issued 2020 ;
+    dcterms:publisher [ schema:name "Peer-to-Peer Networking and Applications" ] ;
+    dcterms:title "An approach by adopting multi-objective clustering and data collection along with node sleep scheduling for energy efficient and delay aware WSN" ;
+    datacite:doi "http://dx.doi.org/10.1007/s12083-019-00779-3"^^xsd:anyURI .
+
+:BIBREF2_969c788bb a deo:BibliographicReference ;
+    prism:endingPage "53" ;
+    prism:issueIdentifier "2" ;
+    prism:startingPage "27" ;
+    prism:volume "2" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Mulligan" ;
+            schema:givenName "R" ],
+        [ a schema:Person ;
+            schema:familyName "Ammari" ;
+            schema:givenName "M" ] ;
+    dcterms:issued 2010 ;
+    dcterms:publisher [ schema:name "Network Protocols Algorithms" ] ;
+    dcterms:title "Coverage in wireless sensor networks: a survey" .
+
+:BIBREF4_969c788bb a deo:BibliographicReference ;
+    prism:endingPage "36" ;
+    prism:issueIdentifier "2" ;
+    prism:startingPage "27" ;
+    prism:volume "5" ;
+    dcterms:creator [ a schema:Person ] ;
+    dcterms:issued 2011 ;
+    dcterms:publisher [ schema:name "International Journal on Information Sciences and Computing" ] ;
+    dcterms:title "A-SURVEY ON CONNECTIVITY MAINTENANCE AND PRESERVING COVERAGE FOR WIRELESS SENSOR NETWORKS" ;
+    datacite:doi "http://dx.doi.org/10.18000/ijisac.50099"^^xsd:anyURI .
+
+:BIBREF5_969c788bb a deo:BibliographicReference ;
+    prism:endingPage "37" ;
+    prism:startingPage "28" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Zhong" ;
+            schema:givenName "F" ],
+        [ a schema:Person ;
+            schema:familyName "Zhang" ;
+            schema:givenName "S" ],
+        [ a schema:Person ;
+            schema:familyName "Ye" ;
+            schema:givenName "Fan" ],
+        [ a schema:Person ;
+            schema:givenName "L" ],
+        [ a schema:Person ;
+            schema:familyName "Lu" ;
+            schema:givenName "J" ],
+        [ a schema:Person ;
+            schema:familyName "Cheng" ;
+            schema:givenName "G" ] ;
+    dcterms:issued 2002 ;
+    dcterms:publisher [ schema:name "23rd International Conference on Distributed Computing Systems(DCS' 02)" ] ;
+    dcterms:title "PEAS: a robust energy conserving protocol for long-lived sensor networks" .
+
+:BIBREF6_969c788bb a deo:BibliographicReference ;
+    prism:endingPage "143" ;
+    prism:startingPage "129" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Mohapatra" ;
+            schema:givenName "Prasant" ],
+        [ a schema:Person ;
+            schema:familyName "Gui" ;
+            schema:givenName "Chao" ] ;
+    dcterms:issued 2004 ;
+    dcterms:publisher [ schema:name "Proceedings of the 10th annual international conference on Mobile computing and networking" ] ;
+    dcterms:title "Power conservation and quality of surveillance in target tracking sensor networks" ;
+    datacite:doi "http://dx.doi.org/10.1145/1023720.1023734"^^xsd:anyURI .
+
+:BIBREF7_969c788bb a deo:BibliographicReference ;
+    prism:endingPage "2930" ;
+    prism:startingPage "2923" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Chang" ;
+            schema:givenName "Ruay-Shiung" ],
+        [ a schema:Person ;
+            schema:familyName "Hong" ;
+            schema:givenName "Sheng" ],
+        [ a schema:Person ;
+            schema:familyName "Chao" ;
+            schema:givenName "Han-Chieh" ],
+        [ a schema:Person ;
+            schema:familyName "Yen" ;
+            schema:givenName "Yun-Sheng" ] ;
+    dcterms:issued 2007 ;
+    dcterms:publisher [ schema:name "2007 IEEE Wireless Communications and Networking Conference" ] ;
+    dcterms:title "An Energy Efficient and Coverage Guaranteed Wireless Sensor Network" ;
+    datacite:doi "http://dx.doi.org/10.1109/wcnc.2007.542"^^xsd:anyURI .
+
+:BIBREF8_969c788bb a deo:BibliographicReference ;
+    prism:endingPage "131" ;
+    prism:startingPage "123" ;
+    prism:volume "2" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "More" ;
+            schema:givenName "Avinash" ],
+        [ a schema:Person ;
+            schema:familyName "Raisinghani" ;
+            schema:givenName "Vijay" ] ;
+    dcterms:issued 2014 ;
+    dcterms:publisher [ schema:name "Advanced Computing, Networking and Informatics- Volume 2" ] ;
+    dcterms:title "Random Backoff Sleep Protocol for Energy Efficient Coverage in Wireless Sensor Networks" ;
+    datacite:doi "http://dx.doi.org/10.1007/978-3-319-07350-7_14"^^xsd:anyURI .
+
+:BIBREF9_969c788bb a deo:BibliographicReference ;
+    prism:endingPage "476" ;
+    prism:startingPage "472" ;
+    dcterms:creator [ a schema:Person ;
+            schema:familyName "Slijepcevic" ;
+            schema:givenName "S" ],
+        [ a schema:Person ;
+            schema:familyName "Potkonjak" ;
+            schema:givenName "M" ] ;
+    dcterms:issued 2001 ;
+    dcterms:publisher [ schema:name "ICC 2001. IEEE International Conference on Communications. Conference Record (Cat. No.01CH37240)" ] ;
+    dcterms:title "Power efficient organization of wireless sensor networks" ;
+    datacite:doi "http://dx.doi.org/10.1109/icc.2001.936985"^^xsd:anyURI .
+
+:org_89cfa45cf a frapo:Organization ;
+    schema:name "KIIT Deemed to be University, Bhubaneswar, India"^^xsd:string .
+
