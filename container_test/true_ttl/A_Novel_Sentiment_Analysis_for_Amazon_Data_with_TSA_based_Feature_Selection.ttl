@@ -557,20 +557,20 @@
     prism:startingPage "36" ;
     prism:volume "52" ;
     dcterms:creator [ a schema:Person ;
+            schema:familyName "Qi" ;
+            schema:givenName "Yong" ],
+        [ a schema:Person ;
             schema:familyName "Yu" ;
             schema:givenName "Jianfei" ],
         [ a schema:Person ;
             schema:familyName "Xia" ;
             schema:givenName "Rui" ],
         [ a schema:Person ;
-            schema:familyName "Cambria" ;
-            schema:givenName "Erik" ],
-        [ a schema:Person ;
-            schema:familyName "Qi" ;
-            schema:givenName "Yong" ],
-        [ a schema:Person ;
             schema:familyName "Xu" ;
-            schema:givenName "Feng" ] ;
+            schema:givenName "Feng" ],
+        [ a schema:Person ;
+            schema:familyName "Cambria" ;
+            schema:givenName "Erik" ] ;
     dcterms:issued 2018 ;
     dcterms:publisher [ schema:name "Information Processing & Management" ] ;
     dcterms:title "Polarity shift detection, elimination and ensemble: A three-stage model for document-level sentiment analysis" ;
@@ -598,11 +598,11 @@
     prism:startingPage "527" ;
     prism:volume "31" ;
     dcterms:creator [ a schema:Person ;
-            schema:familyName "Carro" ;
-            schema:givenName "Rosa" ],
-        [ a schema:Person ;
             schema:familyName "Martín" ;
             schema:givenName "José" ],
+        [ a schema:Person ;
+            schema:familyName "Carro" ;
+            schema:givenName "Rosa" ],
         [ a schema:Person ;
             schema:familyName "Ortigosa" ;
             schema:givenName "Alvaro" ] ;
@@ -835,26 +835,26 @@
     prism:startingPage "14637" ;
     prism:volume "7" ;
     dcterms:creator [ a schema:Person ;
+            schema:familyName "Batool" ;
+            schema:givenName "Rabia" ],
+        [ a schema:Person ;
+            schema:familyName "Fung" ;
+            schema:givenName "Benjamin" ],
+        [ a schema:Person ;
             schema:familyName "Iqbal" ;
             schema:givenName "Farkhund" ],
+        [ a schema:Person ;
+            schema:familyName "Khattak" ;
+            schema:givenName "Asad" ],
+        [ a schema:Person ;
+            schema:familyName "Hung" ;
+            schema:givenName "Patrick" ],
         [ a schema:Person ;
             schema:familyName "Hashmi" ;
             schema:givenName "Jahanzeb" ],
         [ a schema:Person ;
             schema:familyName "Aleem" ;
-            schema:givenName "Saiqa" ],
-        [ a schema:Person ;
-            schema:familyName "Hung" ;
-            schema:givenName "Patrick" ],
-        [ a schema:Person ;
-            schema:familyName "Fung" ;
-            schema:givenName "Benjamin" ],
-        [ a schema:Person ;
-            schema:familyName "Batool" ;
-            schema:givenName "Rabia" ],
-        [ a schema:Person ;
-            schema:familyName "Khattak" ;
-            schema:givenName "Asad" ] ;
+            schema:givenName "Saiqa" ] ;
     dcterms:issued 2019 ;
     dcterms:publisher [ schema:name "IEEE Access" ] ;
     dcterms:title "A Hybrid Framework for Sentiment Analysis Using Genetic Algorithm Based Feature Reduction" ;
@@ -865,17 +865,17 @@
     prism:startingPage "135" ;
     prism:volume "5" ;
     dcterms:creator [ a schema:Person ;
-            schema:familyName "Grave" ;
-            schema:givenName "Edouard" ],
-        [ a schema:Person ;
             schema:familyName "Joulin" ;
             schema:givenName "Armand" ],
         [ a schema:Person ;
-            schema:familyName "Bojanowski" ;
-            schema:givenName "Piotr" ],
+            schema:familyName "Grave" ;
+            schema:givenName "Edouard" ],
         [ a schema:Person ;
             schema:familyName "Mikolov" ;
-            schema:givenName "Tomas" ] ;
+            schema:givenName "Tomas" ],
+        [ a schema:Person ;
+            schema:familyName "Bojanowski" ;
+            schema:givenName "Piotr" ] ;
     dcterms:issued 2017 ;
     dcterms:publisher [ schema:name "Transactions of the Association for Computational Linguistics" ] ;
     dcterms:title "Enriching Word Vectors with Subword Information" ;
@@ -887,11 +887,11 @@
     prism:startingPage "9191" ;
     prism:volume "44" ;
     dcterms:creator [ a schema:Person ;
-            schema:familyName "Ahmad" ;
-            schema:givenName "Tanvir" ],
-        [ a schema:Person ;
             schema:familyName "Ansari" ;
             schema:givenName "Gunjan" ],
+        [ a schema:Person ;
+            schema:familyName "Ahmad" ;
+            schema:givenName "Tanvir" ],
         [ a schema:Person ;
             schema:familyName "Doja" ;
             schema:givenName "Mohammad" ] ;
@@ -906,26 +906,26 @@
     prism:startingPage "108" ;
     prism:volume "14" ;
     dcterms:creator [ a schema:Person ;
-            schema:familyName "Zhang" ;
-            schema:givenName "Zili" ],
-        [ a schema:Person ;
-            schema:familyName "Gao" ;
-            schema:givenName "Chao" ],
-        [ a schema:Person ;
             schema:familyName "Liu" ;
             schema:givenName "Yuxin" ],
         [ a schema:Person ;
             schema:familyName "Lu" ;
             schema:givenName "Yuxiao" ],
         [ a schema:Person ;
+            schema:familyName "Gao" ;
+            schema:givenName "Chao" ],
+        [ a schema:Person ;
+            schema:familyName "Zhang" ;
+            schema:givenName "Zili" ],
+        [ a schema:Person ;
+            schema:familyName "Chen" ;
+            schema:givenName "Shi" ],
+        [ a schema:Person ;
             schema:familyName "Tao" ;
             schema:givenName "Li" ],
         [ a schema:Person ;
             schema:familyName "Liang" ;
-            schema:givenName "Mingxin" ],
-        [ a schema:Person ;
-            schema:familyName "Chen" ;
-            schema:givenName "Shi" ] ;
+            schema:givenName "Mingxin" ] ;
     dcterms:issued 2017 ;
     dcterms:publisher [ schema:name "IEEE/ACM Transactions on Computational Biology and Bioinformatics" ] ;
     dcterms:title "Solving NP-Hard Problems with <italic>Physarum</italic>-Based Ant Colony System" ;
@@ -940,20 +940,20 @@
             schema:familyName "Zarrabi" ;
             schema:givenName "Houman" ],
         [ a schema:Person ;
-            schema:familyName "Hamian" ;
-            schema:givenName "Melika" ],
-        [ a schema:Person ;
-            schema:familyName "Nabaei" ;
-            schema:givenName "Armin" ],
-        [ a schema:Person ;
-            schema:familyName "Samad-Soltani" ;
-            schema:givenName "Taha" ],
-        [ a schema:Person ;
             schema:familyName "Parsaei" ;
             schema:givenName "Mohammad" ],
         [ a schema:Person ;
             schema:familyName "Ghassemi" ;
             schema:givenName "A" ],
+        [ a schema:Person ;
+            schema:familyName "Samad-Soltani" ;
+            schema:givenName "Taha" ],
+        [ a schema:Person ;
+            schema:familyName "Hamian" ;
+            schema:givenName "Melika" ],
+        [ a schema:Person ;
+            schema:familyName "Nabaei" ;
+            schema:givenName "Armin" ],
         [ a schema:Person ;
             schema:familyName "Safdari" ;
             schema:givenName "Reza" ] ;
@@ -964,11 +964,11 @@
 
 :BIBREF14_72b08ddb4 a deo:BibliographicReference ;
     dcterms:creator [ a schema:Person ;
-            schema:familyName "Eberhart" ;
-            schema:givenName "R" ],
-        [ a schema:Person ;
             schema:familyName "Kennedy" ;
-            schema:givenName "J" ] ;
+            schema:givenName "J" ],
+        [ a schema:Person ;
+            schema:familyName "Eberhart" ;
+            schema:givenName "R" ] ;
     dcterms:publisher [ schema:name "MHS'95. Proceedings of the Sixth International Symposium on Micro Machine and Human Science" ] ;
     dcterms:title "A new optimizer using particle swarm theory" ;
     datacite:doi "http://dx.doi.org/10.1109/mhs.1995.494215"^^xsd:anyURI .
@@ -986,17 +986,17 @@
     prism:startingPage "361" ;
     prism:volume "26" ;
     dcterms:creator [ a schema:Person ;
-            schema:familyName "Abraham" ;
-            schema:givenName "Ajith" ],
-        [ a schema:Person ;
             schema:familyName "Singh" ;
             schema:givenName "Maninder" ],
         [ a schema:Person ;
-            schema:familyName "Chana" ;
-            schema:givenName "Inderveer" ],
-        [ a schema:Person ;
             schema:familyName "Buyya" ;
             schema:givenName "Rajkumar" ],
+        [ a schema:Person ;
+            schema:familyName "Abraham" ;
+            schema:givenName "Ajith" ],
+        [ a schema:Person ;
+            schema:familyName "Chana" ;
+            schema:givenName "Inderveer" ],
         [ a schema:Person ;
             schema:familyName "Gill" ;
             schema:givenName "Sukhpal" ] ;
@@ -1008,14 +1008,14 @@
 :BIBREF17_72b08ddb4 a deo:BibliographicReference ;
     prism:volume "90" ;
     dcterms:creator [ a schema:Person ;
+            schema:familyName "Awasthi" ;
+            schema:givenName "Lalit" ],
+        [ a schema:Person ;
             schema:familyName "Dhiman" ;
             schema:givenName "Gaurav" ],
         [ a schema:Person ;
             schema:familyName "Sangal" ;
             schema:givenName "A" ],
-        [ a schema:Person ;
-            schema:familyName "Awasthi" ;
-            schema:givenName "Lalit" ],
         [ a schema:Person ;
             schema:familyName "Kaur" ;
             schema:givenName "Satnam" ] ;
@@ -1028,17 +1028,17 @@
     prism:issueIdentifier "5" ;
     prism:volume "17" ;
     dcterms:creator [ a schema:Person ;
-            schema:familyName "Mohd Noah" ;
-            schema:givenName "Shahrul" ],
-        [ a schema:Person ;
-            schema:familyName "Darwich" ;
-            schema:givenName "Mohammad" ],
+            schema:familyName "Osman" ;
+            schema:givenName "Nurul" ],
         [ a schema:Person ;
             schema:familyName "Omar" ;
             schema:givenName "Nazlia" ],
         [ a schema:Person ;
-            schema:familyName "Osman" ;
-            schema:givenName "Nurul" ] ;
+            schema:familyName "Darwich" ;
+            schema:givenName "Mohammad" ],
+        [ a schema:Person ;
+            schema:familyName "Mohd Noah" ;
+            schema:givenName "Shahrul" ] ;
     dcterms:issued 2019 ;
     dcterms:publisher [ schema:name "Journal of Digital Information Management" ] ;
     dcterms:title "Corpus-Based Techniques for Sentiment Lexicon Generation: A Review" ;
@@ -1065,20 +1065,20 @@
     prism:startingPage "3594" ;
     prism:volume "8" ;
     dcterms:creator [ a schema:Person ;
+            schema:familyName "Kausar" ;
+            schema:givenName "Samina" ],
+        [ a schema:Person ;
+            schema:familyName "Ahmad" ;
+            schema:givenName "Waqas" ],
+        [ a schema:Person ;
             schema:familyName "Shabir" ;
             schema:givenName "Muhammad" ],
         [ a schema:Person ;
+            schema:familyName "Ahmad" ;
+            schema:givenName "Waqas" ],
+        [ a schema:Person ;
             schema:familyName "Huahu" ;
-            schema:givenName "Xu" ],
-        [ a schema:Person ;
-            schema:familyName "Ahmad" ;
-            schema:givenName "Waqas" ],
-        [ a schema:Person ;
-            schema:familyName "Ahmad" ;
-            schema:givenName "Waqas" ],
-        [ a schema:Person ;
-            schema:familyName "Kausar" ;
-            schema:givenName "Samina" ] ;
+            schema:givenName "Xu" ] ;
     dcterms:issued 2020 ;
     dcterms:publisher [ schema:name "IEEE Access" ] ;
     dcterms:title "A Sentiment Polarity Categorization Technique for Online Product Reviews" ;
@@ -1102,11 +1102,11 @@
             schema:familyName "Saber" ;
             schema:givenName "Nudrat" ],
         [ a schema:Person ;
-            schema:familyName "Shah" ;
-            schema:givenName "Faisal" ],
-        [ a schema:Person ;
             schema:familyName "Haque" ;
-            schema:givenName "Tanjim" ] ;
+            schema:givenName "Tanjim" ],
+        [ a schema:Person ;
+            schema:familyName "Shah" ;
+            schema:givenName "Faisal" ] ;
     dcterms:issued 2018 ;
     dcterms:publisher [ schema:name "2018 IEEE International Conference on Innovative Research and Development (ICIRD)" ] ;
     dcterms:title "Sentiment analysis on large scale Amazon product reviews" ;
@@ -1117,17 +1117,17 @@
     prism:startingPage "61" ;
     prism:volume "71" ;
     dcterms:creator [ a schema:Person ;
-            schema:familyName "Cho" ;
-            schema:givenName "Heeryon" ],
-        [ a schema:Person ;
-            schema:familyName "Lee" ;
-            schema:givenName "Jong-Seok" ],
+            schema:familyName "Kim" ;
+            schema:givenName "Songkuk" ],
         [ a schema:Person ;
             schema:familyName "Lee" ;
             schema:givenName "Jongseo" ],
         [ a schema:Person ;
-            schema:familyName "Kim" ;
-            schema:givenName "Songkuk" ] ;
+            schema:familyName "Cho" ;
+            schema:givenName "Heeryon" ],
+        [ a schema:Person ;
+            schema:familyName "Lee" ;
+            schema:givenName "Jong-Seok" ] ;
     dcterms:issued 2014 ;
     dcterms:publisher [ schema:name "Knowledge-Based Systems" ] ;
     dcterms:title "Data-driven integration of multiple sentiment dictionaries for lexicon-based sentiment classification of product reviews" ;
@@ -1139,11 +1139,11 @@
     prism:startingPage "1138" ;
     prism:volume "181" ;
     dcterms:creator [ a schema:Person ;
-            schema:familyName "Li" ;
-            schema:givenName "Shoushan" ],
-        [ a schema:Person ;
             schema:familyName "Zong" ;
             schema:givenName "Chengqing" ],
+        [ a schema:Person ;
+            schema:familyName "Li" ;
+            schema:givenName "Shoushan" ],
         [ a schema:Person ;
             schema:familyName "Xia" ;
             schema:givenName "Rui" ] ;
@@ -1197,14 +1197,14 @@
     prism:startingPage "527" ;
     prism:volume "31" ;
     dcterms:creator [ a schema:Person ;
+            schema:familyName "Martín" ;
+            schema:givenName "José" ],
+        [ a schema:Person ;
             schema:familyName "Carro" ;
             schema:givenName "Rosa" ],
         [ a schema:Person ;
             schema:familyName "Ortigosa" ;
-            schema:givenName "Alvaro" ],
-        [ a schema:Person ;
-            schema:familyName "Martín" ;
-            schema:givenName "José" ] ;
+            schema:givenName "Alvaro" ] ;
     dcterms:issued 2014 ;
     dcterms:publisher [ schema:name "Computers in Human Behavior" ] ;
     dcterms:title "Sentiment analysis in Facebook and its application to e-learning" ;
@@ -1215,20 +1215,20 @@
     prism:startingPage "2" ;
     prism:volume "5" ;
     dcterms:creator [ a schema:Person ;
-            schema:familyName "Zou" ;
-            schema:givenName "Quan" ],
+            schema:familyName "Ju" ;
+            schema:givenName "Ying" ],
         [ a schema:Person ;
             schema:familyName "Lin" ;
             schema:givenName "Ziyu" ],
         [ a schema:Person ;
-            schema:familyName "Ju" ;
-            schema:givenName "Ying" ],
+            schema:familyName "Xie" ;
+            schema:givenName "Sifa" ],
+        [ a schema:Person ;
+            schema:familyName "Zou" ;
+            schema:givenName "Quan" ],
         [ a schema:Person ;
             schema:familyName "Wu" ;
-            schema:givenName "Meihong" ],
-        [ a schema:Person ;
-            schema:familyName "Xie" ;
-            schema:givenName "Sifa" ] ;
+            schema:givenName "Meihong" ] ;
     dcterms:issued 2016 ;
     dcterms:publisher [ schema:name "Big Data Research" ] ;
     dcterms:title "Finding the Best Classification Threshold in Imbalanced Classification" ;
@@ -1240,10 +1240,10 @@
     prism:startingPage "1621" ;
     prism:volume "3" ;
     dcterms:creator [ a schema:Person ;
-            schema:givenName "S" ],
-        [ a schema:Person ;
             schema:familyName "Nandi" ;
-            schema:givenName "V" ] ;
+            schema:givenName "V" ],
+        [ a schema:Person ;
+            schema:givenName "S" ] ;
     dcterms:issued 2016 ;
     dcterms:publisher [ schema:name "International Research Journal of Engineering and Technology (IRJET)" ] ;
     dcterms:title "Political sentiment analysis using hybrid approach" .
@@ -1254,11 +1254,11 @@
     prism:startingPage "526" ;
     prism:volume "12" ;
     dcterms:creator [ a schema:Person ;
-            schema:familyName "Moens" ;
-            schema:givenName "M.-F" ],
-        [ a schema:Person ;
             schema:familyName "Boiy And" ;
-            schema:givenName "E" ] ;
+            schema:givenName "E" ],
+        [ a schema:Person ;
+            schema:familyName "Moens" ;
+            schema:givenName "M.-F" ] ;
     dcterms:issued 2008 ;
     dcterms:publisher [ schema:name "Information Retrieval" ] ;
     dcterms:title "A machine learning approach to sentiment analysis in multilingual Web texts" .
@@ -1290,11 +1290,11 @@
     prism:startingPage "1611" ;
     prism:volume "29" ;
     dcterms:creator [ a schema:Person ;
-            schema:familyName "Joshi" ;
-            schema:givenName "Nisheeth" ],
-        [ a schema:Person ;
             schema:familyName "Gupta" ;
-            schema:givenName "Itisha" ] ;
+            schema:givenName "Itisha" ],
+        [ a schema:Person ;
+            schema:familyName "Joshi" ;
+            schema:givenName "Nisheeth" ] ;
     dcterms:issued 2019 ;
     dcterms:publisher [ schema:name "Journal of Intelligent Systems" ] ;
     dcterms:title "Enhanced Twitter Sentiment Analysis Using Hybrid Approach and by Accounting Local Contextual Semantic" ;
@@ -1334,11 +1334,11 @@
 
 :BIBREF35_72b08ddb4 a deo:BibliographicReference ;
     dcterms:creator [ a schema:Person ;
-            schema:familyName "Wahyudi" ;
-            schema:givenName "Mochamad" ],
-        [ a schema:Person ;
             schema:familyName "Kristiyanti" ;
-            schema:givenName "Dinar" ] ;
+            schema:givenName "Dinar" ],
+        [ a schema:Person ;
+            schema:familyName "Wahyudi" ;
+            schema:givenName "Mochamad" ] ;
     dcterms:issued 2017 ;
     dcterms:publisher [ schema:name "2017 5th International Conference on Cyber and IT Service Management (CITSM)" ] ;
     dcterms:title "Feature selection based on Genetic algorithm, particle swarm optimization and principal component analysis for opinion mining cosmetic product review" ;
@@ -1350,17 +1350,17 @@
     prism:startingPage "381" ;
     prism:volume "29" ;
     dcterms:creator [ a schema:Person ;
-            schema:familyName "Yu" ;
-            schema:givenName "K" ],
-        [ a schema:Person ;
-            schema:familyName "Kwong" ;
-            schema:givenName "C" ],
+            schema:familyName "Park" ;
+            schema:givenName "W" ],
         [ a schema:Person ;
             schema:familyName "Jiang" ;
             schema:givenName "Huimin" ],
         [ a schema:Person ;
-            schema:familyName "Park" ;
-            schema:givenName "W" ] ;
+            schema:familyName "Yu" ;
+            schema:givenName "K" ],
+        [ a schema:Person ;
+            schema:familyName "Kwong" ;
+            schema:givenName "C" ] ;
     dcterms:issued 2018 ;
     dcterms:publisher [ schema:name "Journal of Engineering Design" ] ;
     dcterms:title "A multi-objective PSO approach of mining association rules for affective design based on online customer reviews" ;
@@ -1372,20 +1372,20 @@
     prism:startingPage "267" ;
     prism:volume "37" ;
     dcterms:creator [ a schema:Person ;
+            schema:familyName "Tofiloski" ;
+            schema:givenName "Milan" ],
+        [ a schema:Person ;
             schema:familyName "Brooke" ;
             schema:givenName "Julian" ],
+        [ a schema:Person ;
+            schema:familyName "Voll" ;
+            schema:givenName "Kimberly" ],
         [ a schema:Person ;
             schema:familyName "Taboada" ;
             schema:givenName "Maite" ],
         [ a schema:Person ;
             schema:familyName "Stede" ;
-            schema:givenName "Manfred" ],
-        [ a schema:Person ;
-            schema:familyName "Voll" ;
-            schema:givenName "Kimberly" ],
-        [ a schema:Person ;
-            schema:familyName "Tofiloski" ;
-            schema:givenName "Milan" ] ;
+            schema:givenName "Manfred" ] ;
     dcterms:issued 2014 ;
     dcterms:publisher [ schema:name "Computational Linguistics" ] ;
     dcterms:title "Lexicon-Based Methods for Sentiment Analysis" ;
@@ -1399,11 +1399,11 @@
             schema:familyName "Katz" ;
             schema:givenName "Gilad" ],
         [ a schema:Person ;
-            schema:familyName "Shapira" ;
-            schema:givenName "Bracha" ],
-        [ a schema:Person ;
             schema:familyName "Ofek" ;
-            schema:givenName "Nir" ] ;
+            schema:givenName "Nir" ],
+        [ a schema:Person ;
+            schema:familyName "Shapira" ;
+            schema:givenName "Bracha" ] ;
     dcterms:issued 2015 ;
     dcterms:publisher [ schema:name "Knowledge-Based Systems" ] ;
     dcterms:title "ConSent: Context-based sentiment analysis" ;
@@ -1417,14 +1417,14 @@
             schema:familyName "Ducange" ;
             schema:givenName "Pietro" ],
         [ a schema:Person ;
-            schema:familyName "Vecchio" ;
-            schema:givenName "Massimo" ],
+            schema:familyName "Fazzolari" ;
+            schema:givenName "Michela" ],
         [ a schema:Person ;
             schema:familyName "Petrocchi" ;
             schema:givenName "Marinella" ],
         [ a schema:Person ;
-            schema:familyName "Fazzolari" ;
-            schema:givenName "Michela" ] ;
+            schema:familyName "Vecchio" ;
+            schema:givenName "Massimo" ] ;
     dcterms:issued 2019 ;
     dcterms:publisher [ schema:name "Engineering Applications of Artificial Intelligence" ] ;
     dcterms:title "An effective Decision Support System for social media listening based on cross-source sentiment analysis models" ;
@@ -1435,20 +1435,20 @@
     prism:startingPage "1" ;
     prism:volume "155" ;
     dcterms:creator [ a schema:Person ;
-            schema:familyName "Yuan" ;
-            schema:givenName "Zhigang" ],
-        [ a schema:Person ;
-            schema:familyName "Huang" ;
-            schema:givenName "Yongfeng" ],
-        [ a schema:Person ;
             schema:familyName "Wu" ;
             schema:givenName "Fangzhao" ],
+        [ a schema:Person ;
+            schema:familyName "Wu" ;
+            schema:givenName "Sixing" ],
+        [ a schema:Person ;
+            schema:familyName "Yuan" ;
+            schema:givenName "Zhigang" ],
         [ a schema:Person ;
             schema:familyName "Liu" ;
             schema:givenName "Junxin" ],
         [ a schema:Person ;
-            schema:familyName "Wu" ;
-            schema:givenName "Sixing" ] ;
+            schema:familyName "Huang" ;
+            schema:givenName "Yongfeng" ] ;
     dcterms:issued 2018 ;
     dcterms:publisher [ schema:name "Knowledge-Based Systems" ] ;
     dcterms:title "Domain attention model for multi-domain sentiment classification" ;
@@ -1460,11 +1460,11 @@
     prism:startingPage "3821" ;
     prism:volume "20" ;
     dcterms:creator [ a schema:Person ;
-            schema:familyName "Shang" ;
-            schema:givenName "Lin" ],
-        [ a schema:Person ;
             schema:familyName "Zhou" ;
             schema:givenName "Zhe" ],
+        [ a schema:Person ;
+            schema:familyName "Shang" ;
+            schema:givenName "Lin" ],
         [ a schema:Person ;
             schema:familyName "Liu" ;
             schema:givenName "Xing" ] ;
@@ -1477,14 +1477,14 @@
     prism:endingPage "1543" ;
     prism:startingPage "1532" ;
     dcterms:creator [ a schema:Person ;
+            schema:familyName "Pennington" ;
+            schema:givenName "Jeffrey" ],
+        [ a schema:Person ;
             schema:familyName "Manning" ;
             schema:givenName "Christopher" ],
         [ a schema:Person ;
             schema:familyName "Socher" ;
-            schema:givenName "Richard" ],
-        [ a schema:Person ;
-            schema:familyName "Pennington" ;
-            schema:givenName "Jeffrey" ] ;
+            schema:givenName "Richard" ] ;
     dcterms:issued 2014 ;
     dcterms:publisher [ schema:name "Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing (EMNLP)" ] ;
     dcterms:title "Glove: Global Vectors for Word Representation" ;

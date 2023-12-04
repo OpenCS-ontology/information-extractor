@@ -580,11 +580,11 @@
 
 :BIBREF0_969c788bb a deo:BibliographicReference ;
     dcterms:creator [ a schema:Person ;
-            schema:familyName "Jamalipour" ;
-            schema:givenName "A" ],
-        [ a schema:Person ;
             schema:familyName "Zheng" ;
-            schema:givenName "J" ] ;
+            schema:givenName "J" ],
+        [ a schema:Person ;
+            schema:familyName "Jamalipour" ;
+            schema:givenName "A" ] ;
     dcterms:issued 2009 ;
     dcterms:publisher [ schema:name "A JOHN WILEY and SONS" ] ;
     dcterms:title "Wireless Sensor Networks" ;
@@ -594,11 +594,11 @@
     prism:endingPage "121" ;
     prism:startingPage "115" ;
     dcterms:creator [ a schema:Person ;
-            schema:familyName "Huang" ;
-            schema:givenName "Chi-Fu" ],
-        [ a schema:Person ;
             schema:familyName "Tseng" ;
-            schema:givenName "Yu-Chee" ] ;
+            schema:givenName "Yu-Chee" ],
+        [ a schema:Person ;
+            schema:familyName "Huang" ;
+            schema:givenName "Chi-Fu" ] ;
     dcterms:issued 2003 ;
     dcterms:publisher [ schema:name "Proceedings of the 2nd ACM international conference on Wireless sensor networks and applications" ] ;
     dcterms:title "The coverage problem in a wireless sensor network" ;
@@ -606,14 +606,14 @@
 
 :BIBREF11_969c788bb a deo:BibliographicReference ;
     dcterms:creator [ a schema:Person ;
-            schema:familyName "Das" ;
-            schema:givenName "S" ],
+            schema:familyName "Gupta" ;
+            schema:givenName "H" ],
         [ a schema:Person ;
             schema:familyName "Zhou" ;
             schema:givenName "Z" ],
         [ a schema:Person ;
-            schema:familyName "Gupta" ;
-            schema:givenName "H" ] ;
+            schema:familyName "Das" ;
+            schema:givenName "S" ] ;
     dcterms:issued 2004 ;
     dcterms:publisher [ schema:name "Proceed-ings of the International Conference on Computer Communications and Networks (IC3N)" ] ;
     dcterms:title "Connected K-Coverage Problem" .
@@ -624,14 +624,14 @@
     prism:startingPage "269" ;
     prism:volume "10" ;
     dcterms:creator [ a schema:Person ;
+            schema:familyName "Mousavi" ;
+            schema:givenName "H" ],
+        [ a schema:Person ;
             schema:familyName "Yazdani" ;
             schema:givenName "N" ],
         [ a schema:Person ;
             schema:familyName "Lucas" ;
             schema:givenName "C" ],
-        [ a schema:Person ;
-            schema:familyName "Mousavi" ;
-            schema:givenName "H" ],
         [ a schema:Person ;
             schema:familyName "Nayyeri" ;
             schema:givenName "A" ] ;
@@ -642,17 +642,17 @@
 
 :BIBREF13_969c788bb a deo:BibliographicReference ;
     dcterms:creator [ a schema:Person ;
-            schema:familyName "Li" ;
-            schema:givenName "Xu" ],
-        [ a schema:Person ;
-            schema:familyName "Stojmenovic" ;
-            schema:givenName "Ivan" ],
+            schema:familyName "Fletcher" ;
+            schema:givenName "Greg" ],
         [ a schema:Person ;
             schema:familyName "Nayak" ;
             schema:givenName "Amiya" ],
         [ a schema:Person ;
-            schema:familyName "Fletcher" ;
-            schema:givenName "Greg" ] ;
+            schema:familyName "Stojmenovic" ;
+            schema:givenName "Ivan" ],
+        [ a schema:Person ;
+            schema:familyName "Li" ;
+            schema:givenName "Xu" ] ;
     dcterms:issued 2010 ;
     dcterms:publisher [ schema:name "2010 IEEE 72nd Vehicular Technology Conference - Fall" ] ;
     dcterms:title "Randomized Robot-Assisted Relocation of Sensors for Coverage Repair in Wireless Sensor Networks" ;
@@ -664,14 +664,14 @@
     prism:startingPage "1951" ;
     prism:volume "11" ;
     dcterms:creator [ a schema:Person ;
+            schema:familyName "Li" ;
+            schema:givenName "Xu" ],
+        [ a schema:Person ;
             schema:familyName "Nayak" ;
             schema:givenName "Amiya" ],
         [ a schema:Person ;
             schema:familyName "Fletcher" ;
             schema:givenName "Greg" ],
-        [ a schema:Person ;
-            schema:familyName "Li" ;
-            schema:givenName "Xu" ],
         [ a schema:Person ;
             schema:familyName "Stojmenovic" ;
             schema:givenName "Ivan" ] ;
@@ -685,11 +685,11 @@
     prism:startingPage "472" ;
     prism:volume "2" ;
     dcterms:creator [ a schema:Person ;
-            schema:familyName "Potkonjak" ;
-            schema:givenName "M" ],
-        [ a schema:Person ;
             schema:familyName "Slijepcevic" ;
-            schema:givenName "S" ] ;
+            schema:givenName "S" ],
+        [ a schema:Person ;
+            schema:familyName "Potkonjak" ;
+            schema:givenName "M" ] ;
     dcterms:issued 2001 ;
     dcterms:publisher [ schema:name "ICC 2001. IEEE International Conference on Communications. Conference Record (Cat. No.01CH37240)" ] ;
     dcterms:title "Power efficient organization of wireless sensor networks" ;
@@ -701,8 +701,8 @@
     prism:startingPage "213" ;
     prism:volume "03" ;
     dcterms:creator [ a schema:Person ;
-            schema:familyName "Jia" ;
-            schema:givenName "Xiaohua" ],
+            schema:familyName "Min" ;
+            schema:givenName "Manki" ],
         [ a schema:Person ;
             schema:familyName "Maccallum" ;
             schema:givenName "David" ],
@@ -710,17 +710,17 @@
             schema:familyName "Du" ;
             schema:givenName "Ding-Zhu" ],
         [ a schema:Person ;
-            schema:familyName "Min" ;
-            schema:givenName "Manki" ],
-        [ a schema:Person ;
-            schema:familyName "Cardei" ;
-            schema:givenName "Mihaela" ],
+            schema:familyName "Li" ;
+            schema:givenName "Deying" ],
         [ a schema:Person ;
             schema:familyName "Cheng" ;
             schema:givenName "Maggie" ],
         [ a schema:Person ;
-            schema:familyName "Li" ;
-            schema:givenName "Deying" ] ;
+            schema:familyName "Jia" ;
+            schema:givenName "Xiaohua" ],
+        [ a schema:Person ;
+            schema:familyName "Cardei" ;
+            schema:givenName "Mihaela" ] ;
     dcterms:issued 2002 ;
     dcterms:publisher [ schema:name "Journal of Interconnection Networks" ] ;
     dcterms:title "Wireless Sensor Networks with Energy Efficient Organization" ;
@@ -742,14 +742,14 @@
     prism:endingPage "280" ;
     prism:startingPage "268" ;
     dcterms:creator [ a schema:Person ;
-            schema:familyName "Li" ;
-            schema:givenName "Yingshu" ],
+            schema:familyName "Vu" ;
+            schema:givenName "Chinh" ],
         [ a schema:Person ;
             schema:familyName "Gao" ;
             schema:givenName "Shan" ],
         [ a schema:Person ;
-            schema:familyName "Vu" ;
-            schema:givenName "Chinh" ] ;
+            schema:familyName "Li" ;
+            schema:givenName "Yingshu" ] ;
     dcterms:issued 2006 ;
     dcterms:publisher [ schema:name "Lecture Notes in Computer Science" ] ;
     dcterms:title "Sensor Scheduling for k-Coverage in Wireless Sensor Networks" ;
@@ -757,11 +757,11 @@
 
 :BIBREF19_969c788bb a deo:BibliographicReference ;
     dcterms:creator [ a schema:Person ;
-            schema:familyName "Tian" ;
-            schema:givenName "Di" ],
-        [ a schema:Person ;
             schema:familyName "Georganas" ;
-            schema:givenName "Nicolas" ] ;
+            schema:givenName "Nicolas" ],
+        [ a schema:Person ;
+            schema:familyName "Tian" ;
+            schema:givenName "Di" ] ;
     dcterms:issued 2002 ;
     dcterms:publisher [ schema:name "Proceedings of the 1st ACM international workshop on Wireless sensor networks and applications" ] ;
     dcterms:title "A coverage-preserving node scheduling scheme for large wireless sensor networks" ;
@@ -775,14 +775,14 @@
             schema:familyName "Chunlin" ;
             schema:givenName "Z" ],
         [ a schema:Person ;
+            schema:familyName "Lei" ;
+            schema:givenName "S" ],
+        [ a schema:Person ;
             schema:familyName "Chuan" ;
             schema:givenName "Z" ],
         [ a schema:Person ;
             schema:familyName "Guangjie" ;
-            schema:givenName "H" ],
-        [ a schema:Person ;
-            schema:familyName "Lei" ;
-            schema:givenName "S" ] ;
+            schema:givenName "H" ] ;
     dcterms:issued 2012 ;
     dcterms:publisher [ schema:name "J. Network Comput. Appl" ] ;
     dcterms:title "A survey on coverage and connectivity issues in wireless sensor networks" .
@@ -792,10 +792,10 @@
     dcterms:creator [ a schema:Person ;
             schema:familyName "Yingshu Li" ],
         [ a schema:Person ;
-            schema:familyName "Weili Wu" ],
-        [ a schema:Person ;
             schema:familyName "Thai" ;
             schema:givenName "M" ],
+        [ a schema:Person ;
+            schema:familyName "Weili Wu" ],
         [ a schema:Person ;
             schema:familyName "Cardei" ;
             schema:givenName "Mihaela" ] ;
@@ -806,14 +806,14 @@
 
 :BIBREF21_969c788bb a deo:BibliographicReference ;
     dcterms:creator [ a schema:Person ;
-            schema:familyName "Stankovic" ;
-            schema:givenName "John" ],
+            schema:familyName "Yan" ;
+            schema:givenName "Ting" ],
         [ a schema:Person ;
             schema:familyName "He" ;
             schema:givenName "Tian" ],
         [ a schema:Person ;
-            schema:familyName "Yan" ;
-            schema:givenName "Ting" ] ;
+            schema:familyName "Stankovic" ;
+            schema:givenName "John" ] ;
     dcterms:issued 2003 ;
     dcterms:publisher [ schema:name "Proceedings of the 1st international conference on Embedded networked sensor systems" ] ;
     dcterms:title "Differentiated surveillance for sensor networks" ;
@@ -822,11 +822,11 @@
 :BIBREF22_969c788bb a deo:BibliographicReference ;
     prism:volume "5" ;
     dcterms:creator [ a schema:Person ;
-            schema:familyName "Chiasserini" ;
-            schema:givenName "C-F" ],
-        [ a schema:Person ;
             schema:familyName "Bianco" ;
             schema:givenName "A" ],
+        [ a schema:Person ;
+            schema:familyName "Chiasserini" ;
+            schema:givenName "C-F" ],
         [ a schema:Person ;
             schema:familyName "Brandimarte" ;
             schema:givenName "P" ],
@@ -844,11 +844,11 @@
     prism:startingPage "51" ;
     prism:volume "43" ;
     dcterms:creator [ a schema:Person ;
-            schema:familyName "Pottie" ;
-            schema:givenName "Gregory" ],
-        [ a schema:Person ;
             schema:familyName "Kaiser" ;
-            schema:givenName "William" ] ;
+            schema:givenName "William" ],
+        [ a schema:Person ;
+            schema:familyName "Pottie" ;
+            schema:givenName "Gregory" ] ;
     dcterms:issued 2000 ;
     dcterms:publisher [ schema:name "Communications of the ACM" ] ;
     dcterms:title "Wireless integrated network sensors" ;
@@ -860,14 +860,14 @@
     prism:startingPage "40" ;
     prism:volume "19" ;
     dcterms:creator [ a schema:Person ;
-            schema:familyName "Schurgers" ;
-            schema:givenName "C" ],
-        [ a schema:Person ;
             schema:familyName "Srivastava" ;
             schema:givenName "M" ],
         [ a schema:Person ;
             schema:familyName "Raghunathan" ;
             schema:givenName "Vijay" ],
+        [ a schema:Person ;
+            schema:familyName "Schurgers" ;
+            schema:givenName "C" ],
         [ a schema:Person ;
             schema:familyName "Sung Park" ] ;
     dcterms:issued 2002 ;
@@ -886,14 +886,14 @@
     prism:startingPage "113" ;
     prism:volume "16" ;
     dcterms:creator [ a schema:Person ;
-            schema:familyName "Ratna Swain" ;
-            schema:givenName "Amulya" ],
-        [ a schema:Person ;
             schema:familyName "Roy" ;
             schema:givenName "Soham" ],
         [ a schema:Person ;
             schema:familyName "Tarasia" ;
             schema:givenName "Nachiketa" ],
+        [ a schema:Person ;
+            schema:familyName "Ratna Swain" ;
+            schema:givenName "Amulya" ],
         [ a schema:Person ;
             schema:familyName "Narayana Kar" ;
             schema:givenName "Udit" ] ;
@@ -925,17 +925,17 @@
             schema:familyName "Fang" ;
             schema:givenName "Wei" ],
         [ a schema:Person ;
-            schema:familyName "Zhou" ;
-            schema:givenName "Zhangbing" ],
-        [ a schema:Person ;
             schema:familyName "Shu" ;
             schema:givenName "Lei" ],
         [ a schema:Person ;
-            schema:familyName "Hancke" ;
-            schema:givenName "Gerhard" ],
+            schema:familyName "Zhou" ;
+            schema:givenName "Zhangbing" ],
         [ a schema:Person ;
             schema:familyName "Mukherjee" ;
-            schema:givenName "Mithun" ] ;
+            schema:givenName "Mithun" ],
+        [ a schema:Person ;
+            schema:familyName "Hancke" ;
+            schema:givenName "Gerhard" ] ;
     dcterms:issued 2017 ;
     dcterms:publisher [ schema:name "2017 IEEE International Conference on Communications Workshops (ICC Workshops)" ] ;
     dcterms:title "Energy utilization concerned sleep scheduling in Wireless Powered Communication Networks" ;
@@ -990,22 +990,22 @@
     prism:endingPage "37" ;
     prism:startingPage "28" ;
     dcterms:creator [ a schema:Person ;
-            schema:familyName "Zhong" ;
-            schema:givenName "F" ],
-        [ a schema:Person ;
-            schema:familyName "Zhang" ;
-            schema:givenName "S" ],
-        [ a schema:Person ;
-            schema:familyName "Ye" ;
-            schema:givenName "Fan" ],
-        [ a schema:Person ;
-            schema:givenName "L" ],
-        [ a schema:Person ;
             schema:familyName "Lu" ;
             schema:givenName "J" ],
         [ a schema:Person ;
             schema:familyName "Cheng" ;
-            schema:givenName "G" ] ;
+            schema:givenName "G" ],
+        [ a schema:Person ;
+            schema:familyName "Zhang" ;
+            schema:givenName "S" ],
+        [ a schema:Person ;
+            schema:givenName "L" ],
+        [ a schema:Person ;
+            schema:familyName "Ye" ;
+            schema:givenName "Fan" ],
+        [ a schema:Person ;
+            schema:familyName "Zhong" ;
+            schema:givenName "F" ] ;
     dcterms:issued 2002 ;
     dcterms:publisher [ schema:name "23rd International Conference on Distributed Computing Systems(DCS' 02)" ] ;
     dcterms:title "PEAS: a robust energy conserving protocol for long-lived sensor networks" .
@@ -1014,11 +1014,11 @@
     prism:endingPage "143" ;
     prism:startingPage "129" ;
     dcterms:creator [ a schema:Person ;
-            schema:familyName "Mohapatra" ;
-            schema:givenName "Prasant" ],
-        [ a schema:Person ;
             schema:familyName "Gui" ;
-            schema:givenName "Chao" ] ;
+            schema:givenName "Chao" ],
+        [ a schema:Person ;
+            schema:familyName "Mohapatra" ;
+            schema:givenName "Prasant" ] ;
     dcterms:issued 2004 ;
     dcterms:publisher [ schema:name "Proceedings of the 10th annual international conference on Mobile computing and networking" ] ;
     dcterms:title "Power conservation and quality of surveillance in target tracking sensor networks" ;
@@ -1028,6 +1028,9 @@
     prism:endingPage "2930" ;
     prism:startingPage "2923" ;
     dcterms:creator [ a schema:Person ;
+            schema:familyName "Yen" ;
+            schema:givenName "Yun-Sheng" ],
+        [ a schema:Person ;
             schema:familyName "Chang" ;
             schema:givenName "Ruay-Shiung" ],
         [ a schema:Person ;
@@ -1035,10 +1038,7 @@
             schema:givenName "Sheng" ],
         [ a schema:Person ;
             schema:familyName "Chao" ;
-            schema:givenName "Han-Chieh" ],
-        [ a schema:Person ;
-            schema:familyName "Yen" ;
-            schema:givenName "Yun-Sheng" ] ;
+            schema:givenName "Han-Chieh" ] ;
     dcterms:issued 2007 ;
     dcterms:publisher [ schema:name "2007 IEEE Wireless Communications and Networking Conference" ] ;
     dcterms:title "An Energy Efficient and Coverage Guaranteed Wireless Sensor Network" ;
@@ -1063,11 +1063,11 @@
     prism:endingPage "476" ;
     prism:startingPage "472" ;
     dcterms:creator [ a schema:Person ;
-            schema:familyName "Slijepcevic" ;
-            schema:givenName "S" ],
-        [ a schema:Person ;
             schema:familyName "Potkonjak" ;
-            schema:givenName "M" ] ;
+            schema:givenName "M" ],
+        [ a schema:Person ;
+            schema:familyName "Slijepcevic" ;
+            schema:givenName "S" ] ;
     dcterms:issued 2001 ;
     dcterms:publisher [ schema:name "ICC 2001. IEEE International Conference on Communications. Conference Record (Cat. No.01CH37240)" ] ;
     dcterms:title "Power efficient organization of wireless sensor networks" ;
