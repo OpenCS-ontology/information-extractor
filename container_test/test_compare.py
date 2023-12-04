@@ -5,26 +5,26 @@ from rapidfuzz import fuzz
 from rdflib.compare import isomorphic
 
 
-# def are_graphs_equal(graph1, graph2):
-#     isomorphic_result = isomorphic(graph1, graph2)
-
-#     return isomorphic_result
-
 def are_graphs_equal(graph1, graph2):
-    # Find triples in graph1 that are not in graph2
-    diff_graph1 = Graph()
-    for triple in graph1:
-        if triple not in graph2:
-            diff_graph1.add(triple)
+    isomorphic_result = isomorphic(graph1, graph2)
 
-    # Find triples in graph2 that are not in graph1
-    diff_graph2 = Graph()
-    for triple in graph2:
-        if triple not in graph1:
-            print(triple)
-            diff_graph2.add(triple)
+    return isomorphic_result
 
-    return diff_graph1, diff_graph2
+# def are_graphs_equal(graph1, graph2):
+#     # Find triples in graph1 that are not in graph2
+#     diff_graph1 = Graph()
+#     for triple in graph1:
+#         if triple not in graph2:
+#             diff_graph1.add(triple)
+
+#     # Find triples in graph2 that are not in graph1
+#     diff_graph2 = Graph()
+#     for triple in graph2:
+#         if triple not in graph1:
+#             print(triple)
+#             diff_graph2.add(triple)
+
+#     return diff_graph1, diff_graph2
 
 
 if __name__ == "__main__":
