@@ -1,7 +1,7 @@
 batch_size=5
 archives=("scpe" "csis")
 
-jq '.timeout = 120' /home/grobid_client_python/config.json >tmpfile
+jq '.timeout = 180' /home/grobid_client_python/config.json >tmpfile
 mv tmpfile /home/grobid_client_python/config.json
 
 rm -rf /home/final_ttls_for_current_run
