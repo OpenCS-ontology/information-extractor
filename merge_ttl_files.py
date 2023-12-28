@@ -12,9 +12,9 @@ def merge_ttl(ttl_file_org, ttl_file_add):
     g2.parse(ttl_file_add, format="ttl")
 
     fabio = Namespace("http://purl.org/spar/fabio/")
-    bn = Namespace("https://w3id.org/ocs/ont/papers/")
+    bn = Namespace("https://w3id.org/ocs/kg/papers/")
     g1.bind("fabio", fabio)
-    g1.bind("bn", bn)
+    g1.bind("", bn)
     g2.bind("fabio", fabio)
     g2.bind("", bn)
 
