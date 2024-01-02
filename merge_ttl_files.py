@@ -1,6 +1,7 @@
 from rdflib import Graph, RDF, Namespace, URIRef, BNode, Literal
 import os
 import re
+import shutil
 from rapidfuzz import fuzz
 
 
@@ -72,27 +73,34 @@ if __name__ == "__main__":
                     mod_ttl_file = "".join(
                         [char for char in ttl_file.lower() if char.isalpha()]
                     )
-                    for out_ttl in os.listdir(final_out_path):
-                        mod_out_ttl = "".join(
-                            [char for char in out_ttl.lower() if char.isalpha()]
-                        )
-                        if fuzz.ratio(mod_ttl_file, mod_out_ttl) > 95:
-                            final_out_path = out_ttl
-                            break
-
+                    pdf_exists = os.path.exists(final_out_path)
+                    if pdf_exists:
+                        for out_ttl in os.listdir(final_out_path):
+                            mod_out_ttl = "".join(
+                                [char for char in out_ttl.lower() if char.isalpha()]
+                            )
+                            if fuzz.ratio(mod_ttl_file, mod_out_ttl) > 95:
+                                final_out_path = out_ttl
+                                break
+                    
+                    os.makedirs(final_dir_path, exist_ok=True)
                     try:
-                        g = merge_ttl(
-                            ttl_file_org=os.path.join(dir_path, ttl_file),
-                            ttl_file_add=os.path.join(
-                                output_path, archive, dir, final_out_path
-                            ),
-                        )
-                        os.makedirs(final_dir_path, exist_ok=True)
-                        with open(os.path.join(final_dir_path, ttl_file), "wb") as file:
-                            if isinstance(g, str):
-                                g = g.encode()
-                            file.write(g)
-                        print(f"File {ttl_file} merged")
+                        if pdf_exists:
+                            g = merge_ttl(
+                                ttl_file_org=os.path.join(dir_path, ttl_file),
+                                ttl_file_add=os.path.join(
+                                    output_path, archive, dir, final_out_path
+                                ),
+                            )
+                            with open(os.path.join(final_dir_path, ttl_file), "wb") as file:
+                                if isinstance(g, str):
+                                    g = g.encode()
+                                file.write(g)
+                            print(f"File {ttl_file} merged")
+                        else:
+                            final_input_path = os.path.join(dir_path, ttl_file)
+                            shutil.copy(final_input_path, final_dir_path)
+
                     except:
                         print(
                             f"Cannot scrape more information from {ttl_file} file, final ttl will be creating based on input file"
